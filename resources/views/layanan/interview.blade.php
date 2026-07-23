@@ -81,7 +81,7 @@
                     </li>
                 </ul>
 
-                <a href="https://wa.me/6282233392179?text=Halo%20An%20Moerty%20Psikologi,%20saya%20tertarik%20dengan%20Layanan Interview" target="_blank" class="btn btn-primary" style="margin-top: 30px; border-radius: 30px;">
+                <a href="https://wa.me/{{ preg_replace('/^0/', '62', preg_replace('/[^0-9]/', '', \App\Models\Setting::get('kontak_telpon', '082233392179'))) }}?text=Halo%20An%20Moerty%20Psikologi,%20saya%20tertarik%20dengan%20Layanan Interview" target="_blank" class="btn btn-primary" style="margin-top: 30px; border-radius: 30px;">
                     Jadwalkan Layanan Ini
                 </a>
             </div>

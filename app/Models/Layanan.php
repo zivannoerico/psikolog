@@ -44,8 +44,4 @@ class Layanan extends Model
         return $query->where('aktif', true)->orderBy('urutan');
     }
 
-    public function getRouteKeyName()
-    {
-        return 'slug';
-    }
 }

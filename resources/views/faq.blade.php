@@ -59,7 +59,7 @@
       <h2 style="font-size:1.375rem; font-weight:700; margin-bottom:var(--space-3);">Masih ada pertanyaan?</h2>
       <p style="color:var(--clr-text-2); margin-bottom:var(--space-6); max-width:420px; margin-left:auto; margin-right:auto; line-height:1.7;">Jangan ragu untuk menghubungi kami langsung. Tim kami siap membantu Anda.</p>
       <div style="display:flex; gap:var(--space-4); justify-content:center; flex-wrap:wrap;">
-        <a href="https://wa.me/6208223392179" class="btn btn--primary" target="_blank" rel="noopener">Chat WhatsApp</a>
+        <a href="https://wa.me/{{ preg_replace('/^0/', '62', preg_replace('/[^0-9]/', '', \App\Models\Setting::get('kontak_telpon', '082233392179'))) }}" class="btn btn--primary" target="_blank" rel="noopener">Chat WhatsApp</a>
         <a href="{{ route('kontak.index') }}" class="btn btn--outline">Kirim Pesan</a>
       </div>
     </div>

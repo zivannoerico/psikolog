@@ -79,7 +79,7 @@
         <h2 class="cta-title">Butuh Layanan Khusus?</h2>
         <p class="cta-subtitle">Kami dapat menyesuaikan layanan dengan kebutuhan spesifik Anda dan organisasi Anda.</p>
         <div class="cta-actions">
-          <a href="https://wa.me/6208223392179" class="btn btn--white btn--lg" target="_blank" rel="noopener">Konsultasi via WhatsApp</a>
+          <a href="https://wa.me/{{ preg_replace('/^0/', '62', preg_replace('/[^0-9]/', '', \App\Models\Setting::get('kontak_telpon', '082233392179'))) }}" class="btn btn--white btn--lg" target="_blank" rel="noopener">Konsultasi via WhatsApp</a>
           <a href="{{ route('kontak.index') }}" class="btn btn--outline-white btn--lg">Kirim Pesan</a>
         </div>
       </div>

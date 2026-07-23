@@ -25,22 +25,16 @@
   {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "name": "An Moerty Psikologi Banyuwangi",
-    "description": "Biro Psikologi & Konseling profesional di Banyuwangi",
+    "name": "<?php echo e(\App\Models\Setting::get('seo_site_name', 'An Moerty Psikologi Banyuwangi')); ?>",
+    "description": "<?php echo e(\App\Models\Setting::get('seo_description', 'Biro Psikologi & Konseling profesional di Banyuwangi')); ?>",
     "url": "<?php echo e(url('/')); ?>",
-    "telephone": "+620822-3339-2179",
+    "telephone": "<?php echo e(\App\Models\Setting::get('kontak_telpon', '+620822-3339-2179')); ?>",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Jl. Progo No. 59",
+      "streetAddress": "<?php echo e(\App\Models\Setting::get('kontak_alamat_1', 'Jl. Progo No. 59')); ?>",
       "addressLocality": "Banyuwangi",
       "addressRegion": "Jawa Timur",
-      "postalCode": "68415",
       "addressCountry": "ID"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": -8.2159187,
-      "longitude": 114.3642738
     },
     "openingHours": "Mo-Fr 08:00-17:00"
   }
@@ -52,7 +46,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Inter:wght@300;400;500;600&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 
   
-  <link rel="stylesheet" href="<?php echo e(asset('css/style.css')); ?>">
+  <?php echo app('Illuminate\Foundation\Vite')(['resources/css/style.css']); ?>
 
   <?php echo $__env->yieldPushContent('styles'); ?>
 </head>
@@ -68,10 +62,26 @@
       
       <a href="<?php echo e(route('home')); ?>" class="navbar-logo" aria-label="An Moerty Psikologi — Beranda">
         <div class="navbar-logo-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
-            <path d="M12 6v6l4 2"/>
-          </svg>
+          <?php if (isset($component)) { $__componentOriginal2b6f9fe004ca6dd33a48f4f6eb431ad9 = $component; } ?>
+<?php if (isset($attributes)) { $__attributesOriginal2b6f9fe004ca6dd33a48f4f6eb431ad9 = $attributes; } ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.icon.logo','data' => ['class' => 'text-white','style' => 'width: 20px; height: 20px;']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component->withName('icon.logo'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\AnonymousComponent::class))->getConstructor()): ?>
+<?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
+<?php endif; ?>
+<?php $component->withAttributes(['class' => 'text-white','style' => 'width: 20px; height: 20px;']); ?>
+<?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__attributesOriginal2b6f9fe004ca6dd33a48f4f6eb431ad9)): ?>
+<?php $attributes = $__attributesOriginal2b6f9fe004ca6dd33a48f4f6eb431ad9; ?>
+<?php unset($__attributesOriginal2b6f9fe004ca6dd33a48f4f6eb431ad9); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginal2b6f9fe004ca6dd33a48f4f6eb431ad9)): ?>
+<?php $component = $__componentOriginal2b6f9fe004ca6dd33a48f4f6eb431ad9; ?>
+<?php unset($__componentOriginal2b6f9fe004ca6dd33a48f4f6eb431ad9); ?>
+<?php endif; ?>
         </div>
         <div class="navbar-logo-text">
           <span class="brand">An Moerty</span>
@@ -205,14 +215,71 @@
           </div>
           <p class="footer-desc">Biro Psikologi & Konseling An Moerty Banyuwangi — lembaga asesmen profesional yang berdedikasi mendukung kesehatan mental dan pengembangan diri.</p>
           <div class="footer-socials" aria-label="Media Sosial">
-            <a href="https://www.instagram.com/anmoerty.psikologi" class="footer-social-link" aria-label="Instagram An Moerty Psikologi" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            <a href="<?php echo e(\App\Models\Setting::get('sosmed_instagram', 'https://www.instagram.com/anmoerty.psikologi')); ?>" class="footer-social-link" aria-label="Instagram An Moerty Psikologi" target="_blank" rel="noopener">
+              <?php if (isset($component)) { $__componentOriginal68f211c6a4012b6b0321cce31e730d91 = $component; } ?>
+<?php if (isset($attributes)) { $__attributesOriginal68f211c6a4012b6b0321cce31e730d91 = $attributes; } ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.icon.instagram','data' => []] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component->withName('icon.instagram'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\AnonymousComponent::class))->getConstructor()): ?>
+<?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
+<?php endif; ?>
+<?php $component->withAttributes([]); ?>
+<?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__attributesOriginal68f211c6a4012b6b0321cce31e730d91)): ?>
+<?php $attributes = $__attributesOriginal68f211c6a4012b6b0321cce31e730d91; ?>
+<?php unset($__attributesOriginal68f211c6a4012b6b0321cce31e730d91); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginal68f211c6a4012b6b0321cce31e730d91)): ?>
+<?php $component = $__componentOriginal68f211c6a4012b6b0321cce31e730d91; ?>
+<?php unset($__componentOriginal68f211c6a4012b6b0321cce31e730d91); ?>
+<?php endif; ?>
             </a>
-            <a href="https://www.youtube.com/@AnMoerty" class="footer-social-link" aria-label="YouTube An Moerty Psikologi" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2C1 8.17 1 12 1 12s0 3.83.46 5.58a2.78 2.78 0 001.94 2C5.12 20 12 20 12 20s6.88 0 8.6-.42a2.78 2.78 0 001.94-2C23 15.83 23 12 23 12s0-3.83-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+            <a href="<?php echo e(\App\Models\Setting::get('sosmed_youtube', 'https://www.youtube.com/@AnMoerty')); ?>" class="footer-social-link" aria-label="YouTube An Moerty Psikologi" target="_blank" rel="noopener">
+              <?php if (isset($component)) { $__componentOriginal2565b0b085d09388415f81b0394ebaec = $component; } ?>
+<?php if (isset($attributes)) { $__attributesOriginal2565b0b085d09388415f81b0394ebaec = $attributes; } ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.icon.youtube','data' => []] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component->withName('icon.youtube'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\AnonymousComponent::class))->getConstructor()): ?>
+<?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
+<?php endif; ?>
+<?php $component->withAttributes([]); ?>
+<?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__attributesOriginal2565b0b085d09388415f81b0394ebaec)): ?>
+<?php $attributes = $__attributesOriginal2565b0b085d09388415f81b0394ebaec; ?>
+<?php unset($__attributesOriginal2565b0b085d09388415f81b0394ebaec); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginal2565b0b085d09388415f81b0394ebaec)): ?>
+<?php $component = $__componentOriginal2565b0b085d09388415f81b0394ebaec; ?>
+<?php unset($__componentOriginal2565b0b085d09388415f81b0394ebaec); ?>
+<?php endif; ?>
             </a>
-            <a href="https://www.tiktok.com/@anmoerty_bwi" class="footer-social-link" aria-label="TikTok An Moerty Psikologi" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 12a4 4 0 104 4V4a5 5 0 005 5"/></svg>
+            <a href="<?php echo e(\App\Models\Setting::get('sosmed_tiktok', 'https://www.tiktok.com/@anmoerty_bwi')); ?>" class="footer-social-link" aria-label="TikTok An Moerty Psikologi" target="_blank" rel="noopener">
+              <?php if (isset($component)) { $__componentOriginalb13bea63833211887ce3297a0ae47299 = $component; } ?>
+<?php if (isset($attributes)) { $__attributesOriginalb13bea63833211887ce3297a0ae47299 = $attributes; } ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.icon.tiktok','data' => []] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component->withName('icon.tiktok'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\AnonymousComponent::class))->getConstructor()): ?>
+<?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
+<?php endif; ?>
+<?php $component->withAttributes([]); ?>
+<?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__attributesOriginalb13bea63833211887ce3297a0ae47299)): ?>
+<?php $attributes = $__attributesOriginalb13bea63833211887ce3297a0ae47299; ?>
+<?php unset($__attributesOriginalb13bea63833211887ce3297a0ae47299); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginalb13bea63833211887ce3297a0ae47299)): ?>
+<?php $component = $__componentOriginalb13bea63833211887ce3297a0ae47299; ?>
+<?php unset($__componentOriginalb13bea63833211887ce3297a0ae47299); ?>
+<?php endif; ?>
             </a>
           </div>
         </div>
@@ -251,18 +318,56 @@
           <h3 class="footer-col-title">Hubungi Kami</h3>
           <address style="font-style:normal;">
             <div class="footer-contact-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 015.12 12.63 19.79 19.79 0 012.05 4a2 2 0 011.72-2.18h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
-              <a href="https://wa.me/6208223392179" target="_blank" rel="noopener" style="color:inherit;">0822-3339-2179</a>
+              <?php if (isset($component)) { $__componentOriginaledff2ccfeec601febf5e74cf0afbb38c = $component; } ?>
+<?php if (isset($attributes)) { $__attributesOriginaledff2ccfeec601febf5e74cf0afbb38c = $attributes; } ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.icon.phone','data' => ['style' => 'width: 16px; height: 16px; margin-top: 2px; color: var(--clr-pink); flex-shrink: 0;']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component->withName('icon.phone'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\AnonymousComponent::class))->getConstructor()): ?>
+<?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
+<?php endif; ?>
+<?php $component->withAttributes(['style' => 'width: 16px; height: 16px; margin-top: 2px; color: var(--clr-pink); flex-shrink: 0;']); ?>
+<?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__attributesOriginaledff2ccfeec601febf5e74cf0afbb38c)): ?>
+<?php $attributes = $__attributesOriginaledff2ccfeec601febf5e74cf0afbb38c; ?>
+<?php unset($__attributesOriginaledff2ccfeec601febf5e74cf0afbb38c); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginaledff2ccfeec601febf5e74cf0afbb38c)): ?>
+<?php $component = $__componentOriginaledff2ccfeec601febf5e74cf0afbb38c; ?>
+<?php unset($__componentOriginaledff2ccfeec601febf5e74cf0afbb38c); ?>
+<?php endif; ?>
+              <a href="https://wa.me/<?php echo e(preg_replace('/^0/', '62', preg_replace('/[^0-9]/', '', \App\Models\Setting::get('kontak_telpon', '082233392179')))); ?>" target="_blank" rel="noopener" style="color:inherit;"><?php echo e(\App\Models\Setting::get('kontak_telpon', '0822-3339-2179')); ?></a>
             </div>
             <div class="footer-contact-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              <span>Jl. Progo No. 59, Banyuwangi, Jawa Timur 68415</span>
+              <?php if (isset($component)) { $__componentOriginal42b15001d75fca399aa782217cbcd2f3 = $component; } ?>
+<?php if (isset($attributes)) { $__attributesOriginal42b15001d75fca399aa782217cbcd2f3 = $attributes; } ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.icon.map-pin','data' => ['style' => 'width: 16px; height: 16px; margin-top: 2px; color: var(--clr-pink); flex-shrink: 0;']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component->withName('icon.map-pin'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\AnonymousComponent::class))->getConstructor()): ?>
+<?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
+<?php endif; ?>
+<?php $component->withAttributes(['style' => 'width: 16px; height: 16px; margin-top: 2px; color: var(--clr-pink); flex-shrink: 0;']); ?>
+<?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__attributesOriginal42b15001d75fca399aa782217cbcd2f3)): ?>
+<?php $attributes = $__attributesOriginal42b15001d75fca399aa782217cbcd2f3; ?>
+<?php unset($__attributesOriginal42b15001d75fca399aa782217cbcd2f3); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginal42b15001d75fca399aa782217cbcd2f3)): ?>
+<?php $component = $__componentOriginal42b15001d75fca399aa782217cbcd2f3; ?>
+<?php unset($__componentOriginal42b15001d75fca399aa782217cbcd2f3); ?>
+<?php endif; ?>
+              <span><?php echo e(\App\Models\Setting::get('kontak_alamat_1', 'Jl. Progo No. 59, Banyuwangi, Jawa Timur 68415')); ?></span>
             </div>
           </address>
           
           <div class="footer-map-wrap" aria-label="Peta lokasi An Moerty Psikologi Banyuwangi">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3948.86877953051!2d114.3642738!3d-8.2159187!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd15ab2f6631b17%3A0xc3c5ab04bb520b2!2sPsikologi%20Banyuwangi%20(An%20Moerty)!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid"
+              src="<?php echo e(\App\Models\Setting::get('kontak_maps_url', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3948.86877953051!2d114.3642738!3d-8.2159187!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd15ab2f6631b17%3A0xc3c5ab04bb520b2!2sPsikologi%20Banyuwangi%20(An%20Moerty)!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid')); ?>"
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
               title="Lokasi An Moerty Psikologi Banyuwangi"
@@ -293,14 +398,31 @@
   <div class="wa-float" role="complementary" aria-label="Hubungi via WhatsApp">
     <span class="wa-float-tooltip" aria-hidden="true">Hubungi via WhatsApp</span>
     <a
-      href="https://wa.me/6208223392179?text=<?php echo e(urlencode('Halo An Moerty Psikologi, saya ingin berkonsultasi mengenai layanan psikologi Anda.')); ?>"
+      href="https://wa.me/<?php echo e(preg_replace('/^0/', '62', preg_replace('/[^0-9]/', '', \App\Models\Setting::get('kontak_telpon', '082233392179')))); ?>?text=<?php echo e(urlencode(\App\Models\Setting::get('wa_pesan_default', 'Halo An Moerty Psikologi, saya ingin berkonsultasi mengenai layanan psikologi Anda.'))); ?>"
       class="wa-float-btn"
       target="_blank"
       rel="noopener"
       aria-label="Chat WhatsApp dengan An Moerty Psikologi">
-      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.88-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-      </svg>
+      <?php if (isset($component)) { $__componentOriginal934a6fed68095f5c15b2a798e8efa6f7 = $component; } ?>
+<?php if (isset($attributes)) { $__attributesOriginal934a6fed68095f5c15b2a798e8efa6f7 = $attributes; } ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.icon.whatsapp','data' => []] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component->withName('icon.whatsapp'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\AnonymousComponent::class))->getConstructor()): ?>
+<?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
+<?php endif; ?>
+<?php $component->withAttributes([]); ?>
+<?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__attributesOriginal934a6fed68095f5c15b2a798e8efa6f7)): ?>
+<?php $attributes = $__attributesOriginal934a6fed68095f5c15b2a798e8efa6f7; ?>
+<?php unset($__attributesOriginal934a6fed68095f5c15b2a798e8efa6f7); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginal934a6fed68095f5c15b2a798e8efa6f7)): ?>
+<?php $component = $__componentOriginal934a6fed68095f5c15b2a798e8efa6f7; ?>
+<?php unset($__componentOriginal934a6fed68095f5c15b2a798e8efa6f7); ?>
+<?php endif; ?>
     </a>
   </div>
 
@@ -394,6 +516,43 @@
         hamburger.focus();
       }
     });
+    // ─── Number Counter Animation ───────────────────────────────────────────
+    const animateValue = (obj, start, end, duration, suffix = "") => {
+      let startTimestamp = null;
+      const step = (timestamp) => {
+        if (!startTimestamp) startTimestamp = timestamp;
+        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+        const easeProgress = 1 - Math.pow(1 - progress, 4); // easeOutQuart
+        obj.innerHTML = Math.floor(easeProgress * (end - start) + start) + suffix;
+        if (progress < 1) {
+          window.requestAnimationFrame(step);
+        } else {
+          obj.innerHTML = end + suffix;
+        }
+      };
+      window.requestAnimationFrame(step);
+    };
+
+    const numObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const text = el.innerText.trim();
+          const match = text.match(/^(\d+)(.*)$/);
+          if (match) {
+            const num = parseInt(match[1], 10);
+            const suffix = match[2] || "";
+            // Set element width to avoid layout shift during animation
+            el.style.display = 'inline-block';
+            el.style.minWidth = el.offsetWidth + 'px';
+            animateValue(el, 0, num, 2500, suffix);
+          }
+          observer.unobserve(el);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.hero-stat-num, .stat-num, .about-badge-text .num, .hero-img-card .num').forEach(el => numObserver.observe(el));
   </script>
 
   <?php echo $__env->yieldPushContent('scripts'); ?>

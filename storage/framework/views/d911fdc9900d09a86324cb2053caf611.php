@@ -8,25 +8,44 @@
 <section class="hero" aria-labelledby="hero-heading">
   <div class="hero-content">
     <span class="hero-label" aria-hidden="true">Layanan Psikologi & Konseling Terpercaya</span>
-    <h1 class="hero-title animate-fade-up" id="hero-heading">
+    <h1 class="hero-title" id="hero-heading">
       Buka Potensi<br>
       <span class="accent">Terbaik</span> Diri Anda
     </h1>
-    <p class="hero-subtitle animate-fade-up animate-delay-1">
+    <p class="hero-subtitle">
       Bersama tim Psikolog An Moerty yang berpengalaman lebih dari 10 tahun, kami siap memandu Anda untuk mengenali potensi, mengatasi tantangan, dan mengoptimalkan kualitas diri.
     </p>
-    <div class="hero-actions animate-fade-up animate-delay-2">
+    <div class="hero-actions">
       <a href="<?php echo e(route('layanan.index')); ?>" class="btn btn--primary btn--lg">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
         Lihat Layanan
       </a>
-      <a href="https://wa.me/6208223392179?text=<?php echo e(urlencode('Halo An Moerty Psikologi, saya ingin berkonsultasi. Apakah bisa bantu saya?')); ?>" class="btn btn--outline btn--lg" target="_blank" rel="noopener">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 015.12 12.63 19.79 19.79 0 012.05 4a2 2 0 011.72-2.18h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+      <a href="https://wa.me/<?php echo e(preg_replace('/^0/', '62', preg_replace('/[^0-9]/', '', \App\Models\Setting::get('kontak_telpon', '082233392179')))); ?>?text=<?php echo e(urlencode(\App\Models\Setting::get('wa_pesan_default', 'Halo An Moerty Psikologi, saya ingin berkonsultasi. Apakah bisa bantu saya?'))); ?>" class="btn btn--outline btn--lg" target="_blank" rel="noopener">
+        <?php if (isset($component)) { $__componentOriginaledff2ccfeec601febf5e74cf0afbb38c = $component; } ?>
+<?php if (isset($attributes)) { $__attributesOriginaledff2ccfeec601febf5e74cf0afbb38c = $attributes; } ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.icon.phone','data' => ['style' => 'width: 18px; height: 18px;']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component->withName('icon.phone'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\AnonymousComponent::class))->getConstructor()): ?>
+<?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
+<?php endif; ?>
+<?php $component->withAttributes(['style' => 'width: 18px; height: 18px;']); ?>
+<?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__attributesOriginaledff2ccfeec601febf5e74cf0afbb38c)): ?>
+<?php $attributes = $__attributesOriginaledff2ccfeec601febf5e74cf0afbb38c; ?>
+<?php unset($__attributesOriginaledff2ccfeec601febf5e74cf0afbb38c); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginaledff2ccfeec601febf5e74cf0afbb38c)): ?>
+<?php $component = $__componentOriginaledff2ccfeec601febf5e74cf0afbb38c; ?>
+<?php unset($__componentOriginaledff2ccfeec601febf5e74cf0afbb38c); ?>
+<?php endif; ?>
         Hubungi Kami
       </a>
     </div>
 
-    <div class="hero-stats animate-fade-up animate-delay-3" aria-label="Statistik An Moerty">
+    <div class="hero-stats" aria-label="Statistik An Moerty">
       <div class="hero-stat-item">
         <span class="hero-stat-num">10+</span>
         <span class="hero-stat-label">Tahun Pengalaman</span>
@@ -48,10 +67,11 @@
   <div class="hero-visual" aria-hidden="true">
     <div class="hero-img-wrap">
       <img
-        src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=800&q=80"
+        src="<?php echo e(\App\Models\Setting::get('hero_gambar') ? asset('storage/' . \App\Models\Setting::get('hero_gambar')) : 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=800&q=80'); ?>"
         alt="Psikolog An Moerty Banyuwangi memberikan konseling profesional"
         class="hero-img-main"
         loading="eager"
+        fetchpriority="high"
         width="520"
         height="650">
 
@@ -88,7 +108,7 @@
       
       <div class="about-visual reveal">
         <img
-          src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=700&q=80"
+          src="<?php echo e(\App\Models\Setting::get('tentang_gambar') ? asset('storage/' . \App\Models\Setting::get('tentang_gambar')) : 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=700&q=80'); ?>"
           alt="Tim psikolog An Moerty Psikologi Banyuwangi"
           class="about-img"
           loading="lazy"
@@ -385,8 +405,27 @@
         <h2 class="cta-title" id="cta-heading">Siap Memulai Perjalanan<br>Menuju Diri Terbaik?</h2>
         <p class="cta-subtitle">Hubungi kami sekarang dan dapatkan konsultasi awal gratis bersama tim psikolog profesional An Moerty Banyuwangi.</p>
         <div class="cta-actions">
-          <a href="https://wa.me/6208223392179?text=<?php echo e(urlencode('Halo An Moerty Psikologi, saya ingin konsultasi gratis. Bisakah kita berbicara?')); ?>" class="btn btn--white btn--lg" target="_blank" rel="noopener">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.88-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          <a href="https://wa.me/<?php echo e(preg_replace('/^0/', '62', preg_replace('/[^0-9]/', '', \App\Models\Setting::get('kontak_telpon', '082233392179')))); ?>?text=<?php echo e(urlencode(\App\Models\Setting::get('wa_pesan_default', 'Halo An Moerty Psikologi, saya ingin konsultasi gratis. Bisakah kita berbicara?'))); ?>" class="btn btn--white btn--lg" target="_blank" rel="noopener">
+            <?php if (isset($component)) { $__componentOriginal934a6fed68095f5c15b2a798e8efa6f7 = $component; } ?>
+<?php if (isset($attributes)) { $__attributesOriginal934a6fed68095f5c15b2a798e8efa6f7 = $attributes; } ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.icon.whatsapp','data' => ['style' => 'width: 18px; height: 18px;']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component->withName('icon.whatsapp'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\AnonymousComponent::class))->getConstructor()): ?>
+<?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
+<?php endif; ?>
+<?php $component->withAttributes(['style' => 'width: 18px; height: 18px;']); ?>
+<?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__attributesOriginal934a6fed68095f5c15b2a798e8efa6f7)): ?>
+<?php $attributes = $__attributesOriginal934a6fed68095f5c15b2a798e8efa6f7; ?>
+<?php unset($__attributesOriginal934a6fed68095f5c15b2a798e8efa6f7); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginal934a6fed68095f5c15b2a798e8efa6f7)): ?>
+<?php $component = $__componentOriginal934a6fed68095f5c15b2a798e8efa6f7; ?>
+<?php unset($__componentOriginal934a6fed68095f5c15b2a798e8efa6f7); ?>
+<?php endif; ?>
             Chat WhatsApp
           </a>
           <a href="<?php echo e(route('kontak.index')); ?>" class="btn btn--outline-white btn--lg">Kirim Pesan</a>

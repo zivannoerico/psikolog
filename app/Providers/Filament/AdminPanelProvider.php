@@ -28,8 +28,18 @@ class AdminPanelProvider extends PanelProvider
             ->path('admin')
             ->login()
             ->colors([
-                'primary' => Color::Amber,
+                'primary' => '#C8607A',
+                'gray' => Color::Slate,
             ])
+            ->font('Plus Jakarta Sans')
+            ->brandName('An Moerty Psikologi')
+            ->favicon(asset('images/favicon.png')) // Use favicon if exists
+            ->topNavigation()
+            ->renderHook(
+                'panels::head.end',
+                fn (): string => \Illuminate\Support\Facades\Blade::render('@include("filament.custom-css")'),
+            )
+            ->darkMode(false)
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
             ->pages([
@@ -37,8 +47,8 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->widgets([
+                \App\Filament\Widgets\StatsOverview::class,
                 Widgets\AccountWidget::class,
-                Widgets\FilamentInfoWidget::class,
             ])
             ->middleware([
                 EncryptCookies::class,

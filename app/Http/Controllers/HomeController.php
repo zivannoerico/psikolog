@@ -13,7 +13,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $layanan    = Layanan::aktif()->with('kategori')->take(7)->get();
+        $layanan    = Layanan::aktif()->with('kategori')->take(6)->get();
         $testimoni  = Testimoni::aktif()->take(6)->get();
         $artikel    = Artikel::published()->take(3)->get();
         $faq        = Faq::aktif()->take(5)->get();

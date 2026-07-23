@@ -48,11 +48,6 @@ class Artikel extends Model
                      ->orderBy('published_at', 'desc');
     }
 
-    public function getRouteKeyName()
-    {
-        return 'slug';
-    }
-
     public function incrementViews()
     {
         $this->increment('views');
