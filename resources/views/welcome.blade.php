@@ -1,339 +1,400 @@
 @extends('layouts.app')
 
+@section('title', 'Psikologi Banyuwangi — An Moerty | Layanan Psikologi & Konseling Profesional')
+@section('description', 'Bersama tim Psikolog An Moerty yang berpengalaman lebih dari 10 tahun, kami siap memandu Anda mengenali potensi, mengatasi tantangan, dan mengoptimalkan kualitas diri.')
+@section('og_title', 'An Moerty Psikologi Banyuwangi')
+
 @section('content')
-<!-- Hero Section -->
-        <section id="beranda" class="hero">
-            <div class="hero-content-wrapper">
-                <div class="hero-content">
-                    <span class="hero-label">Konsultasi Psikologi Online</span>
-                    <h1 class="hero-title">Buka Potensi Terbaik Diri Anda</h1>
-                    <p class="hero-subtitle">
-                        Temukan kedamaian pikiran dan solusi masalah bersama psikolog profesional kami. Konsultasi aman, nyaman, dan terpercaya.
-                    </p>
-                    <div class="hero-actions">
-                        <a href="#layanan" class="btn btn-primary">Lihat Layanan</a>
-                        <a href="/hubungi" class="btn btn-outline">
-                            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" style="margin-right:8px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                            Hubungi Kami
-                        </a>
-                    </div>
-                </div>
+
+{{-- ===================== HERO SECTION ===================== --}}
+<section class="hero" aria-labelledby="hero-heading">
+  <div class="hero-content">
+    <span class="hero-label" aria-hidden="true">Layanan Psikologi & Konseling Terpercaya</span>
+    <h1 class="hero-title animate-fade-up" id="hero-heading">
+      Buka Potensi<br>
+      <span class="accent">Terbaik</span> Diri Anda
+    </h1>
+    <p class="hero-subtitle animate-fade-up animate-delay-1">
+      Bersama tim Psikolog An Moerty yang berpengalaman lebih dari 10 tahun, kami siap memandu Anda untuk mengenali potensi, mengatasi tantangan, dan mengoptimalkan kualitas diri.
+    </p>
+    <div class="hero-actions animate-fade-up animate-delay-2">
+      <a href="{{ route('layanan.index') }}" class="btn btn--primary btn--lg">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        Lihat Layanan
+      </a>
+      <a href="https://wa.me/6208223392179?text={{ urlencode('Halo An Moerty Psikologi, saya ingin berkonsultasi. Apakah bisa bantu saya?') }}" class="btn btn--outline btn--lg" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 015.12 12.63 19.79 19.79 0 012.05 4a2 2 0 011.72-2.18h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+        Hubungi Kami
+      </a>
+    </div>
+
+    <div class="hero-stats animate-fade-up animate-delay-3" aria-label="Statistik An Moerty">
+      <div class="hero-stat-item">
+        <span class="hero-stat-num">10+</span>
+        <span class="hero-stat-label">Tahun Pengalaman</span>
+      </div>
+      <div class="hero-stat-divider" aria-hidden="true"></div>
+      <div class="hero-stat-item">
+        <span class="hero-stat-num">500+</span>
+        <span class="hero-stat-label">Klien Terlayani</span>
+      </div>
+      <div class="hero-stat-divider" aria-hidden="true"></div>
+      <div class="hero-stat-item">
+        <span class="hero-stat-num">7</span>
+        <span class="hero-stat-label">Jenis Layanan</span>
+      </div>
+    </div>
+  </div>
+
+  {{-- Hero Visual --}}
+  <div class="hero-visual" aria-hidden="true">
+    <div class="hero-img-wrap">
+      <img
+        src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=800&q=80"
+        alt="Psikolog An Moerty Banyuwangi memberikan konseling profesional"
+        class="hero-img-main"
+        loading="eager"
+        width="520"
+        height="650">
+
+      {{-- Floating Card TL --}}
+      <div class="hero-img-card hero-img-card--tl">
+        <div class="hero-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="hero-card-text">
+          <span class="num">Terpercaya</span>
+          <span class="desc">Profesional & Terstandarisasi</span>
+        </div>
+      </div>
+
+      {{-- Floating Card BR --}}
+      <div class="hero-img-card hero-img-card--br">
+        <div class="hero-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+        </div>
+        <div class="hero-card-text">
+          <span class="num">500+</span>
+          <span class="desc">Klien Puas</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{-- ===================== TENTANG / ABOUT SECTION ===================== --}}
+<section class="section" id="tentang" aria-labelledby="about-heading">
+  <div class="container">
+    <div class="about-layout">
+
+      {{-- Image --}}
+      <div class="about-visual reveal">
+        <img
+          src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=700&q=80"
+          alt="Tim psikolog An Moerty Psikologi Banyuwangi"
+          class="about-img"
+          loading="lazy"
+          width="560"
+          height="700">
+        <div class="about-badge" aria-hidden="true">
+          <div class="about-badge-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <div class="about-badge-text">
+            <span class="num">10+ Tahun</span>
+            <span class="label">Pengalaman</span>
+          </div>
+        </div>
+      </div>
+
+      {{-- Content --}}
+      <div class="about-content reveal reveal-delay-2">
+        <div class="section-label">Tentang Kami</div>
+        <h2 class="section-title" id="about-heading">AN MOERTY PSIKOLOGI</h2>
+        <p style="font-size:1.0625rem; color:var(--clr-text-2); line-height:1.8; margin-bottom:var(--space-6);">
+          Biro Psikologi & Konseling An Moerty Banyuwangi merupakan sebuah lembaga Asesmen Center yang memberikan pelayanan pada masyarakat dalam bentuk jasa profesional.
+        </p>
+        <p style="font-size:1.0625rem; color:var(--clr-text-2); line-height:1.8; margin-bottom:var(--space-8);">
+          Kami berfokus pada layanan profesional seperti <strong>Student Profiling & Study Analysis</strong> serta identifikasi hambatan belajar untuk peserta didik sehingga dapat memberikan rekomendasi yang tepat.
+        </p>
+
+        <div class="about-features">
+          <div class="about-feature">
+            <div class="about-feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
             </div>
-            
-            <div class="hero-slider-wrapper">
-                <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=1200" alt="Psikolog 1" class="hero-slide">
-                <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=1200" alt="Psikolog 2" class="hero-slide">
+            <div>
+              <div class="about-feature-title">Asesmen Terstandarisasi</div>
+              <div class="about-feature-desc">Menggunakan instrumen psikologi yang telah teruji validitas dan reliabilitasnya.</div>
             </div>
-        </section>
-
-        <!-- Consultant Section -->
-        <!-- Consultant Section -->
-        <section id="tentang" class="section">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-label">Tim Ahli</span>
-                    <h2 class="section-title">Konsultasikan Bersama Kami</h2>
-                    <p class="section-subtitle">Bersama tim Psikolog An Moerty Psikologi yang berpengalaman lebih dari 10 tahun, kami siap memandu Anda untuk mengenali potensi, mengatasi tantangan, dan mengoptimalkan kualitas diri.</p>
-                </div>
-                
-                <div class="modern-cards-grid">
-                    <!-- Card 1 -->
-                    <div class="modern-card">
-                        <div class="card-image">
-                            <!-- Placeholder foto (Unsplash) untuk referensi -->
-                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=600" alt="Mengenali Potensi">
-                        </div>
-                        <div class="card-body">
-                            <h4 class="card-title">Mengenali Potensi</h4>
-                            <p class="card-text">Menemukan bakat terpendam dan kekuatan utama Anda untuk berkembang secara optimal.</p>
-                        </div>
-                    </div>
-                    <!-- Card 2 -->
-                    <div class="modern-card">
-                        <div class="card-image">
-                            <!-- Placeholder foto (Unsplash) untuk referensi -->
-                            <img src="https://images.unsplash.com/photo-1552581234-26160f608093?auto=format&fit=crop&q=80&w=600" alt="Mengatasi Tantangan">
-                        </div>
-                        <div class="card-body">
-                            <h4 class="card-title">Mengatasi Tantangan</h4>
-                            <p class="card-text">Memberikan solusi praktis untuk menghadapi setiap permasalahan psikologis dan emosional.</p>
-                        </div>
-                    </div>
-                    <!-- Card 3 -->
-                    <div class="modern-card">
-                        <div class="card-image">
-                            <!-- Placeholder foto (Unsplash) untuk referensi -->
-                            <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=600" alt="Mengoptimalkan Kualitas">
-                        </div>
-                        <div class="card-body">
-                            <h4 class="card-title">Kualitas Diri</h4>
-                            <p class="card-text">Meningkatkan performa kerja, ketenangan pikiran, dan kesejahteraan hidup secara menyeluruh.</p>
-                        </div>
-                    </div>
-                </div>
+          </div>
+          <div class="about-feature">
+            <div class="about-feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
             </div>
-        </section>
-
-        <!-- Bersama Tumbuh Menjadi Lebih Baik Section -->
-        <section id="layanan" class="section section-bg-alt">
-            <div class="shape-divider">
-                <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-                    <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
-                </svg>
+            <div>
+              <div class="about-feature-title">Tim Psikolog Berpengalaman</div>
+              <div class="about-feature-desc">Didukung tim psikolog profesional dengan pengalaman lebih dari 10 tahun.</div>
             </div>
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-label">Layanan Kami</span>
-                    <h2 class="section-title">Bersama Tumbuh Menjadi Lebih Baik</h2>
-                    <p class="section-subtitle">Program psikologi terapan yang dirancang khusus untuk membawa perubahan positif bagi individu maupun tim kerja.</p>
-                </div>
-                <div class="growth-grid">
-                    <!-- Card 1 -->
-                    <div class="growth-card">
-                        <div class="growth-bg" style="background-image: url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800'); background-size: cover; background-position: center;">
-                        </div>
-                        <div class="growth-overlay">
-                            <h4 class="growth-title">Konseling Privat</h4>
-                            <p class="growth-text">Sesi tatap muka eksklusif bersama psikolog untuk menyelesaikan masalah secara personal dengan privasi terjamin.</p>
-                        </div>
-                    </div>
-                    <!-- Card 2 -->
-                    <div class="growth-card">
-                        <div class="growth-bg" style="background-image: url('https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800'); background-size: cover; background-position: center;">
-                        </div>
-                        <div class="growth-overlay">
-                            <h4 class="growth-title">Tes Kemampuan Akademik</h4>
-                            <p class="growth-text">Pemetaan menyeluruh mengenai potensi intelektual serta minat dan bakat untuk merancang jalur pendidikan yang tepat.</p>
-                        </div>
-                    </div>
-                    <!-- Card 3 -->
-                    <div class="growth-card">
-                        <div class="growth-bg" style="background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800'); background-size: cover; background-position: center;">
-                        </div>
-                        <div class="growth-overlay">
-                            <h4 class="growth-title">Program Pelatihan Interaktif</h4>
-                            <p class="growth-text">Kegiatan kelompok dan workshop praktis yang didesain untuk meningkatkan soft skill dan dinamika kerja tim.</p>
-                        </div>
-                    </div>
-                </div>
+          </div>
+          <div class="about-feature">
+            <div class="about-feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
             </div>
-        </section>
-
-        <!-- Apa yang didapatkan di Psikotes Online Section -->
-        <section class="section">
-            <div class="shape-divider">
-                <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-                    <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill-alt"></path>
-                </svg>
+            <div>
+              <div class="about-feature-title">Kerahasiaan Terjamin</div>
+              <div class="about-feature-desc">Seluruh data dan informasi klien dijaga kerahasiaannya sesuai kode etik profesi.</div>
             </div>
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-label">Psikotes Online</span>
-                    <h2 class="section-title">Apa Saja Keuntungan Psikotes Online?</h2>
-                    <p class="section-subtitle">Kini Anda bisa mengikuti asesmen psikologi profesional dari rumah, tanpa harus datang ke klinik.</p>
-                </div>
-                <div class="bento-grid">
-                    <!-- Item 1 -->
-                    <div class="bento-card">
-                        <div class="bento-icon">
-                            <svg viewBox="0 0 24 24" width="32" height="32" stroke="currentColor" stroke-width="2" fill="none"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                        </div>
-                        <h3 class="bento-title">Kecepatan dan Ketepatan Psikogram</h3>
-                        <p class="bento-text">Hasil psikogram dapat selesai dengan waktu yang cepat dan interpretasi yang tepat.</p>
-                    </div>
-                    
-                    <!-- Item 2 -->
-                    <div class="bento-card">
-                        <div class="bento-icon">
-                            <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-                        </div>
-                        <h3 class="bento-title">Cakupan Luas dan Fleksibel</h3>
-                        <p class="bento-text">Dapat diakses dan dikerjakan dimana saja dan tidak ada jumlah minimal peserta dalam satu waktu sekaligus.</p>
-                    </div>
+          </div>
+        </div>
 
-                    <!-- Item 3 -->
-                    <div class="bento-card">
-                        <div class="bento-icon">
-                            <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                        </div>
-                        <h3 class="bento-title">Saran dari Psikolog Profesional</h3>
-                        <p class="bento-text">Memberikan saran dan rekomendasi pada perusahaan, organisasi dan personal berdasarkan keseluruhan hasil tes.</p>
-                    </div>
-                    
-                    <!-- Item 4 -->
-                    <div class="bento-card">
-                        <div class="bento-icon">
-                            <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-                        </div>
-                        <h3 class="bento-title">Hasil Akurat dan Valid</h3>
-                        <p class="bento-text">Hasil yang akurat karena melalui penilaian otomatis dan terverifikasi.</p>
-                    </div>
-                    
-                    <!-- Item 5 -->
-                    <div class="bento-card">
-                        <div class="bento-icon">
-                            <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-                        </div>
-                        <h3 class="bento-title">Kerahasiaan Terjamin</h3>
-                        <p class="bento-text">Semua informasi yang diberikan oleh klien akan dijaga kerahasiaannya dan tidak akan dibagikan kepada pihak lain.</p>
-                    </div>
-                    
-                    <!-- Item 6 -->
-                    <div class="bento-card">
-                        <div class="bento-icon">
-                            <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-                        </div>
-                        <h3 class="bento-title">Laporan Detail & Mudah Dipahami</h3>
-                        <p class="bento-text">Klien tidak akan dibiarkan bingung dengan angka atau istilah psikologis yang rumit.</p>
-                    </div>
-                </div>
+        <div class="mt-8">
+          <a href="{{ route('tentang') }}" class="btn btn--outline">
+            Pelajari Lebih Lanjut
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{-- ===================== LAYANAN SECTION ===================== --}}
+<section class="section section--alt" id="layanan" aria-labelledby="layanan-heading">
+  <div class="container">
+    <div class="section-header section-header--center reveal">
+      <div class="section-label">Layanan Kami</div>
+      <h2 class="section-title" id="layanan-heading">Bersama Tumbuh Menjadi Lebih Baik</h2>
+      <p class="section-subtitle">Program psikologi terapan yang dirancang khusus untuk membawa perubahan positif bagi individu maupun tim kerja.</p>
+    </div>
+
+    <div class="grid-auto-3">
+      @forelse ($layanan as $i => $item)
+        <article class="service-card reveal reveal-delay-{{ ($i % 3) + 1 }}" aria-labelledby="layanan-{{ $item->id }}">
+          <div class="service-icon-wrap" aria-hidden="true">
+            @switch($item->ikon)
+              @case('clipboard-list')
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 12h6M9 16h4"/></svg>
+                @break
+              @case('message-circle')
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+                @break
+              @case('users-round')
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+                @break
+              @case('briefcase')
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+                @break
+              @case('shield-heart')
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M12 8c-1.66 0-3 1.34-3 3 0 2.4 2.53 4.37 3 4.74.47-.37 3-2.34 3-4.74 0-1.66-1.34-3-3-3z"/></svg>
+                @break
+              @case('presentation')
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h20"/><path d="M21 3v11a2 2 0 01-2 2H5a2 2 0 01-2-2V3"/><path d="M7 21l5-5 5 5"/></svg>
+                @break
+              @default
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l4-8 4 5 3-3 4 6"/></svg>
+            @endswitch
+          </div>
+
+          <div>
+            <span class="card-badge">{{ $item->kategori->nama ?? '' }}</span>
+            <h3 class="service-card-title" id="layanan-{{ $item->id }}">{{ $item->nama }}</h3>
+            <p class="service-card-desc">{{ $item->deskripsi_singkat }}</p>
+          </div>
+
+          <a href="{{ route('layanan.show', $item->slug) }}" class="service-card-link" aria-label="Pelajari lebih lanjut tentang {{ $item->nama }}">
+            Pelajari Lebih Lanjut
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+          </a>
+        </article>
+      @empty
+        <p class="text-muted" style="grid-column:1/-1; text-align:center;">Layanan belum tersedia.</p>
+      @endforelse
+    </div>
+
+    <div class="text-center mt-12 reveal">
+      <a href="{{ route('layanan.index') }}" class="btn btn--outline">Lihat Semua Layanan</a>
+    </div>
+  </div>
+</section>
+
+{{-- ===================== STATS SECTION ===================== --}}
+<section class="section--sm" aria-label="Statistik An Moerty Psikologi">
+  <div class="container">
+    <div class="stats-grid reveal" role="list">
+      <div class="stat-item" role="listitem">
+        <span class="stat-num">10+</span>
+        <span class="stat-label">Tahun<br>Pengalaman</span>
+      </div>
+      <div class="stat-item" role="listitem">
+        <span class="stat-num">500+</span>
+        <span class="stat-label">Klien<br>Terlayani</span>
+      </div>
+      <div class="stat-item" role="listitem">
+        <span class="stat-num">7</span>
+        <span class="stat-label">Jenis<br>Layanan</span>
+      </div>
+      <div class="stat-item" role="listitem">
+        <span class="stat-num">100%</span>
+        <span class="stat-label">Kerahasiaan<br>Terjamin</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{-- ===================== TESTIMONI SECTION ===================== --}}
+@if($testimoni->count())
+<section class="section section--alt" id="testimoni" aria-labelledby="testi-heading">
+  <div class="container">
+    <div class="section-header section-header--center reveal">
+      <div class="section-label">Testimoni</div>
+      <h2 class="section-title" id="testi-heading">Yang Mereka Katakan</h2>
+      <p class="section-subtitle">Kepercayaan klien adalah prioritas utama kami dalam setiap layanan yang diberikan.</p>
+    </div>
+
+    <div class="grid-auto-3">
+      @foreach($testimoni->take(3) as $i => $testi)
+        <article class="testi-card reveal reveal-delay-{{ $i + 1 }}">
+          <div class="testi-stars" aria-label="{{ $testi->rating }} dari 5 bintang">
+            @for($s = 1; $s <= 5; $s++)
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                @if($s <= $testi->rating)
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#FBBF24" stroke="#FBBF24"/>
+                @else
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="none" stroke="#E5E7EB" stroke-width="2"/>
+                @endif
+              </svg>
+            @endfor
+          </div>
+
+          <blockquote>
+            <p class="testi-text">"{{ $testi->isi }}"</p>
+          </blockquote>
+
+          <div class="testi-author">
+            @if($testi->foto)
+              <img src="{{ asset('storage/' . $testi->foto) }}" alt="Foto {{ $testi->nama }}" class="testi-avatar" width="44" height="44" loading="lazy">
+            @else
+              <div class="testi-avatar" aria-hidden="true">{{ $testi->initials }}</div>
+            @endif
+            <div>
+              <div class="testi-name">{{ $testi->nama }}</div>
+              <div class="testi-role">{{ $testi->jabatan }}@if($testi->institusi) — {{ $testi->institusi }}@endif</div>
             </div>
-        </section>
+          </div>
+        </article>
+      @endforeach
+    </div>
 
-        <!-- Ulasan Section -->
-        <section class="section section-bg-alt">
-            <div class="shape-divider">
-                <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-                    <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
-                </svg>
+    <div class="text-center mt-8 reveal">
+      <a href="{{ route('testimoni.index') }}" class="btn btn--ghost">
+        Lihat Semua Testimoni
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+@endif
+
+{{-- ===================== FAQ TEASER ===================== --}}
+@if($faq->count())
+<section class="section" id="faq" aria-labelledby="faq-heading">
+  <div class="container" style="max-width: 800px;">
+    <div class="section-header section-header--center reveal">
+      <div class="section-label">FAQ</div>
+      <h2 class="section-title" id="faq-heading">Pertanyaan yang Sering Diajukan</h2>
+    </div>
+
+    <div style="display:flex; flex-direction:column; gap:var(--space-3);" role="list">
+      @foreach($faq as $i => $item)
+        <div class="faq-item reveal reveal-delay-{{ ($i % 3) + 1 }}" role="listitem">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq-ans-{{ $item->id }}">
+            {{ $item->pertanyaan }}
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer" id="faq-ans-{{ $item->id }}" role="region">
+            <div class="faq-answer-inner">{{ $item->jawaban }}</div>
+          </div>
+        </div>
+      @endforeach
+    </div>
+
+    <div class="text-center mt-8 reveal">
+      <a href="{{ route('faq.index') }}" class="btn btn--ghost">
+        Lihat Semua FAQ
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+@endif
+
+{{-- ===================== ARTIKEL TERBARU ===================== --}}
+@if($artikel->count())
+<section class="section section--alt" id="artikel" aria-labelledby="artikel-heading">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">Artikel Terbaru</div>
+      <h2 class="section-title" id="artikel-heading">Wawasan & Informasi Psikologi</h2>
+      <p class="section-subtitle">Temukan artikel informatif seputar psikologi, konseling, dan pengembangan diri.</p>
+    </div>
+
+    <div class="grid-3">
+      @foreach($artikel as $i => $art)
+        <article class="card reveal reveal-delay-{{ $i + 1 }}" aria-labelledby="art-{{ $art->id }}">
+          <a href="{{ route('artikel.show', $art->slug) }}" tabindex="-1" aria-hidden="true">
+            <img
+              src="{{ $art->gambar_utama ? asset('storage/' . $art->gambar_utama) : 'https://images.unsplash.com/photo-1512758017271-d7b84c2113f1?auto=format&fit=crop&w=600&q=80' }}"
+              alt="{{ $art->alt_gambar ?? $art->judul }}"
+              class="card-img"
+              loading="lazy"
+              width="600"
+              height="338">
+          </a>
+          <div class="card-body">
+            @if($art->kategori)
+              <span class="card-badge">{{ $art->kategori->nama }}</span>
+            @endif
+            <h3 class="card-title" id="art-{{ $art->id }}">
+              <a href="{{ route('artikel.show', $art->slug) }}">{{ $art->judul }}</a>
+            </h3>
+            <p class="card-text">{{ Str::limit($art->excerpt, 120) }}</p>
+            <div class="card-meta">
+              <span>{{ $art->published_at?->translatedFormat('d M Y') }}</span>
+              @if($art->penulis)
+                <span>· {{ $art->penulis }}</span>
+              @endif
             </div>
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-label">Testimoni</span>
-                    <h2 class="section-title">Ulasan Pelanggan</h2>
-                </div>
-                <div class="reviews-grid">
-                    <!-- Corporate Review 1 -->
-                    <div class="review-card premium-review">
-                        <div class="quote-mark">
-                            <svg viewBox="0 0 24 24" width="50" height="50" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-                        </div>
-                        <p class="review-text">"Sangat membantu operasional bisnis kami dalam melakukan asesmen masal calon pegawai baru. Analisanya sangat tajam, mendetail, dan akurat untuk standar perusahaan."</p>
-                        <div class="reviewer">
-                            <div class="reviewer-info">
-                                <h4>Bpk. Andi Wirawan</h4>
-                                <span>HRD Manager, <strong>PT Nusa Konstruksi</strong></span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Corporate Review 2 -->
-                    <div class="review-card premium-review">
-                        <div class="quote-mark">
-                            <svg viewBox="0 0 24 24" width="50" height="50" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-                        </div>
-                        <p class="review-text">"Sistem tes psikologi online yang sangat responsif. Sangat memudahkan kami dalam menyeleksi kandidat perbankan dari seluruh penjuru Indonesia tanpa harus tatap muka."</p>
-                        <div class="reviewer">
-                            <div class="reviewer-info">
-                                <h4>Ibu Rina Saraswati</h4>
-                                <span>Senior Staff Recruitment, <strong>Bank Sejahtera Raya</strong></span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Corporate Review 3 -->
-                    <div class="review-card premium-review">
-                        <div class="quote-mark">
-                            <svg viewBox="0 0 24 24" width="50" height="50" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-                        </div>
-                        <p class="review-text">"Program konsultasi organisasinya sangat berkelas dan berbasis data saintifik. Kinerja dan kekompakan tim manajerial kami meningkat drastis setelah mengikuti sesinya."</p>
-                        <div class="reviewer">
-                            <div class="reviewer-info">
-                                <h4>Bpk. Hendra Gunawan</h4>
-                                <span>Direktur Operasional, <strong>PT Logistik Artha</strong></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+          </div>
+        </article>
+      @endforeach
+    </div>
 
-        <!-- Klien Kami Section -->
-        <section class="section">
-            <div class="shape-divider">
-                <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-                    <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill-alt"></path>
-                </svg>
-            </div>
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-label">Kemitraan</span>
-                    <h2 class="section-title">Klien Kami</h2>
-                    <p class="section-subtitle">Kami telah menjalin kerjasama dengan berbagai multi level perusahaan daerah dan nasional.</p>
-                </div>
-                <div class="marquee-wrapper">
-                    <div class="marquee-content">
-                        <!-- SET 1 -->
-                        <!-- BRI -->
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/BRI_2020.svg" alt="BANK BRI" class="client-logo-img" style="height: 40px;">
-                        
-                        <!-- ASSA -->
-                        <svg class="client-logo-img" viewBox="0 0 120 50" style="height: 50px;">
-                            <path d="M20,25 Q50,15 90,20 Q60,10 20,25" fill="#000" />
-                            <path d="M50,15 Q80,5 110,18 Q80,10 50,15" fill="#D4AF37" />
-                            <text x="10" y="45" font-family="Arial, sans-serif" font-weight="900" font-size="32" fill="#000" letter-spacing="-2">assa</text>
-                        </svg>
+    <div class="text-center mt-8 reveal">
+      <a href="{{ route('artikel.index') }}" class="btn btn--outline">Lihat Semua Artikel</a>
+    </div>
+  </div>
+</section>
+@endif
 
-                        <!-- BCA -->
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Bank_Central_Asia.svg" alt="BCA" class="client-logo-img" style="height: 45px;">
+{{-- ===================== CTA SECTION ===================== --}}
+<section class="section" aria-labelledby="cta-heading">
+  <div class="container">
+    <div class="cta-section reveal">
+      <div class="cta-content">
+        <span class="label-tag" style="margin-bottom:var(--space-4);">Konsultasi Gratis</span>
+        <h2 class="cta-title" id="cta-heading">Siap Memulai Perjalanan<br>Menuju Diri Terbaik?</h2>
+        <p class="cta-subtitle">Hubungi kami sekarang dan dapatkan konsultasi awal gratis bersama tim psikolog profesional An Moerty Banyuwangi.</p>
+        <div class="cta-actions">
+          <a href="https://wa.me/6208223392179?text={{ urlencode('Halo An Moerty Psikologi, saya ingin konsultasi gratis. Bisakah kita berbicara?') }}" class="btn btn--white btn--lg" target="_blank" rel="noopener">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.88-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Chat WhatsApp
+          </a>
+          <a href="{{ route('kontak.index') }}" class="btn btn--outline-white btn--lg">Kirim Pesan</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-                        <!-- ARDENDI JAYA SENTOSA -->
-                        <svg class="client-logo-img" viewBox="0 0 250 50" style="height: 50px;">
-                            <!-- Globe Icon -->
-                            <ellipse cx="25" cy="25" rx="15" ry="15" fill="none" stroke="#00529B" stroke-width="1.5"/>
-                            <ellipse cx="25" cy="25" rx="5" ry="15" fill="none" stroke="#00529B" stroke-width="1.5"/>
-                            <path d="M10,25 L40,25" stroke="#E31837" stroke-width="2"/>
-                            <!-- Text -->
-                            <text x="50" y="25" font-family="Arial, sans-serif" font-weight="900" font-size="14" fill="#000">ARDENDI JAYA SENTOSA</text>
-                            <text x="50" y="40" font-family="Arial, sans-serif" font-style="italic" font-weight="bold" font-size="10" fill="#E31837">A Member of ASTRA Otoparts Group</text>
-                        </svg>
-
-                        <!-- BPR BINA SEJAHTERA -->
-                        <svg class="client-logo-img" viewBox="0 0 220 60" style="height: 60px;">
-                            <!-- Clover Icon -->
-                            <circle cx="110" cy="15" r="8" fill="none" stroke="#003399" stroke-width="3"/>
-                            <circle cx="102" cy="25" r="8" fill="none" stroke="#003399" stroke-width="3"/>
-                            <circle cx="118" cy="25" r="8" fill="none" stroke="#003399" stroke-width="3"/>
-                            <circle cx="110" cy="20" r="3" fill="#003399"/>
-                            <!-- Text -->
-                            <text x="110" y="45" font-family="'Times New Roman', serif" font-weight="bold" font-size="11" fill="#003399" text-anchor="middle">PT BANK PERKREDITAN RAKYAT</text>
-                            <text x="110" y="55" font-family="'Times New Roman', serif" font-weight="bold" font-size="11" fill="#003399" text-anchor="middle">BINA SEJAHTERA INSANI</text>
-                        </svg>
-
-                        <!-- SET 2 (Duplicate for Infinite Scroll) -->
-                        <!-- BRI -->
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/BRI_2020.svg" alt="BANK BRI" class="client-logo-img" style="height: 40px;">
-                        
-                        <!-- ASSA -->
-                        <svg class="client-logo-img" viewBox="0 0 120 50" style="height: 50px;">
-                            <path d="M20,25 Q50,15 90,20 Q60,10 20,25" fill="#000" />
-                            <path d="M50,15 Q80,5 110,18 Q80,10 50,15" fill="#D4AF37" />
-                            <text x="10" y="45" font-family="Arial, sans-serif" font-weight="900" font-size="32" fill="#000" letter-spacing="-2">assa</text>
-                        </svg>
-
-                        <!-- BCA -->
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Bank_Central_Asia.svg" alt="BCA" class="client-logo-img" style="height: 45px;">
-
-                        <!-- ARDENDI JAYA SENTOSA -->
-                        <svg class="client-logo-img" viewBox="0 0 250 50" style="height: 50px;">
-                            <ellipse cx="25" cy="25" rx="15" ry="15" fill="none" stroke="#00529B" stroke-width="1.5"/>
-                            <ellipse cx="25" cy="25" rx="5" ry="15" fill="none" stroke="#00529B" stroke-width="1.5"/>
-                            <path d="M10,25 L40,25" stroke="#E31837" stroke-width="2"/>
-                            <text x="50" y="25" font-family="Arial, sans-serif" font-weight="900" font-size="14" fill="#000">ARDENDI JAYA SENTOSA</text>
-                            <text x="50" y="40" font-family="Arial, sans-serif" font-style="italic" font-weight="bold" font-size="10" fill="#E31837">A Member of ASTRA Otoparts Group</text>
-                        </svg>
-
-                        <!-- BPR BINA SEJAHTERA -->
-                        <svg class="client-logo-img" viewBox="0 0 220 60" style="height: 60px;">
-                            <circle cx="110" cy="15" r="8" fill="none" stroke="#003399" stroke-width="3"/>
-                            <circle cx="102" cy="25" r="8" fill="none" stroke="#003399" stroke-width="3"/>
-                            <circle cx="118" cy="25" r="8" fill="none" stroke="#003399" stroke-width="3"/>
-                            <circle cx="110" cy="20" r="3" fill="#003399"/>
-                            <text x="110" y="45" font-family="'Times New Roman', serif" font-weight="bold" font-size="11" fill="#003399" text-anchor="middle">PT BANK PERKREDITAN RAKYAT</text>
-                            <text x="110" y="55" font-family="'Times New Roman', serif" font-weight="bold" font-size="11" fill="#003399" text-anchor="middle">BINA SEJAHTERA INSANI</text>
-                        </svg>
-                    </div>
-                </div>
-            </div>
-        </section>
 @endsection
