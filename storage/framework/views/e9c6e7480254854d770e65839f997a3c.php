@@ -205,13 +205,13 @@
           </div>
           <p class="footer-desc">Biro Psikologi & Konseling An Moerty Banyuwangi — lembaga asesmen profesional yang berdedikasi mendukung kesehatan mental dan pengembangan diri.</p>
           <div class="footer-socials" aria-label="Media Sosial">
-            <a href="#" class="footer-social-link" aria-label="Instagram An Moerty Psikologi" target="_blank" rel="noopener">
+            <a href="https://www.instagram.com/anmoerty.psikologi" class="footer-social-link" aria-label="Instagram An Moerty Psikologi" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
             </a>
-            <a href="#" class="footer-social-link" aria-label="YouTube An Moerty Psikologi" target="_blank" rel="noopener">
+            <a href="https://www.youtube.com/@AnMoerty" class="footer-social-link" aria-label="YouTube An Moerty Psikologi" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2C1 8.17 1 12 1 12s0 3.83.46 5.58a2.78 2.78 0 001.94 2C5.12 20 12 20 12 20s6.88 0 8.6-.42a2.78 2.78 0 001.94-2C23 15.83 23 12 23 12s0-3.83-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
             </a>
-            <a href="#" class="footer-social-link" aria-label="TikTok An Moerty Psikologi" target="_blank" rel="noopener">
+            <a href="https://www.tiktok.com/@anmoerty_bwi" class="footer-social-link" aria-label="TikTok An Moerty Psikologi" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 12a4 4 0 104 4V4a5 5 0 005 5"/></svg>
             </a>
           </div>
