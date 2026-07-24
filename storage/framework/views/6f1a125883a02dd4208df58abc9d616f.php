@@ -184,7 +184,6 @@
 
     <a href="<?php echo e(route('artikel.index')); ?>" class="mobile-nav-link">Artikel</a>
     <a href="<?php echo e(route('faq.index')); ?>" class="mobile-nav-link">FAQ</a>
-    <a href="<?php echo e(route('testimoni.index')); ?>" class="mobile-nav-link">Testimoni</a>
     <a href="<?php echo e(route('tim.index')); ?>" class="mobile-nav-link">Tim Psikolog</a>
 
     <div style="padding-top: 1.5rem;">
@@ -215,7 +214,7 @@
           </div>
           <p class="footer-desc">Biro Psikologi & Konseling An Moerty Banyuwangi — lembaga asesmen profesional yang berdedikasi mendukung kesehatan mental dan pengembangan diri.</p>
           <div class="footer-socials" aria-label="Media Sosial">
-            <a href="<?php echo e(\App\Models\Setting::get('sosmed_instagram', 'https://www.instagram.com/anmoerty.psikologi')); ?>" class="footer-social-link" aria-label="Instagram An Moerty Psikologi" target="_blank" rel="noopener">
+            <a href="<?php echo e(\App\Models\Setting::get('sosmed_instagram', 'https://www.instagram.com/anmoerty.psikologi')); ?>" class="footer-social-link" aria-label="Instagram An Moerty Psikologi" target="_blank" rel="noopener noreferrer">
               <?php if (isset($component)) { $__componentOriginal68f211c6a4012b6b0321cce31e730d91 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal68f211c6a4012b6b0321cce31e730d91 = $attributes; } ?>
 <?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.icon.instagram','data' => []] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
@@ -237,7 +236,7 @@
 <?php unset($__componentOriginal68f211c6a4012b6b0321cce31e730d91); ?>
 <?php endif; ?>
             </a>
-            <a href="<?php echo e(\App\Models\Setting::get('sosmed_youtube', 'https://www.youtube.com/@AnMoerty')); ?>" class="footer-social-link" aria-label="YouTube An Moerty Psikologi" target="_blank" rel="noopener">
+            <a href="<?php echo e(\App\Models\Setting::get('sosmed_youtube', 'https://www.youtube.com/@AnMoerty')); ?>" class="footer-social-link" aria-label="YouTube An Moerty Psikologi" target="_blank" rel="noopener noreferrer">
               <?php if (isset($component)) { $__componentOriginal2565b0b085d09388415f81b0394ebaec = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal2565b0b085d09388415f81b0394ebaec = $attributes; } ?>
 <?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.icon.youtube','data' => []] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
@@ -259,7 +258,7 @@
 <?php unset($__componentOriginal2565b0b085d09388415f81b0394ebaec); ?>
 <?php endif; ?>
             </a>
-            <a href="<?php echo e(\App\Models\Setting::get('sosmed_tiktok', 'https://www.tiktok.com/@anmoerty_bwi')); ?>" class="footer-social-link" aria-label="TikTok An Moerty Psikologi" target="_blank" rel="noopener">
+            <a href="<?php echo e(\App\Models\Setting::get('sosmed_tiktok', 'https://www.tiktok.com/@anmoerty_bwi')); ?>" class="footer-social-link" aria-label="TikTok An Moerty Psikologi" target="_blank" rel="noopener noreferrer">
               <?php if (isset($component)) { $__componentOriginalb13bea63833211887ce3297a0ae47299 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginalb13bea63833211887ce3297a0ae47299 = $attributes; } ?>
 <?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.icon.tiktok','data' => []] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
@@ -293,7 +292,6 @@
             <li><a href="<?php echo e(route('layanan.index')); ?>" class="footer-link">Layanan</a></li>
             <li><a href="<?php echo e(route('artikel.index')); ?>" class="footer-link">Artikel</a></li>
             <li><a href="<?php echo e(route('faq.index')); ?>" class="footer-link">FAQ</a></li>
-            <li><a href="<?php echo e(route('testimoni.index')); ?>" class="footer-link">Testimoni</a></li>
             <li><a href="<?php echo e(route('tim.index')); ?>" class="footer-link">Tim Psikolog</a></li>
             <li><a href="<?php echo e(route('kontak.index')); ?>" class="footer-link">Hubungi Kami</a></li>
           </ul>
@@ -338,7 +336,7 @@
 <?php $component = $__componentOriginaledff2ccfeec601febf5e74cf0afbb38c; ?>
 <?php unset($__componentOriginaledff2ccfeec601febf5e74cf0afbb38c); ?>
 <?php endif; ?>
-              <a href="https://wa.me/<?php echo e(preg_replace('/^0/', '62', preg_replace('/[^0-9]/', '', \App\Models\Setting::get('kontak_telpon', '082233392179')))); ?>" target="_blank" rel="noopener" style="color:inherit;"><?php echo e(\App\Models\Setting::get('kontak_telpon', '0822-3339-2179')); ?></a>
+              <a href="https://wa.me/<?php echo e(preg_replace('/^0/', '62', preg_replace('/[^0-9]/', '', \App\Models\Setting::get('kontak_telpon', '082233392179')))); ?>" target="_blank" rel="noopener noreferrer" style="color:inherit;"><?php echo e(\App\Models\Setting::get('kontak_telpon', '0822-3339-2179')); ?></a>
             </div>
             <div class="footer-contact-item">
               <?php if (isset($component)) { $__componentOriginal42b15001d75fca399aa782217cbcd2f3 = $component; } ?>
@@ -383,7 +381,7 @@
     <div class="footer-bottom">
       <div class="container">
         <div class="footer-bottom-inner">
-          <p class="footer-copy">&copy; <?php echo e(date('Y')); ?> Psikologi Banyuwangi. All Rights Reserved | By <a href="#" rel="noopener">Semesta Multitekno</a></p>
+          <p class="footer-copy">&copy; <?php echo e(date('Y')); ?> Psikologi Banyuwangi. All Rights Reserved | By <a href="#" rel="noopener noreferrer">Semesta Multitekno</a></p>
           <p class="footer-copy">
             <a href="<?php echo e(route('kontak.index')); ?>" style="color:rgba(255,255,255,0.4)">Hubungi Kami</a>
             &nbsp;·&nbsp;
@@ -401,7 +399,7 @@
       href="https://wa.me/<?php echo e(preg_replace('/^0/', '62', preg_replace('/[^0-9]/', '', \App\Models\Setting::get('kontak_telpon', '082233392179')))); ?>?text=<?php echo e(urlencode(\App\Models\Setting::get('wa_pesan_default', 'Halo An Moerty Psikologi, saya ingin berkonsultasi mengenai layanan psikologi Anda.'))); ?>"
       class="wa-float-btn"
       target="_blank"
-      rel="noopener"
+      rel="noopener noreferrer"
       aria-label="Chat WhatsApp dengan An Moerty Psikologi">
       <?php if (isset($component)) { $__componentOriginal934a6fed68095f5c15b2a798e8efa6f7 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal934a6fed68095f5c15b2a798e8efa6f7 = $attributes; } ?>

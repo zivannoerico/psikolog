@@ -165,7 +165,6 @@
 
     <a href="{{ route('artikel.index') }}" class="mobile-nav-link">Artikel</a>
     <a href="{{ route('faq.index') }}" class="mobile-nav-link">FAQ</a>
-    <a href="{{ route('testimoni.index') }}" class="mobile-nav-link">Testimoni</a>
     <a href="{{ route('tim.index') }}" class="mobile-nav-link">Tim Psikolog</a>
 
     <div style="padding-top: 1.5rem;">
@@ -196,13 +195,13 @@
           </div>
           <p class="footer-desc">Biro Psikologi & Konseling An Moerty Banyuwangi — lembaga asesmen profesional yang berdedikasi mendukung kesehatan mental dan pengembangan diri.</p>
           <div class="footer-socials" aria-label="Media Sosial">
-            <a href="{{ \App\Models\Setting::get('sosmed_instagram', 'https://www.instagram.com/anmoerty.psikologi') }}" class="footer-social-link" aria-label="Instagram An Moerty Psikologi" target="_blank" rel="noopener">
+            <a href="{{ \App\Models\Setting::get('sosmed_instagram', 'https://www.instagram.com/anmoerty.psikologi') }}" class="footer-social-link" aria-label="Instagram An Moerty Psikologi" target="_blank" rel="noopener noreferrer">
               <x-icon.instagram />
             </a>
-            <a href="{{ \App\Models\Setting::get('sosmed_youtube', 'https://www.youtube.com/@AnMoerty') }}" class="footer-social-link" aria-label="YouTube An Moerty Psikologi" target="_blank" rel="noopener">
+            <a href="{{ \App\Models\Setting::get('sosmed_youtube', 'https://www.youtube.com/@AnMoerty') }}" class="footer-social-link" aria-label="YouTube An Moerty Psikologi" target="_blank" rel="noopener noreferrer">
               <x-icon.youtube />
             </a>
-            <a href="{{ \App\Models\Setting::get('sosmed_tiktok', 'https://www.tiktok.com/@anmoerty_bwi') }}" class="footer-social-link" aria-label="TikTok An Moerty Psikologi" target="_blank" rel="noopener">
+            <a href="{{ \App\Models\Setting::get('sosmed_tiktok', 'https://www.tiktok.com/@anmoerty_bwi') }}" class="footer-social-link" aria-label="TikTok An Moerty Psikologi" target="_blank" rel="noopener noreferrer">
               <x-icon.tiktok />
             </a>
           </div>
@@ -217,7 +216,6 @@
             <li><a href="{{ route('layanan.index') }}" class="footer-link">Layanan</a></li>
             <li><a href="{{ route('artikel.index') }}" class="footer-link">Artikel</a></li>
             <li><a href="{{ route('faq.index') }}" class="footer-link">FAQ</a></li>
-            <li><a href="{{ route('testimoni.index') }}" class="footer-link">Testimoni</a></li>
             <li><a href="{{ route('tim.index') }}" class="footer-link">Tim Psikolog</a></li>
             <li><a href="{{ route('kontak.index') }}" class="footer-link">Hubungi Kami</a></li>
           </ul>
@@ -243,7 +241,7 @@
           <address style="font-style:normal;">
             <div class="footer-contact-item">
               <x-icon.phone style="width: 16px; height: 16px; margin-top: 2px; color: var(--clr-pink); flex-shrink: 0;" />
-              <a href="https://wa.me/{{ preg_replace('/^0/', '62', preg_replace('/[^0-9]/', '', \App\Models\Setting::get('kontak_telpon', '082233392179'))) }}" target="_blank" rel="noopener" style="color:inherit;">{{ \App\Models\Setting::get('kontak_telpon', '0822-3339-2179') }}</a>
+              <a href="https://wa.me/{{ preg_replace('/^0/', '62', preg_replace('/[^0-9]/', '', \App\Models\Setting::get('kontak_telpon', '082233392179'))) }}" target="_blank" rel="noopener noreferrer" style="color:inherit;">{{ \App\Models\Setting::get('kontak_telpon', '0822-3339-2179') }}</a>
             </div>
             <div class="footer-contact-item">
               <x-icon.map-pin style="width: 16px; height: 16px; margin-top: 2px; color: var(--clr-pink); flex-shrink: 0;" />
@@ -269,7 +267,7 @@
     <div class="footer-bottom">
       <div class="container">
         <div class="footer-bottom-inner">
-          <p class="footer-copy">&copy; {{ date('Y') }} Psikologi Banyuwangi. All Rights Reserved | By <a href="#" rel="noopener">Semesta Multitekno</a></p>
+          <p class="footer-copy">&copy; {{ date('Y') }} Psikologi Banyuwangi. All Rights Reserved | By <a href="#" rel="noopener noreferrer">Semesta Multitekno</a></p>
           <p class="footer-copy">
             <a href="{{ route('kontak.index') }}" style="color:rgba(255,255,255,0.4)">Hubungi Kami</a>
             &nbsp;·&nbsp;
@@ -287,7 +285,7 @@
       href="https://wa.me/{{ preg_replace('/^0/', '62', preg_replace('/[^0-9]/', '', \App\Models\Setting::get('kontak_telpon', '082233392179'))) }}?text={{ urlencode(\App\Models\Setting::get('wa_pesan_default', 'Halo An Moerty Psikologi, saya ingin berkonsultasi mengenai layanan psikologi Anda.')) }}"
       class="wa-float-btn"
       target="_blank"
-      rel="noopener"
+      rel="noopener noreferrer"
       aria-label="Chat WhatsApp dengan An Moerty Psikologi">
       <x-icon.whatsapp />
     </a>

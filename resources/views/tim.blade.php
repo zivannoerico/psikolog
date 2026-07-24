@@ -38,12 +38,12 @@
             @endif
             <div style="display:flex; gap:var(--space-3); justify-content:center; margin-top:var(--space-4);">
               @if($psikolog->instagram)
-                <a href="{{ $psikolog->instagram }}" class="footer-social-link" target="_blank" rel="noopener" aria-label="Instagram {{ $psikolog->nama }}" style="background:var(--clr-bg-alt); border-color:var(--clr-border);">
+                <a href="{{ $psikolog->instagram }}" class="footer-social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram {{ $psikolog->nama }}" style="background:var(--clr-bg-alt); border-color:var(--clr-border);">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
                 </a>
               @endif
               @if($psikolog->linkedin)
-                <a href="{{ $psikolog->linkedin }}" class="footer-social-link" target="_blank" rel="noopener" aria-label="LinkedIn {{ $psikolog->nama }}" style="background:var(--clr-bg-alt); border-color:var(--clr-border);">
+                <a href="{{ $psikolog->linkedin }}" class="footer-social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn {{ $psikolog->nama }}" style="background:var(--clr-bg-alt); border-color:var(--clr-border);">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
                 </a>
               @endif

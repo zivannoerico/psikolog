@@ -22,7 +22,7 @@
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
         Lihat Layanan
       </a>
-      <a href="https://wa.me/{{ preg_replace('/^0/', '62', preg_replace('/[^0-9]/', '', \App\Models\Setting::get('kontak_telpon', '082233392179'))) }}?text={{ urlencode(\App\Models\Setting::get('wa_pesan_default', 'Halo An Moerty Psikologi, saya ingin berkonsultasi. Apakah bisa bantu saya?')) }}" class="btn btn--outline btn--lg" target="_blank" rel="noopener">
+      <a href="https://wa.me/{{ preg_replace('/^0/', '62', preg_replace('/[^0-9]/', '', \App\Models\Setting::get('kontak_telpon', '082233392179'))) }}?text={{ urlencode(\App\Models\Setting::get('wa_pesan_default', 'Halo An Moerty Psikologi, saya ingin berkonsultasi. Apakah bisa bantu saya?')) }}" class="btn btn--outline btn--lg" target="_blank" rel="noopener noreferrer">
         <x-icon.phone style="width: 18px; height: 18px;" />
         Hubungi Kami
       </a>
@@ -253,45 +253,78 @@
       <p class="section-subtitle">Kepercayaan klien adalah prioritas utama kami dalam setiap layanan yang diberikan.</p>
     </div>
 
-    <div class="grid-auto-3">
-      @foreach($testimoni->take(3) as $i => $testi)
-        <article class="testi-card reveal reveal-delay-{{ $i + 1 }}">
-          <div class="testi-stars" aria-label="{{ $testi->rating }} dari 5 bintang">
-            @for($s = 1; $s <= 5; $s++)
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                @if($s <= $testi->rating)
-                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#FBBF24" stroke="#FBBF24"/>
-                @else
-                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="none" stroke="#E5E7EB" stroke-width="2"/>
-                @endif
-              </svg>
-            @endfor
-          </div>
+    <style>
+      .testi-slider-container {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        padding: 1rem 0;
+      }
+      .testi-slider-track {
+        display: flex;
+        gap: 1.5rem;
+        width: max-content;
+        animation: scrollTesti 30s linear infinite;
+      }
+      .testi-slider-track:hover {
+        animation-play-state: paused;
+      }
+      .testi-card-slide {
+        flex: 0 0 320px;
+        display: flex;
+        flex-direction: column;
+        height: auto; /* Let flex handle the stretch */
+      }
+      /* Mengatasi flex child agar isinya mengisi seluruh ruang (tinggi yang sama) */
+      .testi-card-slide > blockquote {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+      }
+      @keyframes scrollTesti {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(calc(-50% - 0.75rem)); }
+      }
+      @media (max-width: 768px) {
+        .testi-card-slide { flex: 0 0 280px; }
+      }
+    </style>
 
-          <blockquote>
-            <p class="testi-text">"{{ $testi->isi }}"</p>
-          </blockquote>
-
-          <div class="testi-author">
-            @if($testi->foto)
-              <img src="{{ asset('storage/' . $testi->foto) }}" alt="Foto {{ $testi->nama }}" class="testi-avatar" width="44" height="44" loading="lazy">
-            @else
-              <div class="testi-avatar" aria-hidden="true">{{ $testi->initials }}</div>
-            @endif
-            <div>
-              <div class="testi-name">{{ $testi->nama }}</div>
-              <div class="testi-role">{{ $testi->jabatan }}@if($testi->institusi) — {{ $testi->institusi }}@endif</div>
+    <div class="testi-slider-container reveal">
+      <div class="testi-slider-track">
+        {{-- Kita duplikasi array-nya agar animasinya continuous (seamless loop) --}}
+        @foreach(array_merge($testimoni->all(), $testimoni->all()) as $i => $testi)
+          <article class="testi-card testi-card-slide h-full">
+            <div class="testi-stars" aria-label="{{ $testi->rating }} dari 5 bintang">
+              @for($s = 1; $s <= 5; $s++)
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  @if($s <= $testi->rating)
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#FBBF24" stroke="#FBBF24"/>
+                  @else
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="none" stroke="#E5E7EB" stroke-width="2"/>
+                  @endif
+                </svg>
+              @endfor
             </div>
-          </div>
-        </article>
-      @endforeach
-    </div>
 
-    <div class="text-center mt-8 reveal">
-      <a href="{{ route('testimoni.index') }}" class="btn btn--ghost">
-        Lihat Semua Testimoni
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
-      </a>
+            <blockquote>
+              <p class="testi-text mb-4">"{{ $testi->isi }}"</p>
+            </blockquote>
+
+            <div class="testi-author mt-auto">
+              @if($testi->foto)
+                <img src="{{ asset('storage/' . $testi->foto) }}" alt="Foto {{ $testi->nama }}" class="testi-avatar" width="44" height="44" loading="lazy">
+              @else
+                <div class="testi-avatar" aria-hidden="true">{{ $testi->initials }}</div>
+              @endif
+              <div>
+                <div class="testi-name">{{ $testi->nama }}</div>
+                <div class="testi-role">{{ $testi->jabatan }}@if($testi->institusi) — {{ $testi->institusi }}@endif</div>
+              </div>
+            </div>
+          </article>
+        @endforeach
+      </div>
     </div>
   </div>
 </section>
@@ -349,8 +382,8 @@
               alt="{{ $art->alt_gambar ?? $art->judul }}"
               class="card-img"
               loading="lazy"
-              width="600"
-              height="338">
+              width="400"
+              height="160">
           </a>
           <div class="card-body">
             @if($art->kategori)
@@ -387,7 +420,7 @@
         <h2 class="cta-title" id="cta-heading">Siap Memulai Perjalanan<br>Menuju Diri Terbaik?</h2>
         <p class="cta-subtitle">Hubungi kami sekarang dan dapatkan konsultasi awal gratis bersama tim psikolog profesional An Moerty Banyuwangi.</p>
         <div class="cta-actions">
-          <a href="https://wa.me/{{ preg_replace('/^0/', '62', preg_replace('/[^0-9]/', '', \App\Models\Setting::get('kontak_telpon', '082233392179'))) }}?text={{ urlencode(\App\Models\Setting::get('wa_pesan_default', 'Halo An Moerty Psikologi, saya ingin konsultasi gratis. Bisakah kita berbicara?')) }}" class="btn btn--white btn--lg" target="_blank" rel="noopener">
+          <a href="https://wa.me/{{ preg_replace('/^0/', '62', preg_replace('/[^0-9]/', '', \App\Models\Setting::get('kontak_telpon', '082233392179'))) }}?text={{ urlencode(\App\Models\Setting::get('wa_pesan_default', 'Halo An Moerty Psikologi, saya ingin konsultasi gratis. Bisakah kita berbicara?')) }}" class="btn btn--white btn--lg" target="_blank" rel="noopener noreferrer">
             <x-icon.whatsapp style="width: 18px; height: 18px;" />
             Chat WhatsApp
           </a>

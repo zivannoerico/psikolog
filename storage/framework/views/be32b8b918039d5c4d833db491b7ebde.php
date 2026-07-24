@@ -1,5 +1,4 @@
 <!-- Sidebar -->
-<div class="flex">
     <!-- Sidebar Backdrop -->
     <div class="fixed inset-0 bg-slate-900/50 z-40 lg:hidden transition-opacity duration-300" 
          x-show="sidebarOpen" 
@@ -73,6 +72,16 @@
                         <span class="flex-1 ml-4 whitespace-nowrap">Artikel & Berita</span>
                     </a>
                 </li>
+
+                <!-- Testimoni -->
+                <li>
+                    <a href="<?php echo e(route('admin.testimoni.index')); ?>" class="flex items-center px-4 py-3 text-slate-600 rounded-xl transition-all duration-200 <?php echo e(request()->routeIs('admin.testimoni.*') ? 'bg-indigo-50/80 text-indigo-600 font-semibold shadow-sm' : 'hover:bg-slate-50 hover:text-indigo-600'); ?> group">
+                        <svg class="flex-shrink-0 w-5 h-5 transition duration-200 <?php echo e(request()->routeIs('admin.testimoni.*') ? 'text-indigo-600' : 'text-slate-400 group-hover:text-indigo-500'); ?>" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                        </svg>
+                        <span class="flex-1 ml-4 whitespace-nowrap">Testimoni Klien</span>
+                    </a>
+                </li>
             </ul>
 
             <div class="border-t border-slate-100 pt-6">
@@ -103,5 +112,4 @@
             
         </div>
     </div>
-</div>
 <?php /**PATH D:\psikolog\resources\views/layouts/sidebar.blade.php ENDPATH**/ ?>
