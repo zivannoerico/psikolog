@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.frontend')
 
 @section('title', ($artikel->meta_title ?? $artikel->judul . ' — An Moerty Psikologi'))
 @section('description', $artikel->meta_description ?? $artikel->excerpt)

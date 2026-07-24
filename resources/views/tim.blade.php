@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.frontend')
 
 @section('title', 'Tim Psikolog — An Moerty Psikologi Banyuwangi')
 @section('description', 'Kenali tim psikolog profesional An Moerty Banyuwangi yang berpengalaman lebih dari 10 tahun dalam bidang konseling, asesmen, dan pengembangan SDM.')

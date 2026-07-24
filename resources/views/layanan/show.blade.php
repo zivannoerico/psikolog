@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.frontend')
 
 @section('title', ($layanan->meta_title ?? $layanan->nama . ' — An Moerty Psikologi Banyuwangi'))
 @section('description', $layanan->meta_description ?? $layanan->deskripsi_singkat)

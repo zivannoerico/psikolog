@@ -18,6 +18,6 @@ class HomeController extends Controller
         $artikel    = Artikel::published()->take(3)->get();
         $faq        = Faq::aktif()->take(5)->get();
 
-        return view('welcome', compact('layanan', 'testimoni', 'artikel', 'faq'));
+        return view('frontend-home', compact('layanan', 'testimoni', 'artikel', 'faq'));
     }
 }

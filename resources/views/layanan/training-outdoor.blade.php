@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.frontend')
 @section('title', 'Training Outdoor - An Moerty Psikologi')
 
 @section('content')

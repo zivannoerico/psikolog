@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.frontend')
 
 @section('title', 'Tentang Kami — An Moerty Psikologi Banyuwangi')
 @section('description', 'Biro Psikologi & Konseling An Moerty Banyuwangi adalah lembaga Asesmen Center profesional yang melayani student profiling, asesmen, konseling, dan training.')

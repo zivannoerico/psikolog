@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.frontend')
 
 @section('title', 'Layanan — An Moerty Psikologi Banyuwangi')
 @section('description', 'Layanan psikologi profesional An Moerty Banyuwangi: Psikotes, Interview, FGD, Konseling Kerja, Konseling Permasalahan, Training Indoor, dan Training Outdoor.')

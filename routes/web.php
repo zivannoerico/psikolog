@@ -38,3 +38,25 @@ Route::get('/faq', [FaqController::class, 'index'])->name('faq.index');
 Route::get('/testimoni', [TestimoniController::class, 'index'])->name('testimoni.index');
 
 Route::get('/tim-psikolog', [TimController::class, 'index'])->name('tim.index');
+
+Route::get('/dashboard', [\App\Http\Controllers\Admin\DashboardController::class, 'index'])
+    ->middleware(['auth', 'verified'])
+    ->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [App\Http\Controllers\ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+Route::get('/admin', function () {
+    return redirect()->route('dashboard');
+})->middleware(['auth', 'verified']);
+
+Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(function () {
+    Route::resource('artikel', \App\Http\Controllers\Admin\ArtikelController::class);
+    Route::resource('layanan', \App\Http\Controllers\Admin\LayananController::class);
+    Route::resource('testimoni', \App\Http\Controllers\Admin\TestimoniController::class);
+});
+
+require __DIR__.'/auth.php';

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.frontend')
 
 @section('title', 'FAQ — Pertanyaan yang Sering Diajukan | An Moerty Psikologi')
 @section('description', 'Temukan jawaban atas pertanyaan umum seputar layanan psikologi, konseling, dan asesmen An Moerty Psikologi Banyuwangi.')

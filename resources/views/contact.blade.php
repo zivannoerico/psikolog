@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.frontend')
 
 @section('title', 'Hubungi Kami — An Moerty Psikologi Banyuwangi')
 @section('description', 'Hubungi An Moerty Psikologi Banyuwangi melalui WhatsApp, telepon, atau kunjungi kantor kami di Jl. Progo No. 59 Banyuwangi untuk konsultasi psikologi.')

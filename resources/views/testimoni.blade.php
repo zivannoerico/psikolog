@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.frontend')
 
 @section('title', 'Testimoni — An Moerty Psikologi Banyuwangi')
 @section('description', 'Baca testimoni klien yang telah merasakan manfaat layanan psikologi An Moerty Banyuwangi.')
