@@ -27,32 +27,24 @@ class StatsOverview extends BaseWidget
 
         return [
             Stat::make('Artikel Publikasi', $artikelCount)
-                ->description($artikelCount . ' artikel telah dipublikasikan')
                 ->descriptionIcon('heroicon-m-document-text')
                 ->chart($artikelTrend)
-                ->chartColor('#10B981')
-                ->color('success'),
+                ->color('primary'),
 
             Stat::make('Pesan Masuk', $pesanCount)
-                ->description($pesanCount . ' pesan baru belum dibaca')
                 ->descriptionIcon('heroicon-m-envelope')
                 ->chart($pesanTrend)
-                ->chartColor('#EF4444')
-                ->color('danger'),
+                ->color('primary'),
 
             Stat::make('Layanan Aktif', $layananCount)
-                ->description($layananCount . ' layanan sedang ditampilkan')
                 ->descriptionIcon('heroicon-m-briefcase')
                 ->chart($layananTrend)
-                ->chartColor('#C8607A')
                 ->color('primary'),
 
             Stat::make('Testimoni', $testimoniCount)
-                ->description($testimoniCount . ' testimoni dari klien')
                 ->descriptionIcon('heroicon-m-chat-bubble-left-ellipsis')
                 ->chart($testimoniTrend)
-                ->chartColor('#3B82F6')
-                ->color('info'),
+                ->color('primary'),
         ];
     }
 

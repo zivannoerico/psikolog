@@ -34,6 +34,12 @@ class Artikel extends Model
                 $model->excerpt = Str::limit(strip_tags($model->konten), 180);
             }
         });
+
+        static::deleted(function ($model) {
+            if ($model->gambar_utama) {
+                \Illuminate\Support\Facades\Storage::disk('public')->delete($model->gambar_utama);
+            }
+        });
     }
 
     public function kategori()

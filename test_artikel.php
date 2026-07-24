@@ -1,23 +1,18 @@
 <?php
-
 require __DIR__.'/vendor/autoload.php';
 $app = require_once __DIR__.'/bootstrap/app.php';
-$app->make(Illuminate\Contracts\Console\Kernel::class)->bootstrap();
-
-use App\Models\Artikel;
-use Illuminate\Support\Facades\DB;
+$kernel = $app->make(Illuminate\Contracts\Console\Kernel::class);
+$kernel->bootstrap();
 
 try {
-    DB::beginTransaction();
-    $artikel = Artikel::first();
-    if ($artikel) {
-        echo "Found Artikel: " . $artikel->id . " - " . $artikel->judul . "\n";
-        $artikel->delete();
-        echo "Successfully deleted!\n";
+    $a = App\Models\Artikel::first();
+    if($a) {
+        $a->delete();
+        echo "Deleted successfully\n";
     } else {
-        echo "No Artikel found.\n";
+        echo "No artikel found\n";
     }
-    DB::rollBack();
-} catch (\Exception $e) {
-    echo "Exception: " . $e->getMessage() . "\n";
+} catch (\Throwable $e) {
+    echo "ERROR: " . $e->getMessage() . "\n";
+    echo "IN: " . $e->getFile() . ":" . $e->getLine() . "\n";
 }

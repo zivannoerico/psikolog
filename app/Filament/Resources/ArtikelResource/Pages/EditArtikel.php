@@ -13,7 +13,10 @@ class EditArtikel extends EditRecord
     protected function getHeaderActions(): array
     {
         return [
-            Actions\DeleteAction::make(),
+            Actions\DeleteAction::make()
+                ->label('Hapus')
+                ->modalHeading(fn ($record) => 'Hapus Artikel: ' . \Illuminate\Support\Str::limit(strip_tags($record->judul), 30))
+                ->modalDescription('Apakah Anda yakin ingin menghapus artikel ini? Tindakan ini tidak dapat dibatalkan.'),
         ];
     }
 }
