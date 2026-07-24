@@ -35,11 +35,12 @@ class ArtikelResource extends Resource
                 Forms\Components\Section::make('Informasi Utama')
                     ->schema([
                         Forms\Components\Select::make('kategori_artikel_id')
-                            ->label('Kategori')
+                            ->label('Kategori Artikel')
                             ->relationship('kategori', 'nama')
                             ->options(KategoriArtikel::pluck('nama', 'id'))
                             ->searchable()
-                            ->preload(),
+                            ->preload()
+                            ->helperText('Pilih kategori yang sesuai dengan artikel ini.'),
 
                         Forms\Components\TextInput::make('judul')
                             ->label('Judul Artikel')
@@ -52,24 +53,28 @@ class ArtikelResource extends Resource
                             ->required()
                             ->maxLength(255)
                             ->unique(Artikel::class, 'slug', ignoreRecord: true)
-                            ->helperText('URL artikel, diisi otomatis dari judul.'),
+                            ->helperText('Link artikel (diisi otomatis dari judul). Contoh: "cara-mengatasi-stres'),
 
                         Forms\Components\Select::make('status')
+                            ->label('Status Publikasi')
                             ->options([
-                                'draft'     => 'Draft',
-                                'published' => 'Published',
-                                'archived'  => 'Archived',
+                                'draft'     => 'Draft (Konsep)',
+                                'published' => 'Terbitkan',
+                                'archived'  => 'Arsipkan',
                             ])
                             ->required()
-                            ->default('draft'),
+                            ->default('draft')
+                            ->helperText('Draft = masih diketik. Published = sudah tampil di website. Archived = disembunyikan.'),
 
                         Forms\Components\DateTimePicker::make('published_at')
                             ->label('Tanggal Terbit')
-                            ->default(now()),
+                            ->default(now())
+                            ->helperText('Artikel akan tampil di website mulai tanggal ini.'),
 
                         Forms\Components\TextInput::make('penulis')
                             ->label('Nama Penulis')
-                            ->maxLength(255),
+                            ->maxLength(255)
+                            ->placeholder('Contoh: Tim An Moerty Psikologi'),
                     ])
                     ->columns(2),
 
@@ -79,14 +84,15 @@ class ArtikelResource extends Resource
                             ->label('Isi Artikel')
                             ->required()
                             ->columnSpanFull()
-                            ->fileAttachmentsDirectory('artikel/konten'),
+                            ->fileAttachmentsDirectory('artikel/konten')
+                            ->helperText('Tulis konten artikel di sini. Bisa tambah gambar, tabel, dan format teks.'),
 
                         Forms\Components\Textarea::make('excerpt')
                             ->label('Ringkasan Singkat')
                             ->maxLength(500)
                             ->rows(3)
                             ->columnSpanFull()
-                            ->helperText('Maks. 500 karakter. Diisi otomatis jika dikosongkan.'),
+                            ->helperText('Cuplikan pendek yang muncul di halaman daftar artikel. Maks. 500 karakter.'),
                     ]),
 
                 Forms\Components\Section::make('Gambar')
@@ -97,34 +103,37 @@ class ArtikelResource extends Resource
                             ->directory('artikel')
                             ->maxSize(2048)
                             ->imageEditor()
+                            ->helperText('Ukuran maks 2MB. Usahakan ukuran 1200x630px untuk tampilan terbaik.')
                             ->deleteUploadedFileUsing(fn ($file) => Storage::disk('public')->delete($file)),
 
                         Forms\Components\TextInput::make('alt_gambar')
-                            ->label('Alt Text Gambar (SEO)')
-                            ->maxLength(255),
+                            ->label('Teks Alternatif Gambar (SEO)')
+                            ->maxLength(255)
+                            ->helperText('Deskripsi gambar untuk Google dan pembaca layar. Contoh: "Ilustrasi konseling psikologi"'),
                     ])
                     ->columns(2),
 
-                Forms\Components\Section::make('Tags')
+                Forms\Components\Section::make('Tags / Label')
                     ->schema([
                         Forms\Components\TagsInput::make('tags')
                             ->label('Tag Artikel')
                             ->placeholder('Ketik tag lalu tekan Enter')
-                            ->columnSpanFull(),
+                            ->columnSpanFull()
+                            ->helperText('Kata kunci untuk memudahkan pencarian. Contoh: kecemasan, stres, karir'),
                     ]),
 
-                Forms\Components\Section::make('SEO')
+                Forms\Components\Section::make('SEO (untuk mesin pencari)')
                     ->schema([
                         Forms\Components\TextInput::make('meta_title')
-                            ->label('Meta Title')
+                            ->label('Judul SEO')
                             ->maxLength(255)
-                            ->helperText('Biarkan kosong untuk menggunakan judul artikel.'),
+                            ->helperText('Judul yang muncul di Google. Biarkan kosong untuk menggunakan judul artikel.'),
 
                         Forms\Components\Textarea::make('meta_description')
-                            ->label('Meta Description')
+                            ->label('Deskripsi SEO')
                             ->maxLength(500)
                             ->rows(3)
-                            ->helperText('Maks. 160 karakter direkomendasikan.'),
+                            ->helperText('Deskripsi yang muncul di hasil pencarian Google. Maks. 160 karakter dianjurkan.'),
                     ])
                     ->columns(2)
                     ->collapsed(),
@@ -161,7 +170,13 @@ class ArtikelResource extends Resource
                     ->toggleable(),
 
                 Tables\Columns\TextColumn::make('status')
+                    ->label('Status')
                     ->badge()
+                    ->formatStateUsing(fn (string $state): string => match ($state) {
+                        'published' => 'Terbit',
+                        'draft'     => 'Konsep',
+                        'archived'  => 'Arsip',
+                    })
                     ->color(fn (string $state): string => match ($state) {
                         'published' => 'success',
                         'draft'     => 'warning',
@@ -174,7 +189,7 @@ class ArtikelResource extends Resource
                     ->sortable(),
 
                 Tables\Columns\TextColumn::make('views')
-                    ->label('Views')
+                    ->label('Dilihat')
                     ->numeric()
                     ->sortable()
                     ->alignEnd(),
@@ -182,10 +197,11 @@ class ArtikelResource extends Resource
             ->defaultSort('published_at', 'desc')
             ->filters([
                 Tables\Filters\SelectFilter::make('status')
+                    ->label('Status')
                     ->options([
-                        'draft'     => 'Draft',
-                        'published' => 'Published',
-                        'archived'  => 'Archived',
+                        'draft'     => 'Konsep',
+                        'published' => 'Terbit',
+                        'archived'  => 'Arsip',
                     ]),
 
                 Tables\Filters\SelectFilter::make('kategori_artikel_id')
@@ -193,25 +209,15 @@ class ArtikelResource extends Resource
                     ->relationship('kategori', 'nama'),
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                Tables\Actions\EditAction::make()
+                    ->label('Ubah'),
                 Tables\Actions\DeleteAction::make()
-                    // ->after(function (Artikel $record) {
-                    //     if ($record->gambar_utama) {
-                    //         Storage::disk('public')->delete($record->gambar_utama);
-                    //     }
-                    // })
-                    ,
+                    ->label('Hapus'),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make()
-                        // ->after(function ($records) {
-                        //     foreach ($records as $record) {
-                        //         if ($record->gambar_utama) {
-                        //             Storage::disk('public')->delete($record->gambar_utama);
-                        //         }
-                        //     }
-                        // })
+                        ->label('Hapus yang Dipilih'),
                 ]),
             ]);
     }

@@ -31,27 +31,31 @@ class TestimoniResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\Section::make('Informasi Pemberi Testimoni')
+                Forms\Components\Section::make('Identitas Pemberi Testimoni')
                     ->schema([
                         Forms\Components\TextInput::make('nama')
-                            ->label('Nama')
+                            ->label('Nama Klien')
                             ->required()
-                            ->maxLength(255),
+                            ->maxLength(255)
+                            ->placeholder('Contoh: Siti Rahmawati'),
 
                         Forms\Components\TextInput::make('jabatan')
-                            ->label('Jabatan / Profesi')
-                            ->maxLength(255),
+                            ->label('Pekerjaan / Jabatan')
+                            ->maxLength(255)
+                            ->placeholder('Contoh: Karyawan Swasta'),
 
                         Forms\Components\TextInput::make('institusi')
-                            ->label('Institusi / Perusahaan')
-                            ->maxLength(255),
+                            ->label('Asal Institusi')
+                            ->maxLength(255)
+                            ->placeholder('Contoh: PT Maju Jaya'),
 
                         Forms\Components\FileUpload::make('foto')
-                            ->label('Foto (Opsional)')
+                            ->label('Foto (opsional)')
                             ->image()
                             ->directory('testimoni')
                             ->maxSize(1024)
                             ->avatar()
+                            ->helperText('Foto profil klien. Maks 1MB. Jika tidak diisi akan menggunakan inisial.')
                             ->deleteUploadedFileUsing(fn ($file) => Storage::disk('public')->delete($file)),
                     ])
                     ->columns(2),
@@ -59,20 +63,21 @@ class TestimoniResource extends Resource
                 Forms\Components\Section::make('Isi Testimoni')
                     ->schema([
                         Forms\Components\Textarea::make('isi')
-                            ->label('Isi Testimoni')
+                            ->label('Teks Testimoni')
                             ->required()
                             ->rows(4)
                             ->maxLength(1000)
-                            ->columnSpanFull(),
+                            ->columnSpanFull()
+                            ->placeholder('Contoh: "Pelayanan sangat memuaskan, psikolognya ramah dan profesional."'),
 
                         Forms\Components\Select::make('rating')
-                            ->label('Rating Bintang')
+                            ->label('Penilaian Bintang')
                             ->options([
-                                5 => '⭐⭐⭐⭐⭐  (5 Bintang)',
-                                4 => '⭐⭐⭐⭐  (4 Bintang)',
-                                3 => '⭐⭐⭐  (3 Bintang)',
-                                2 => '⭐⭐  (2 Bintang)',
-                                1 => '⭐  (1 Bintang)',
+                                5 => '★★★★★ (Sangat Baik)',
+                                4 => '★★★★ (Baik)',
+                                3 => '★★★ (Cukup)',
+                                2 => '★★ (Kurang)',
+                                1 => '★ (Sangat Kurang)',
                             ])
                             ->default(5)
                             ->required(),
@@ -83,7 +88,8 @@ class TestimoniResource extends Resource
                         Forms\Components\TextInput::make('urutan')
                             ->label('Urutan Tampil')
                             ->numeric()
-                            ->default(0),
+                            ->default(0)
+                            ->helperText('Semakin kecil angkanya, semakin atas posisinya.'),
 
                         Forms\Components\Toggle::make('aktif')
                             ->label('Tampilkan di Website')
@@ -111,7 +117,7 @@ class TestimoniResource extends Resource
                     ->sortable(),
 
                 Tables\Columns\TextColumn::make('jabatan')
-                    ->label('Jabatan')
+                    ->label('Pekerjaan')
                     ->searchable()
                     ->toggleable(),
 
@@ -121,14 +127,14 @@ class TestimoniResource extends Resource
                     ->toggleable(),
 
                 Tables\Columns\TextColumn::make('rating')
-                    ->label('Rating')
+                    ->label('Nilai')
                     ->badge()
                     ->color(fn (int $state): string => match (true) {
                         $state >= 4 => 'success',
                         $state === 3 => 'warning',
                         default => 'danger',
                     })
-                    ->formatStateUsing(fn (int $state): string => str_repeat('⭐', $state)),
+                    ->formatStateUsing(fn (int $state): string => str_repeat('★', $state)),
 
                 Tables\Columns\IconColumn::make('aktif')
                     ->label('Aktif')
@@ -136,7 +142,7 @@ class TestimoniResource extends Resource
                     ->sortable(),
 
                 Tables\Columns\TextColumn::make('urutan')
-                    ->label('#')
+                    ->label('Urutan')
                     ->sortable(),
             ])
             ->defaultSort('urutan', 'asc')
@@ -147,8 +153,10 @@ class TestimoniResource extends Resource
                     ->falseLabel('Tidak Aktif'),
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                Tables\Actions\EditAction::make()
+                    ->label('Ubah'),
                 Tables\Actions\DeleteAction::make()
+                    ->label('Hapus')
                     ->after(function (Testimoni $record) {
                         if ($record->foto) {
                             Storage::disk('public')->delete($record->foto);
@@ -157,7 +165,8 @@ class TestimoniResource extends Resource
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+                    Tables\Actions\DeleteBulkAction::make()
+                        ->label('Hapus yang Dipilih'),
                 ]),
             ]);
     }

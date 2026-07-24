@@ -29,15 +29,33 @@ class AdminPanelProvider extends PanelProvider
             ->login()
             ->colors([
                 'primary' => '#C8607A',
-                'gray' => Color::Slate,
+                'secondary' => '#8B5CF6',
+                'success' => '#10B981',
+                'warning' => '#F59E0B',
+                'danger' => '#EF4444',
+                'info' => '#3B82F6',
+                'gray' => [
+                    50 => 'rgb(248, 250, 252)',
+                    100 => 'rgb(241, 245, 249)',
+                    200 => 'rgb(226, 232, 240)',
+                    300 => 'rgb(203, 213, 225)',
+                    400 => 'rgb(148, 163, 184)',
+                    500 => 'rgb(100, 116, 139)',
+                    600 => 'rgb(71, 85, 105)',
+                    700 => 'rgb(51, 65, 85)',
+                    800 => 'rgb(30, 41, 59)',
+                    900 => 'rgb(15, 23, 42)',
+                    950 => 'rgb(2, 6, 23)',
+                ],
             ])
             ->font('Plus Jakarta Sans')
             ->brandName('An Moerty Psikologi')
-            ->favicon(asset('images/favicon.png')) // Use favicon if exists
+            ->favicon(asset('images/favicon.png'))
             ->topNavigation()
+            ->maxContentWidth('full')
             ->renderHook(
                 'panels::head.end',
-                fn (): string => \Illuminate\Support\Facades\Blade::render('@include("filament.custom-css")'),
+                fn () => '<style>body { background: red !important; }</style>' . view('filament.custom-css')->render(),
             )
             ->darkMode(false)
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')

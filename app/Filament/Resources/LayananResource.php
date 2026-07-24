@@ -40,7 +40,8 @@ class LayananResource extends Resource
                             ->options(KategoriLayanan::pluck('nama', 'id'))
                             ->searchable()
                             ->preload()
-                            ->required(),
+                            ->required()
+                            ->helperText('Pilih kategori yang sesuai dengan layanan ini.'),
 
                         Forms\Components\TextInput::make('nama')
                             ->label('Nama Layanan')
@@ -53,7 +54,7 @@ class LayananResource extends Resource
                             ->required()
                             ->maxLength(255)
                             ->unique(Layanan::class, 'slug', ignoreRecord: true)
-                            ->helperText('Diisi otomatis dari nama layanan.'),
+                            ->helperText('Diisi otomatis dari nama layanan. Contoh: "konseling-psikologi'),
 
                         Forms\Components\Select::make('ikon')
                             ->label('Ikon')
@@ -65,12 +66,14 @@ class LayananResource extends Resource
                                 'shield-heart'     => 'Shield Heart (Perlindungan)',
                                 'presentation'     => 'Presentation (Training)',
                             ])
-                            ->searchable(),
+                            ->searchable()
+                            ->helperText('Pilih ikon yang mewakili layanan ini.'),
 
                         Forms\Components\TextInput::make('urutan')
                             ->label('Urutan Tampil')
                             ->numeric()
-                            ->default(0),
+                            ->default(0)
+                            ->helperText('Nomor urut tampil di website (semakin kecil semakin atas).'),
 
                         Forms\Components\Toggle::make('aktif')
                             ->label('Tampilkan di Website')
@@ -86,12 +89,13 @@ class LayananResource extends Resource
                             ->rows(3)
                             ->maxLength(500)
                             ->columnSpanFull()
-                            ->helperText('Tampil di kartu layanan di halaman utama.'),
+                            ->helperText('Deskripsi pendek yang muncul di kartu layanan halaman utama. Maksimal 500 karakter.'),
 
                         Forms\Components\RichEditor::make('deskripsi_lengkap')
                             ->label('Deskripsi Lengkap')
                             ->columnSpanFull()
-                            ->fileAttachmentsDirectory('layanan/konten'),
+                            ->fileAttachmentsDirectory('layanan/konten')
+                            ->helperText('Penjelasan detail layanan yang akan muncul di halaman detail layanan.'),
                     ]),
 
                 Forms\Components\Section::make('Manfaat & Proses')
@@ -101,24 +105,29 @@ class LayananResource extends Resource
                             ->schema([
                                 Forms\Components\TextInput::make('item')
                                     ->label('Manfaat')
-                                    ->required(),
+                                    ->required()
+                                    ->placeholder('Contoh: Meningkatkan kepercayaan diri'),
                             ])
                             ->addActionLabel('+ Tambah Manfaat')
                             ->collapsible()
-                            ->defaultItems(0),
+                            ->defaultItems(0)
+                            ->helperText('Manfaat yang akan didapatkan oleh klien dari layanan ini.'),
 
                         Forms\Components\Repeater::make('proses')
                             ->label('Tahapan Proses')
                             ->schema([
                                 Forms\Components\TextInput::make('langkah')
-                                    ->label('Langkah')
-                                    ->required(),
+                                    ->label('Nama Tahap')
+                                    ->required()
+                                    ->placeholder('Contoh: Konsultasi Awal'),
                                 Forms\Components\TextInput::make('deskripsi')
-                                    ->label('Keterangan'),
+                                    ->label('Penjelasan')
+                                    ->placeholder('Contoh: Diskusi awal untuk menggali kebutuhan'),
                             ])
                             ->addActionLabel('+ Tambah Langkah')
                             ->collapsible()
-                            ->defaultItems(0),
+                            ->defaultItems(0)
+                            ->helperText('Langkah-langkah yang akan dijalani klien saat menggunakan layanan ini.'),
                     ])
                     ->columns(2),
 
@@ -130,24 +139,28 @@ class LayananResource extends Resource
                             ->directory('layanan')
                             ->maxSize(2048)
                             ->imageEditor()
+                            ->helperText('Upload gambar (maks 2MB)')
                             ->deleteUploadedFileUsing(fn ($file) => Storage::disk('public')->delete($file)),
 
                         Forms\Components\TextInput::make('alt_gambar')
-                            ->label('Alt Text Gambar')
-                            ->maxLength(255),
+                            ->label('Teks Alternatif Gambar')
+                            ->maxLength(255)
+                            ->helperText('Deskripsi singkat gambar untuk SEO dan aksesibilitas. Contoh: "Konseling psikologi di An Moerty"'),
                     ])
                     ->columns(2),
 
-                Forms\Components\Section::make('SEO')
+                Forms\Components\Section::make('SEO (untuk mesin pencari)')
                     ->schema([
                         Forms\Components\TextInput::make('meta_title')
-                            ->label('Meta Title')
-                            ->maxLength(255),
+                            ->label('Judul SEO')
+                            ->maxLength(255)
+                            ->helperText('Judul yang muncul di pencarian Google. Biarkan kosong untuk menggunakan nama layanan.'),
 
                         Forms\Components\Textarea::make('meta_description')
-                            ->label('Meta Description')
+                            ->label('Deskripsi SEO')
                             ->maxLength(500)
-                            ->rows(3),
+                            ->rows(3)
+                            ->helperText('Deskripsi yang muncul di pencarian Google. Maksimal 160 karakter dianjurkan.'),
                     ])
                     ->columns(2)
                     ->collapsed(),
@@ -166,7 +179,7 @@ class LayananResource extends Resource
                     ->defaultImageUrl(fn () => 'https://ui-avatars.com/api/?name=Layanan&background=C8607A&color=fff'),
 
                 Tables\Columns\TextColumn::make('urutan')
-                    ->label('#')
+                    ->label('Urutan')
                     ->sortable(),
 
                 Tables\Columns\TextColumn::make('nama')
@@ -203,8 +216,10 @@ class LayananResource extends Resource
                     ->relationship('kategori', 'nama'),
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                Tables\Actions\EditAction::make()
+                    ->label('Ubah'),
                 Tables\Actions\DeleteAction::make()
+                    ->label('Hapus')
                     ->after(function (Layanan $record) {
                         if ($record->gambar) {
                             Storage::disk('public')->delete($record->gambar);
@@ -213,7 +228,8 @@ class LayananResource extends Resource
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+                    Tables\Actions\DeleteBulkAction::make()
+                        ->label('Hapus yang Dipilih'),
                 ]),
             ]);
     }

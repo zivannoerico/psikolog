@@ -37,14 +37,16 @@ class FaqResource extends Resource
                             ->required()
                             ->rows(3)
                             ->maxLength(1000)
-                            ->columnSpanFull(),
+                            ->columnSpanFull()
+                            ->placeholder('Contoh: Bagaimana cara mendaftar konseling?'),
 
                         Forms\Components\Textarea::make('jawaban')
                             ->label('Jawaban')
                             ->required()
                             ->rows(5)
                             ->maxLength(65535)
-                            ->columnSpanFull(),
+                            ->columnSpanFull()
+                            ->placeholder('Tulis jawaban lengkap di sini...'),
                     ]),
 
                 Forms\Components\Section::make('Pengaturan')
@@ -53,7 +55,8 @@ class FaqResource extends Resource
                             ->label('Urutan Tampil')
                             ->numeric()
                             ->default(0)
-                            ->minValue(0),
+                            ->minValue(0)
+                            ->helperText('Semakin kecil angkanya, semakin atas posisinya.'),
 
                         Forms\Components\Toggle::make('aktif')
                             ->label('Tampilkan di Website')
@@ -68,7 +71,7 @@ class FaqResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('urutan')
-                    ->label('#')
+                    ->label('Urutan')
                     ->sortable(),
 
                 Tables\Columns\TextColumn::make('pertanyaan')
@@ -102,12 +105,15 @@ class FaqResource extends Resource
                     ->falseLabel('Tidak Aktif'),
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+                Tables\Actions\EditAction::make()
+                    ->label('Ubah'),
+                Tables\Actions\DeleteAction::make()
+                    ->label('Hapus'),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+                    Tables\Actions\DeleteBulkAction::make()
+                        ->label('Hapus yang Dipilih'),
                 ]),
             ]);
     }

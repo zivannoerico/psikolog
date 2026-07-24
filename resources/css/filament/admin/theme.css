@@ -2,43 +2,162 @@
 
 @config 'tailwind.config.js';
 
-/* Custom Exclusive Theme Overrides */
 .fi-main {
-    background-color: #f8fafc;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%) !important;
 }
 
-/* Rounded and soft shadow for panels/cards */
-.fi-ta-content, .fi-fo-component-container, .fi-wi-stats-overview-stat {
-    border-radius: 1rem !important; /* rounded-2xl */
-    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01) !important; /* soft large shadow */
-    border: none !important; /* border-less */
-}
-
-/* Top Navigation Tweaks */
 .fi-topbar {
-    border-bottom: 1px solid #f1f5f9 !important;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02) !important;
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    background-color: rgba(255, 255, 255, 0.85) !important;
+    border-bottom: 1px solid rgba(200, 96, 122, 0.12) !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02) !important;
 }
 
-/* Button roundness */
-.fi-btn {
-    border-radius: 0.75rem !important; /* rounded-xl */
-    transition: all 0.3s ease !important;
-}
-.fi-btn:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 4px 6px -1px rgba(200, 96, 122, 0.2) !important;
+.fi-topbar .fi-logo {
+    font-weight: 700 !important;
+    letter-spacing: -0.02em !important;
 }
 
-/* Badge roundness */
-.fi-badge {
-    border-radius: 9999px !important; /* fully rounded */
-    padding-left: 0.75rem !important;
-    padding-right: 0.75rem !important;
+.fi-ta-content,
+.fi-fo-component-container {
+    background-color: white !important;
+    border-radius: 1rem !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02) !important;
+    border: 1px solid rgba(226, 232, 240, 0.6) !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
-/* Inputs soft border */
+.fi-ta-content:hover {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 10px 15px rgba(0, 0, 0, 0.03) !important;
+}
+
+.fi-wi-stats-overview-stat {
+    background: linear-gradient(135deg, white 0%, #fafafa 100%) !important;
+    border-radius: 1rem !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02) !important;
+    border: 1px solid rgba(226, 232, 240, 0.6) !important;
+    position: relative !important;
+    overflow: hidden !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.fi-wi-stats-overview-stat::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #C8607A, #e87998);
+    z-index: 1;
+}
+
+.fi-wi-stats-overview-stat:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px rgba(200, 96, 122, 0.08), 0 4px 6px rgba(200, 96, 122, 0.05) !important;
+}
+
+.fi-ta-header-cell {
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    font-size: 0.75rem !important;
+    letter-spacing: 0.05em !important;
+    color: #64748b !important;
+}
+
+.fi-ta-row {
+    transition: all 0.2s ease !important;
+}
+
+.fi-ta-row:hover {
+    background-color: rgba(200, 96, 122, 0.03) !important;
+}
+
+.fi-ta-row:nth-child(even) {
+    background-color: rgba(248, 250, 252, 0.5) !important;
+}
+
+.fi-ta-row:nth-child(even):hover {
+    background-color: rgba(200, 96, 122, 0.04) !important;
+}
+
+.fi-input {
+    border-radius: 0.75rem !important;
+    border: 1.5px solid #e2e8f0 !important;
+    transition: all 0.2s ease !important;
+    background-color: #fafafa !important;
+}
+
+.fi-input:focus {
+    border-color: #C8607A !important;
+    box-shadow: 0 0 0 3px rgba(200, 96, 122, 0.1) !important;
+    background-color: white !important;
+}
+
 .fi-input-wrapper {
     border-radius: 0.75rem !important;
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.02) !important;
+}
+
+.fi-btn {
+    border-radius: 0.75rem !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    font-weight: 600 !important;
+}
+
+.fi-btn-primary {
+    background: linear-gradient(135deg, #C8607A, #d47a91) !important;
+    border: none !important;
+    box-shadow: 0 4px 6px rgba(200, 96, 122, 0.2) !important;
+}
+
+.fi-btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 10px rgba(200, 96, 122, 0.3) !important;
+}
+
+.fi-btn-secondary {
+    border: 1.5px solid #e2e8f0 !important;
+    background: white !important;
+}
+
+.fi-btn-secondary:hover {
+    border-color: #C8607A !important;
+    background: rgba(200, 96, 122, 0.03) !important;
+}
+
+.fi-badge {
+    border-radius: 9999px !important;
+    padding: 0.25rem 0.75rem !important;
+    font-weight: 500 !important;
+    font-size: 0.75rem !important;
+    letter-spacing: 0.01em !important;
+}
+
+.fi-pagination {
+    border-radius: 0.75rem !important;
+    padding: 0.5rem !important;
+}
+
+.fi-sidebar {
+    border-right: 1px solid rgba(226, 232, 240, 0.8) !important;
+    background: linear-gradient(180deg, #fafafa 0%, #f1f5f9 100%) !important;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
 }

@@ -40,44 +40,49 @@ class PsikologResource extends Resource
                             ->maxSize(2048)
                             ->avatar()
                             ->columnSpanFull()
+                            ->helperText('Upload foto profil (maks 2MB). Usahakan foto dengan latar belakang bersih.')
                             ->deleteUploadedFileUsing(fn ($file) => Storage::disk('public')->delete($file)),
 
                         Forms\Components\TextInput::make('nama')
                             ->label('Nama Lengkap')
                             ->required()
-                            ->maxLength(255),
+                            ->maxLength(255)
+                            ->placeholder('Contoh: Dr. Ahmad Fauzi'),
 
                         Forms\Components\TextInput::make('gelar')
                             ->label('Gelar / Titel')
                             ->maxLength(255)
-                            ->placeholder('contoh: M.Psi., Psikolog'),
+                            ->placeholder('Contoh: M.Psi., Psikolog'),
 
                         Forms\Components\TextInput::make('spesialisasi')
                             ->label('Spesialisasi')
                             ->maxLength(255)
-                            ->placeholder('contoh: Psikologi Klinis, Konseling Karir'),
+                            ->placeholder('Contoh: Psikologi Klinis, Konseling Karir'),
 
                         Forms\Components\Textarea::make('bio')
                             ->label('Biografi Singkat')
                             ->rows(4)
                             ->maxLength(1000)
-                            ->columnSpanFull(),
+                            ->columnSpanFull()
+                            ->placeholder('Tulis biografi singkat tentang psikolog ini...'),
                     ])
                     ->columns(2),
 
                 Forms\Components\Section::make('Media Sosial')
                     ->schema([
                         Forms\Components\TextInput::make('instagram')
-                            ->label('URL Instagram')
+                            ->label('Akun Instagram')
                             ->url()
                             ->prefix('https://')
-                            ->placeholder('instagram.com/nama_akun'),
+                            ->placeholder('instagram.com/nama_akun')
+                            ->helperText('Masukkan URL lengkap Instagram.'),
 
                         Forms\Components\TextInput::make('linkedin')
-                            ->label('URL LinkedIn')
+                            ->label('Akun LinkedIn')
                             ->url()
                             ->prefix('https://')
-                            ->placeholder('linkedin.com/in/nama-akun'),
+                            ->placeholder('linkedin.com/in/nama-akun')
+                            ->helperText('Masukkan URL lengkap LinkedIn.'),
                     ])
                     ->columns(2),
 
@@ -86,7 +91,8 @@ class PsikologResource extends Resource
                         Forms\Components\TextInput::make('urutan')
                             ->label('Urutan Tampil')
                             ->numeric()
-                            ->default(0),
+                            ->default(0)
+                            ->helperText('Semakin kecil angkanya, semakin atas posisinya.'),
 
                         Forms\Components\Toggle::make('aktif')
                             ->label('Tampilkan di Website')
@@ -124,7 +130,7 @@ class PsikologResource extends Resource
                     ->sortable(),
 
                 Tables\Columns\TextColumn::make('urutan')
-                    ->label('#')
+                    ->label('Urutan')
                     ->sortable(),
             ])
             ->defaultSort('urutan', 'asc')
@@ -135,8 +141,10 @@ class PsikologResource extends Resource
                     ->falseLabel('Tidak Aktif'),
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                Tables\Actions\EditAction::make()
+                    ->label('Ubah'),
                 Tables\Actions\DeleteAction::make()
+                    ->label('Hapus')
                     ->after(function (Psikolog $record) {
                         if ($record->foto) {
                             Storage::disk('public')->delete($record->foto);
@@ -145,7 +153,8 @@ class PsikologResource extends Resource
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+                    Tables\Actions\DeleteBulkAction::make()
+                        ->label('Hapus yang Dipilih'),
                 ]),
             ]);
     }

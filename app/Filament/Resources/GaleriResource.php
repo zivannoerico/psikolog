@@ -34,22 +34,25 @@ class GaleriResource extends Resource
                 Forms\Components\Section::make('Upload Foto')
                     ->schema([
                         Forms\Components\FileUpload::make('gambar')
-                            ->label('Foto')
+                            ->label('Pilih Foto')
                             ->image()
                             ->directory('galeri')
                             ->maxSize(4096)
                             ->required()
                             ->imageEditor()
                             ->columnSpanFull()
+                            ->helperText('Format: JPG, PNG. Maks 4MB. Usahakan ukuran minimal 800x600px.')
                             ->deleteUploadedFileUsing(fn ($file) => Storage::disk('public')->delete($file)),
 
                         Forms\Components\TextInput::make('judul')
                             ->label('Judul / Keterangan Foto')
-                            ->maxLength(255),
+                            ->maxLength(255)
+                            ->placeholder('Contoh: Suasana konseling di An Moerty'),
 
                         Forms\Components\TextInput::make('alt')
-                            ->label('Alt Text (SEO)')
-                            ->maxLength(255),
+                            ->label('Teks Alternatif (SEO)')
+                            ->maxLength(255)
+                            ->placeholder('Contoh: Ruang konseling yang nyaman dan profesional'),
                     ])
                     ->columns(2),
 
@@ -58,7 +61,8 @@ class GaleriResource extends Resource
                         Forms\Components\TextInput::make('urutan')
                             ->label('Urutan Tampil')
                             ->numeric()
-                            ->default(0),
+                            ->default(0)
+                            ->helperText('Semakin kecil angkanya, semakin atas posisinya.'),
 
                         Forms\Components\Toggle::make('aktif')
                             ->label('Tampilkan di Website')
@@ -90,7 +94,7 @@ class GaleriResource extends Resource
                     ->sortable(),
 
                 Tables\Columns\TextColumn::make('urutan')
-                    ->label('#')
+                    ->label('Urutan')
                     ->sortable(),
 
                 Tables\Columns\TextColumn::make('created_at')
@@ -107,8 +111,10 @@ class GaleriResource extends Resource
                     ->falseLabel('Tidak Aktif'),
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                Tables\Actions\EditAction::make()
+                    ->label('Ubah'),
                 Tables\Actions\DeleteAction::make()
+                    ->label('Hapus')
                     ->after(function (Galeri $record) {
                         if ($record->gambar) {
                             Storage::disk('public')->delete($record->gambar);
@@ -118,6 +124,7 @@ class GaleriResource extends Resource
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make()
+                        ->label('Hapus yang Dipilih')
                         ->after(function ($records) {
                             foreach ($records as $record) {
                                 if ($record->gambar) {

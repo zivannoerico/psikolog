@@ -28,7 +28,7 @@ class PesanResource extends Resource
     protected static ?string $pluralModelLabel = 'Pesan Masuk';
 
     /**
-     * Tampilkan badge jumlah pesan baru di sidebar
+     * Tampilkan jumlah pesan baru di menu sidebar
      */
     public static function getNavigationBadge(): ?string
     {
@@ -41,17 +41,16 @@ class PesanResource extends Resource
     }
 
     /**
-     * Pesan hanya dibaca dari pengunjung, tidak perlu form create.
-     * Form ini digunakan hanya untuk view detail.
+     * Pesan hanya bisa dilihat (tidak bisa dibuat/diedit dari admin)
      */
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\Section::make('Informasi Pengirim')
+                Forms\Components\Section::make('Data Pengirim')
                     ->schema([
                         Forms\Components\TextInput::make('nama')
-                            ->label('Nama')
+                            ->label('Nama Pengirim')
                             ->disabled(),
 
                         Forms\Components\TextInput::make('email')
@@ -59,15 +58,15 @@ class PesanResource extends Resource
                             ->disabled(),
 
                         Forms\Components\TextInput::make('telepon')
-                            ->label('Telepon')
+                            ->label('No. Telepon')
                             ->disabled(),
 
                         Forms\Components\Select::make('status')
-                            ->label('Status')
+                            ->label('Status Pesan')
                             ->options([
-                                'baru'    => 'Baru',
-                                'dibaca'  => 'Dibaca',
-                                'dibalas' => 'Dibalas',
+                                'baru'    => 'Baru (belum dibaca)',
+                                'dibaca'  => 'Sudah Dibaca',
+                                'dibalas' => 'Sudah Dibalas',
                             ]),
                     ])
                     ->columns(2),
@@ -75,22 +74,23 @@ class PesanResource extends Resource
                 Forms\Components\Section::make('Isi Pesan')
                     ->schema([
                         Forms\Components\TextInput::make('subjek')
-                            ->label('Subjek')
+                            ->label('Subjek / Perihal')
                             ->disabled()
                             ->columnSpanFull(),
 
                         Forms\Components\Textarea::make('pesan')
-                            ->label('Pesan')
+                            ->label('Isi Pesan')
                             ->disabled()
                             ->rows(6)
                             ->columnSpanFull(),
                     ]),
 
-                Forms\Components\Section::make('Metadata')
+                Forms\Components\Section::make('Info Tambahan')
                     ->schema([
                         Forms\Components\TextInput::make('ip_address')
                             ->label('IP Address')
-                            ->disabled(),
+                            ->disabled()
+                            ->helperText('Alamat IP pengirim.'),
 
                         Forms\Components\TextInput::make('created_at')
                             ->label('Diterima Pada')
@@ -127,7 +127,13 @@ class PesanResource extends Resource
                     ->searchable(),
 
                 Tables\Columns\TextColumn::make('status')
+                    ->label('Status')
                     ->badge()
+                    ->formatStateUsing(fn (string $state): string => match ($state) {
+                        'baru'    => 'Baru',
+                        'dibaca'  => 'Dibaca',
+                        'dibalas' => 'Dibalas',
+                    })
                     ->color(fn (string $state): string => match ($state) {
                         'baru'    => 'danger',
                         'dibaca'  => 'warning',
@@ -142,6 +148,7 @@ class PesanResource extends Resource
             ->defaultSort('created_at', 'desc')
             ->filters([
                 Tables\Filters\SelectFilter::make('status')
+                    ->label('Status')
                     ->options([
                         'baru'    => 'Baru',
                         'dibaca'  => 'Dibaca',
@@ -150,7 +157,7 @@ class PesanResource extends Resource
             ])
             ->actions([
                 Tables\Actions\ViewAction::make()
-                    ->label('Lihat')
+                    ->label('Lihat Detail')
                     ->after(function (Pesan $record) {
                         if ($record->status === 'baru') {
                             $record->markAsDibaca();
@@ -167,11 +174,13 @@ class PesanResource extends Resource
                         $record->update(['status' => 'dibalas']);
                     }),
 
-                Tables\Actions\DeleteAction::make(),
+                Tables\Actions\DeleteAction::make()
+                    ->label('Hapus'),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+                    Tables\Actions\DeleteBulkAction::make()
+                        ->label('Hapus yang Dipilih'),
                 ]),
             ]);
     }
@@ -190,7 +199,7 @@ class PesanResource extends Resource
     }
 
     /**
-     * Pesan tidak bisa dibuat manual dari admin (hanya dari form website)
+     * Pesan tidak bisa dibuat manual dari admin (hanya dari form kontak website)
      */
     public static function canCreate(): bool
     {

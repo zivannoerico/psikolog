@@ -33,39 +33,43 @@ class SettingResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('key')
-                    ->label('Kunci Setting')
+                    ->label('Kode Setting')
                     ->required()
                     ->disabled(fn ($record) => $record !== null)
-                    ->helperText('Kunci tidak bisa diubah setelah disimpan.'),
+                    ->helperText('Kode unik untuk setting ini (tidak bisa diubah setelah disimpan). Contoh: hero_judul, about_deskripsi'),
 
                 Forms\Components\TextInput::make('label')
-                    ->label('Label / Nama Setting')
-                    ->maxLength(255),
+                    ->label('Nama Setting')
+                    ->maxLength(255)
+                    ->placeholder('Contoh: Judul Hero, Deskripsi About')
+                    ->helperText('Nama yang mudah dipahami untuk setting ini.'),
 
                 Forms\Components\Select::make('group')
-                    ->label('Grup')
+                    ->label('Kelompok')
                     ->options([
-                        'hero'    => 'Hero',
-                        'tentang' => 'Tentang',
-                        'kontak'  => 'Kontak',
+                        'hero'    => 'Hero (Banner Utama)',
+                        'tentang' => 'Halaman Tentang',
+                        'kontak'  => 'Informasi Kontak',
                         'sosmed'  => 'Sosial Media',
-                        'seo'     => 'SEO',
+                        'seo'     => 'SEO (Mesin Pencari)',
                         'footer'  => 'Footer',
                         'umum'    => 'Umum',
                     ])
-                    ->default('umum'),
+                    ->default('umum')
+                    ->helperText('Kelompok halaman tempat setting ini digunakan.'),
 
                 Forms\Components\Select::make('type')
-                    ->label('Tipe')
+                    ->label('Tipe Data')
                     ->options([
-                        'text'     => 'Text',
-                        'textarea' => 'Textarea',
-                        'image'    => 'Image',
-                        'boolean'  => 'Boolean',
-                        'json'     => 'JSON',
+                        'text'     => 'Teks Pendek',
+                        'textarea' => 'Teks Panjang',
+                        'image'    => 'Gambar',
+                        'boolean'  => 'Ya/Tidak',
+                        'json'     => 'Data Kompleks (JSON)',
                     ])
                     ->live()
-                    ->default('text'),
+                    ->default('text')
+                    ->helperText('Pilih tipe data yang sesuai dengan isi setting ini.'),
 
                 Forms\Components\TextInput::make('value')
                     ->label('Nilai')
@@ -79,15 +83,16 @@ class SettingResource extends Resource
                     ->visible(fn (Forms\Get $get) => $get('type') === 'textarea'),
 
                 Forms\Components\FileUpload::make('value')
-                    ->label('Gambar')
+                    ->label('Upload Gambar')
                     ->image()
                     ->directory('settings')
                     ->columnSpanFull()
+                    ->helperText('Upload gambar untuk setting ini.')
                     ->deleteUploadedFileUsing(fn ($file) => Storage::disk('public')->delete($file))
                     ->visible(fn (Forms\Get $get) => $get('type') === 'image'),
 
                 Forms\Components\Toggle::make('value')
-                    ->label('Nilai Boolean')
+                    ->label('Nilai (Ya/Tidak)')
                     ->columnSpanFull()
                     ->visible(fn (Forms\Get $get) => $get('type') === 'boolean'),
             ])
@@ -99,8 +104,17 @@ class SettingResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('group')
-                    ->label('Grup')
+                    ->label('Kelompok')
                     ->badge()
+                    ->formatStateUsing(fn (string $state): string => match ($state) {
+                        'hero'    => 'Hero',
+                        'tentang' => 'Tentang',
+                        'kontak'  => 'Kontak',
+                        'sosmed'  => 'Sosmed',
+                        'seo'     => 'SEO',
+                        'footer'  => 'Footer',
+                        'umum'    => 'Umum',
+                    })
                     ->color('gray')
                     ->sortable(),
 
@@ -110,10 +124,11 @@ class SettingResource extends Resource
                     ->sortable(),
 
                 Tables\Columns\TextColumn::make('key')
-                    ->label('Kunci')
+                    ->label('Kode')
                     ->searchable()
                     ->fontFamily('mono')
-                    ->copyable(),
+                    ->copyable()
+                    ->copyMessage('Kode berhasil disalin!'),
 
                 Tables\Columns\TextColumn::make('value')
                     ->label('Nilai')
@@ -123,24 +138,31 @@ class SettingResource extends Resource
                 Tables\Columns\TextColumn::make('type')
                     ->label('Tipe')
                     ->badge()
+                    ->formatStateUsing(fn (string $state): string => match ($state) {
+                        'text'     => 'Teks',
+                        'textarea' => 'Teks Panjang',
+                        'image'    => 'Gambar',
+                        'boolean'  => 'Ya/Tidak',
+                        'json'     => 'JSON',
+                    })
                     ->color(fn (string $state): string => match ($state) {
                         'text'     => 'info',
                         'textarea' => 'warning',
                         'image'    => 'success',
                         'boolean'  => 'danger',
-                        default    => 'gray',
+                        'json'     => 'gray',
                     }),
             ])
             ->defaultSort('group')
             ->groups(['group'])
             ->filters([
                 Tables\Filters\SelectFilter::make('group')
-                    ->label('Grup')
+                    ->label('Kelompok')
                     ->options([
                         'hero'    => 'Hero',
                         'tentang' => 'Tentang',
                         'kontak'  => 'Kontak',
-                        'sosmed'  => 'Sosial Media',
+                        'sosmed'  => 'Sosmed',
                         'seo'     => 'SEO',
                         'footer'  => 'Footer',
                         'umum'    => 'Umum',
@@ -148,8 +170,8 @@ class SettingResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make()
+                    ->label('Ubah')
                     ->after(function (Setting $record) {
-                        // Clear cache when setting is updated
                         Cache::forget("setting.{$record->key}");
                     }),
             ])
