@@ -76,7 +76,7 @@
   --tr-slow:     all 0.45s var(--ease-out);
 
   /* === LAYOUT === */
-  --container-max:    1140px;
+  --container-max:    1280px;
   --container-narrow: 860px;
   --navbar-h:         72px;
 }
@@ -176,25 +176,67 @@ h1, h2, h3, h4, h5, h6 {
 .container {
   max-width: var(--container-max);
   margin: 0 auto;
-  padding: 0 var(--space-8);
+  padding: 0 var(--space-4);
+}
+@media (min-width: 768px) {
+  .container {
+    padding: 0 var(--space-6);
+  }
+}
+@media (min-width: 1024px) {
+  .container {
+    padding: 0 var(--space-8);
+  }
 }
 
 .container--narrow {
   max-width: var(--container-narrow);
   margin: 0 auto;
-  padding: 0 var(--space-8);
+  padding: 0 var(--space-4);
+}
+@media (min-width: 768px) {
+  .container--narrow {
+    padding: 0 var(--space-6);
+  }
+}
+@media (min-width: 1024px) {
+  .container--narrow {
+    padding: 0 var(--space-8);
+  }
 }
 
 .section {
-  padding: var(--space-24) 0;
+  padding: var(--space-12) 0;
+}
+@media (min-width: 768px) {
+  .section {
+    padding: var(--space-16) 0;
+  }
+}
+@media (min-width: 1024px) {
+  .section {
+    padding: var(--space-20) 0;
+  }
 }
 
 .section--sm {
-  padding: var(--space-16) 0;
+  padding: var(--space-8) 0;
+}
+@media (min-width: 768px) {
+  .section--sm { padding: var(--space-10) 0; }
+}
+@media (min-width: 1024px) {
+  .section--sm { padding: var(--space-12) 0; }
 }
 
 .section--lg {
-  padding: var(--space-32) 0;
+  padding: var(--space-16) 0;
+}
+@media (min-width: 768px) {
+  .section--lg { padding: var(--space-24) 0; }
+}
+@media (min-width: 1024px) {
+  .section--lg { padding: var(--space-32) 0; }
 }
 
 .section--alt {
@@ -246,7 +288,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: clamp(1.75rem, 4vw, 2.5rem);
   font-weight: 800;
   color: var(--clr-text);
-  margin-bottom: var(--space-4);
+  margin-bottom: var(--space-6);
   line-height: 1.2;
 }
 
@@ -279,7 +321,7 @@ h1, h2, h3, h4, h5, h6 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: var(--space-2);
+  gap: var(--space-4);
   font-family: var(--font-label);
   font-size: 0.875rem;
   font-weight: 600;
@@ -619,7 +661,7 @@ h1, h2, h3, h4, h5, h6 {
    ============================================================ */
 .page-hero {
   background: var(--clr-bg-alt);
-  padding: calc(var(--navbar-h) + var(--space-16)) 0 var(--space-16);
+  padding: calc(var(--navbar-h) + var(--space-8)) 0 var(--space-12);
   position: relative;
   overflow: hidden;
 }
@@ -659,7 +701,7 @@ h1, h2, h3, h4, h5, h6 {
    HERO (Homepage)
    ============================================================ */
 .hero {
-  min-height: 100svh;
+  min-height: max(550px, 80svh);
   padding-top: var(--navbar-h);
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -742,7 +784,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 1.0625rem;
   color: var(--clr-text-2);
   line-height: 1.8;
-  margin-bottom: var(--space-10);
+  margin-bottom: var(--space-6);
   max-width: 480px;
 }
 
@@ -751,7 +793,7 @@ h1, h2, h3, h4, h5, h6 {
   gap: var(--space-4);
   flex-wrap: wrap;
   align-items: center;
-  margin-bottom: var(--space-12);
+  margin-bottom: var(--space-8);
 }
 
 .hero-stats {
@@ -1702,7 +1744,7 @@ textarea.form-control {
 .about-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--space-16);
+  gap: var(--space-8);
   align-items: center;
 }
 
