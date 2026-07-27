@@ -76,7 +76,7 @@
   --tr-slow:     all 0.45s var(--ease-out);
 
   /* === LAYOUT === */
-  --container-max:    1280px;
+  --container-max:    1140px;
   --container-narrow: 860px;
   --navbar-h:         72px;
 }
@@ -99,11 +99,24 @@ html {
 body {
   font-family: var(--font-body);
   color: var(--clr-text);
-  background-color: var(--clr-bg);
+  background-color: #D1D5DB; /* A distinct grey so the white box stands out clearly */
   line-height: 1.7;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============================================================
+   BOXED LAYOUT
+   ============================================================ */
+.boxed-wrapper {
+  max-width: 1440px;
+  margin: 0 auto;
+  background-color: var(--clr-bg);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
 }
 
 img, video, svg {
@@ -337,8 +350,10 @@ h1, h2, h3, h4, h5, h6 {
 #navbar {
   position: fixed;
   top: 0;
-  left: 0;
-  right: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 1440px;
   z-index: 1000;
   height: var(--navbar-h);
   display: flex;

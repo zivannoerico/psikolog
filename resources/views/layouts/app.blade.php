@@ -31,14 +31,14 @@
                 <!-- Page Heading -->
                 @if (isset($header))
                     <header class="bg-white/70 backdrop-blur-md sticky top-16 lg:top-0 z-20 border-b border-slate-100">
-                        <div class="px-6 py-5">
+                        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 w-full">
                             {{ $header }}
                         </div>
                     </header>
                 @endif
 
                 <!-- Page Content -->
-                <main class="p-4 sm:p-6 lg:p-8 w-full mx-auto">
+                <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
                     {{ $slot }}
                 </main>
             </div>

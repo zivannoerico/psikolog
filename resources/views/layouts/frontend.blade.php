@@ -51,6 +51,7 @@
   @stack('styles')
 </head>
 <body>
+  <div class="boxed-wrapper">
 
   {{-- Skip Navigation (Accessibility) --}}
   <a class="skip-link" href="#main-content">Lewati ke konten utama</a>
@@ -421,5 +422,6 @@
   </script>
 
   @stack('scripts')
+  </div>
 </body>
 </html>

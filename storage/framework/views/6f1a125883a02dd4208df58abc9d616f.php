@@ -51,6 +51,7 @@
   <?php echo $__env->yieldPushContent('styles'); ?>
 </head>
 <body>
+  <div class="boxed-wrapper">
 
   
   <a class="skip-link" href="#main-content">Lewati ke konten utama</a>
@@ -554,6 +555,7 @@
   </script>
 
   <?php echo $__env->yieldPushContent('scripts'); ?>
+  </div>
 </body>
 </html>
 <?php /**PATH D:\psikolog\resources\views/layouts/frontend.blade.php ENDPATH**/ ?>
