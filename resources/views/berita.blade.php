@@ -21,7 +21,7 @@
 </section>
 
 <section class="section" aria-label="Daftar artikel">
-  <div class="container">
+  <div class="container" style="max-width: 1060px;">
 
     {{-- Search & Filter --}}
     <div class="artikel-search-bar">
@@ -54,29 +54,31 @@
       <div class="grid-auto-3">
         @foreach($artikel as $i => $art)
           <article class="card reveal reveal-delay-{{ ($i % 3) + 1 }}" aria-labelledby="art-{{ $art->id }}">
-            <a href="{{ route('artikel.show', $art->slug) }}" tabindex="-1" aria-hidden="true">
+            <a href="{{ route('artikel.show', $art->slug) }}" tabindex="-1" aria-hidden="true" style="display: block; width: 100%; aspect-ratio: 16/9; overflow: hidden; background-color: var(--clr-bg-alt);">
               <img
                 src="{{ $art->gambar_utama ? asset('storage/' . $art->gambar_utama) : 'https://images.unsplash.com/photo-1512758017271-d7b84c2113f1?auto=format&fit=crop&w=600&q=80' }}"
                 alt="{{ $art->alt_gambar ?? $art->judul }}"
                 class="card-img"
                 loading="lazy"
+                style="width: 100%; height: 100%; object-fit: cover;"
                 width="600"
                 height="338">
             </a>
-            <div class="card-body">
-              @if($art->kategori)
-                <a href="{{ route('artikel.index', ['kategori' => $art->kategori->slug]) }}" class="card-badge">{{ $art->kategori->nama }}</a>
-              @endif
-              <h2 class="card-title" id="art-{{ $art->id }}">
+            <div class="card-body" style="padding: var(--space-5);">
+              <h2 class="card-title" id="art-{{ $art->id }}" style="margin-bottom: var(--space-4); font-size: 1.125rem; line-height: 1.5;">
                 <a href="{{ route('artikel.show', $art->slug) }}">{{ $art->judul }}</a>
               </h2>
-              <p class="card-text">{{ Str::limit($art->excerpt, 120) }}</p>
-              <div class="card-meta">
-                <time datetime="{{ $art->published_at?->format('Y-m-d') }}">{{ $art->published_at?->translatedFormat('d M Y') }}</time>
-                @if($art->reading_time)
-                  <span>· {{ $art->reading_time }} menit baca</span>
+              
+              <div style="font-size: 0.8125rem; color: var(--clr-text-3); margin-bottom: var(--space-4);">
+                <div style="margin-bottom: var(--space-3);">
+                  <time datetime="{{ $art->published_at?->format('Y-m-d') }}">{{ $art->published_at?->translatedFormat('d M Y') }}</time>
+                </div>
+                @if($art->penulis)
+                  <div style="font-weight: 600; color: var(--clr-text); font-size: 0.875rem;">{{ $art->penulis }}</div>
                 @endif
               </div>
+
+              <p class="card-text" style="font-size: 0.875rem; color: var(--clr-text-3); line-height: 1.7;">{{ Str::limit($art->excerpt, 120) }}</p>
             </div>
           </article>
         @endforeach

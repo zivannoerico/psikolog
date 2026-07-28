@@ -386,7 +386,7 @@
 
 <?php if($artikel->count()): ?>
 <section class="section section--alt" id="artikel" aria-labelledby="artikel-heading">
-  <div class="container">
+  <div class="container" style="max-width: 1060px;">
     <div class="section-header reveal">
       <div class="section-label">Artikel Terbaru</div>
       <h2 class="section-title" id="artikel-heading">Wawasan & Informasi Psikologi</h2>
@@ -396,29 +396,29 @@
     <div class="grid-3">
       <?php $__currentLoopData = $artikel; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $i => $art): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
         <article class="card reveal reveal-delay-<?php echo e($i + 1); ?>" aria-labelledby="art-<?php echo e($art->id); ?>">
-          <a href="<?php echo e(route('artikel.show', $art->slug)); ?>" tabindex="-1" aria-hidden="true">
+          <a href="<?php echo e(route('artikel.show', $art->slug)); ?>" tabindex="-1" aria-hidden="true" style="display: block; width: 100%; aspect-ratio: 16/9; overflow: hidden; background-color: var(--clr-bg-alt);">
             <img
               src="<?php echo e($art->gambar_utama ? asset('storage/' . $art->gambar_utama) : 'https://images.unsplash.com/photo-1512758017271-d7b84c2113f1?auto=format&fit=crop&w=600&q=80'); ?>"
               alt="<?php echo e($art->alt_gambar ?? $art->judul); ?>"
               class="card-img"
               loading="lazy"
+              style="width: 100%; height: 100%; object-fit: cover;"
               width="400"
-              height="160">
+              height="225">
           </a>
-          <div class="card-body">
-            <?php if($art->kategori): ?>
-              <span class="card-badge"><?php echo e($art->kategori->nama); ?></span>
-            <?php endif; ?>
-            <h3 class="card-title" id="art-<?php echo e($art->id); ?>">
+          <div class="card-body" style="padding: var(--space-5);">
+            <h3 class="card-title" id="art-<?php echo e($art->id); ?>" style="margin-bottom: var(--space-4); font-size: 1.125rem; line-height: 1.5;">
               <a href="<?php echo e(route('artikel.show', $art->slug)); ?>"><?php echo e($art->judul); ?></a>
             </h3>
-            <p class="card-text"><?php echo e(Str::limit($art->excerpt, 120)); ?></p>
-            <div class="card-meta">
-              <span><?php echo e($art->published_at?->translatedFormat('d M Y')); ?></span>
+            
+            <div style="font-size: 0.8125rem; color: var(--clr-text-3); margin-bottom: var(--space-4);">
+              <div style="margin-bottom: var(--space-3);"><?php echo e($art->published_at?->translatedFormat('d M Y')); ?></div>
               <?php if($art->penulis): ?>
-                <span>· <?php echo e($art->penulis); ?></span>
+                <div style="font-weight: 600; color: var(--clr-text); font-size: 0.875rem;"><?php echo e($art->penulis); ?></div>
               <?php endif; ?>
             </div>
+
+            <p class="card-text" style="font-size: 0.875rem; color: var(--clr-text-3); line-height: 1.7;"><?php echo e(Str::limit($art->excerpt, 120)); ?></p>
           </div>
         </article>
       <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

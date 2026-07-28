@@ -366,7 +366,7 @@
 {{-- ===================== ARTIKEL TERBARU ===================== --}}
 @if($artikel->count())
 <section class="section section--alt" id="artikel" aria-labelledby="artikel-heading">
-  <div class="container">
+  <div class="container" style="max-width: 1060px;">
     <div class="section-header reveal">
       <div class="section-label">Artikel Terbaru</div>
       <h2 class="section-title" id="artikel-heading">Wawasan & Informasi Psikologi</h2>
@@ -376,29 +376,29 @@
     <div class="grid-3">
       @foreach($artikel as $i => $art)
         <article class="card reveal reveal-delay-{{ $i + 1 }}" aria-labelledby="art-{{ $art->id }}">
-          <a href="{{ route('artikel.show', $art->slug) }}" tabindex="-1" aria-hidden="true">
+          <a href="{{ route('artikel.show', $art->slug) }}" tabindex="-1" aria-hidden="true" style="display: block; width: 100%; aspect-ratio: 16/9; overflow: hidden; background-color: var(--clr-bg-alt);">
             <img
               src="{{ $art->gambar_utama ? asset('storage/' . $art->gambar_utama) : 'https://images.unsplash.com/photo-1512758017271-d7b84c2113f1?auto=format&fit=crop&w=600&q=80' }}"
               alt="{{ $art->alt_gambar ?? $art->judul }}"
               class="card-img"
               loading="lazy"
+              style="width: 100%; height: 100%; object-fit: cover;"
               width="400"
-              height="160">
+              height="225">
           </a>
-          <div class="card-body">
-            @if($art->kategori)
-              <span class="card-badge">{{ $art->kategori->nama }}</span>
-            @endif
-            <h3 class="card-title" id="art-{{ $art->id }}">
+          <div class="card-body" style="padding: var(--space-5);">
+            <h3 class="card-title" id="art-{{ $art->id }}" style="margin-bottom: var(--space-4); font-size: 1.125rem; line-height: 1.5;">
               <a href="{{ route('artikel.show', $art->slug) }}">{{ $art->judul }}</a>
             </h3>
-            <p class="card-text">{{ Str::limit($art->excerpt, 120) }}</p>
-            <div class="card-meta">
-              <span>{{ $art->published_at?->translatedFormat('d M Y') }}</span>
+            
+            <div style="font-size: 0.8125rem; color: var(--clr-text-3); margin-bottom: var(--space-4);">
+              <div style="margin-bottom: var(--space-3);">{{ $art->published_at?->translatedFormat('d M Y') }}</div>
               @if($art->penulis)
-                <span>· {{ $art->penulis }}</span>
+                <div style="font-weight: 600; color: var(--clr-text); font-size: 0.875rem;">{{ $art->penulis }}</div>
               @endif
             </div>
+
+            <p class="card-text" style="font-size: 0.875rem; color: var(--clr-text-3); line-height: 1.7;">{{ Str::limit($art->excerpt, 120) }}</p>
           </div>
         </article>
       @endforeach
