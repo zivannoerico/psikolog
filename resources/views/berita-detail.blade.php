@@ -34,11 +34,11 @@
 
   {{-- Gambar Utama --}}
   @if($artikel->gambar_utama)
-    <div style="max-width:860px; margin:0 auto; padding:0 var(--space-8);">
+    <div class="featured-image-wrap">
       <img
         src="{{ asset('storage/' . $artikel->gambar_utama) }}"
         alt="{{ $artikel->alt_gambar ?? $artikel->judul }}"
-        style="width:100%; aspect-ratio:16/9; object-fit:cover; border-radius:var(--radius-lg); margin-bottom:var(--space-12);"
+        class="featured-image"
         loading="eager">
     </div>
   @endif

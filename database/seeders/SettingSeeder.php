@@ -3,8 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\Setting;
-use App\Models\Artikel;
-use App\Models\KategoriArtikel;
 use Illuminate\Database\Seeder;
 
 class SettingSeeder extends Seeder
@@ -53,26 +51,5 @@ class SettingSeeder extends Seeder
         foreach ($settings as $setting) {
             Setting::firstOrCreate(['key' => $setting['key']], $setting);
         }
-
-        // === KATEGORI ARTIKEL ===
-        $kategori = KategoriArtikel::create(['nama' => 'Psikologi', 'slug' => 'psikologi']);
-        KategoriArtikel::create(['nama' => 'Konseling', 'slug' => 'konseling']);
-        KategoriArtikel::create(['nama' => 'Tips & Trik', 'slug' => 'tips-trik']);
-        KategoriArtikel::create(['nama' => 'Pengembangan Diri', 'slug' => 'pengembangan-diri']);
-
-        // === ARTIKEL CONTOH ===
-        Artikel::create([
-            'kategori_artikel_id' => $kategori->id,
-            'judul'        => 'Mengenal Pentingnya Kesehatan Mental di Tempat Kerja',
-            'slug'         => 'mengenal-pentingnya-kesehatan-mental-di-tempat-kerja',
-            'excerpt'      => 'Kesehatan mental karyawan adalah aset penting perusahaan. Pahami bagaimana menciptakan lingkungan kerja yang mendukung kesejahteraan psikologis.',
-            'konten'       => '<p>Kesehatan mental di tempat kerja adalah isu yang semakin mendapat perhatian di era modern ini. Sebuah penelitian menunjukkan bahwa gangguan kesehatan mental seperti stres, kecemasan, dan depresi dapat menyebabkan penurunan produktivitas yang signifikan.</p><p>An Moerty Psikologi Banyuwangi hadir untuk membantu individu dan organisasi dalam menjaga dan meningkatkan kesehatan mental, sehingga tercipta lingkungan kerja yang sehat dan produktif.</p>',
-            'penulis'      => 'Tim An Moerty Psikologi',
-            'status'       => 'published',
-            'published_at' => now()->subDays(7),
-            'tags'         => ['kesehatan mental', 'tempat kerja', 'psikologi'],
-            'meta_title'   => 'Kesehatan Mental di Tempat Kerja | An Moerty Psikologi',
-            'meta_description' => 'Pahami pentingnya kesehatan mental di tempat kerja dan cara menciptakan lingkungan kerja yang mendukung kesejahteraan karyawan.',
-        ]);
     }
 }

@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Artikel;
 use App\Models\Faq;
 use App\Models\Layanan;
-use App\Models\Setting;
 use App\Models\Testimoni;
 use Illuminate\Http\Request;
 

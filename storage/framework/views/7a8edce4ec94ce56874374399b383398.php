@@ -94,7 +94,7 @@
                                 </div>
                                 <div>
                                     <h4 class="text-sm font-bold text-slate-800 line-clamp-1"><?php echo e($artikel->judul); ?></h4>
-                                    <p class="text-xs text-slate-500 mt-1 font-medium"><?php echo e($artikel->created_at->format('d M Y')); ?> &bull; <?php echo e($artikel->kategori->nama_kategori ?? 'Umum'); ?></p>
+                                    <p class="text-xs text-slate-500 mt-1 font-medium"><?php echo e($artikel->created_at->format('d M Y')); ?> &bull; <?php echo e($artikel->kategori->nama ?? 'Umum'); ?></p>
                                 </div>
                             </div>
                             <div>

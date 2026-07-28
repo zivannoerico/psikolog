@@ -1,0 +1,67 @@
+[
+  {
+    "id": 10,
+    "name": "Advertising",
+    "slug": "advertising"
+  },
+  {
+    "id": 4,
+    "name": "Berita",
+    "slug": "berita"
+  },
+  {
+    "id": 11,
+    "name": "Design",
+    "slug": "design"
+  },
+  {
+    "id": 12,
+    "name": "Digital",
+    "slug": "digital"
+  },
+  {
+    "id": 2,
+    "name": "Event",
+    "slug": "event"
+  },
+  {
+    "id": 13,
+    "name": "Film",
+    "slug": "film"
+  },
+  {
+    "id": 3,
+    "name": "Informasi",
+    "slug": "informasi"
+  },
+  {
+    "id": 88,
+    "name": "kesehatan",
+    "slug": "kesehatan"
+  },
+  {
+    "id": 133,
+    "name": "Pendidikan, Kesehatan Mental, Psikologi",
+    "slug": "pendidikan-kesehatan-mental-psikologi"
+  },
+  {
+    "id": 14,
+    "name": "Photography",
+    "slug": "photography"
+  },
+  {
+    "id": 29,
+    "name": "psikologi",
+    "slug": "psikologi"
+  },
+  {
+    "id": 110,
+    "name": "tips",
+    "slug": "tips"
+  },
+  {
+    "id": 1,
+    "name": "Uncategorized",
+    "slug": "uncategorized"
+  }
+]

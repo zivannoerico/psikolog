@@ -86,7 +86,7 @@
                                 </div>
                             </td>
                             <td class="px-6 sm:px-8 py-4 whitespace-nowrap">
-                                <div class="text-sm font-medium text-indigo-600 bg-indigo-50 px-3 py-1 rounded-lg inline-block border border-indigo-100"><?php echo e($artikel->kategori->nama_kategori ?? 'Umum'); ?></div>
+                                <div class="text-sm font-medium text-indigo-600 bg-indigo-50 px-3 py-1 rounded-lg inline-block border border-indigo-100"><?php echo e($artikel->kategori->nama ?? 'Umum'); ?></div>
                             </td>
                             <td class="px-6 sm:px-8 py-4 whitespace-nowrap">
                                 <?php if($artikel->status == 'published'): ?>

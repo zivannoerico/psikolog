@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             FaqSeeder::class,
             PsikologSeeder::class,
             SettingSeeder::class,
+            ArtikelSeeder::class,
         ]);
     }
 }
