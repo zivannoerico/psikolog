@@ -113,7 +113,7 @@
 .prose ol { list-style: decimal; }
 .prose li { margin-bottom: 0.5em; line-height: 1.75; }
 .prose strong { color: var(--clr-text); font-weight: 700; }
-.prose a { color: var(--clr-pink); text-decoration: underline; }
+.prose a { color: var(--clr-text); text-decoration: none; pointer-events: none; cursor: default; }
 .prose blockquote { border-left: 3px solid var(--clr-pink); padding-left: 1.25em; font-style: italic; color: var(--clr-text-2); margin: 1.5em 0; }
 </style>
 @endpush
