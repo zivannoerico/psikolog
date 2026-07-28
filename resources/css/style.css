@@ -986,6 +986,104 @@ h1, h2, h3, h4, h5, h6 {
   border-top: 1px solid var(--clr-divider);
 }
 
+/* ============================================================
+   PAGINATION
+   ============================================================ */
+.pagination-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  margin-top: var(--space-12);
+}
+
+.pagination-info {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  color: var(--clr-text-3);
+  letter-spacing: 0.01em;
+}
+
+.pagination-info strong {
+  color: var(--clr-text);
+  font-weight: 600;
+}
+
+.pagination-list {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.pagination-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  height: 40px;
+  padding: 0 var(--space-2);
+  border-radius: var(--radius-full);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--clr-text-2);
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  text-decoration: none;
+  cursor: pointer;
+  transition: var(--tr-fast);
+  user-select: none;
+}
+
+.pagination-btn:hover {
+  color: var(--clr-pink);
+  border-color: var(--clr-pink-border);
+  background: var(--clr-pink-light);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+.pagination-btn:active {
+  transform: translateY(0);
+}
+
+.pagination-btn--active {
+  background: var(--clr-pink);
+  color: var(--clr-white);
+  border-color: var(--clr-pink);
+  box-shadow: var(--shadow-pink);
+  font-weight: 700;
+  cursor: default;
+  pointer-events: none;
+}
+
+.pagination-btn--disabled {
+  color: var(--clr-text-3);
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.pagination-btn--dots {
+  border: none;
+  background: transparent;
+  cursor: default;
+  pointer-events: none;
+  min-width: 32px;
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+  color: var(--clr-text-3);
+}
+
+.pagination-btn svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
 /* Service Card */
 .service-card {
   background: var(--clr-surface);

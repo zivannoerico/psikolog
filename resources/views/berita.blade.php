@@ -82,9 +82,7 @@
         @endforeach
       </div>
       @if($artikel->hasPages())
-        <div style="display:flex; justify-content:center; margin-top:var(--space-12);" aria-label="Navigasi halaman">
-          {{ $artikel->withQueryString()->links() }}
-        </div>
+          {{ $artikel->withQueryString()->links('vendor.pagination.default') }}
       @endif
     @else
       <div class="text-center" style="padding:var(--space-16) 0;">

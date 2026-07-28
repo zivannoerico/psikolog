@@ -83,10 +83,8 @@
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
       </div>
       <?php if($artikel->hasPages()): ?>
-        <div style="display:flex; justify-content:center; margin-top:var(--space-12);" aria-label="Navigasi halaman">
-          <?php echo e($artikel->withQueryString()->links()); ?>
+          <?php echo e($artikel->withQueryString()->links('vendor.pagination.default')); ?>
 
-        </div>
       <?php endif; ?>
     <?php else: ?>
       <div class="text-center" style="padding:var(--space-16) 0;">
