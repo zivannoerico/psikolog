@@ -34,6 +34,19 @@ class ArtikelController extends Controller
     {
         $data = $request->validated();
         
+        if (isset($data['kategori_id'])) {
+            $data['kategori_artikel_id'] = $data['kategori_id'];
+            unset($data['kategori_id']);
+        }
+
+        if (empty($data['penulis'])) {
+            $data['penulis'] = auth()->user()->name ?? 'Admin';
+        }
+
+        if (($data['status'] ?? '') === 'published' && empty($data['published_at'])) {
+            $data['published_at'] = now();
+        }
+        
         if ($request->has('tags') && !empty($data['tags'])) {
             $data['tags'] = array_map('trim', explode(',', $data['tags']));
         } else {
@@ -58,6 +71,15 @@ class ArtikelController extends Controller
     public function update(ArtikelRequest $request, Artikel $artikel)
     {
         $data = $request->validated();
+
+        if (isset($data['kategori_id'])) {
+            $data['kategori_artikel_id'] = $data['kategori_id'];
+            unset($data['kategori_id']);
+        }
+
+        if (empty($data['penulis'])) {
+            $data['penulis'] = $artikel->penulis ?? auth()->user()->name ?? 'Admin';
+        }
 
         if ($request->has('tags') && !empty($data['tags'])) {
             $data['tags'] = array_map('trim', explode(',', $data['tags']));

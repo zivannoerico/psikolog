@@ -72,30 +72,34 @@
                                 <div>
                                     <label class="block text-sm font-bold text-slate-700 mb-2">Gambar Sampul</label>
                                     
-                                    @if($artikel->gambar_utama)
-                                    <div class="mb-4">
-                                        <p class="text-xs text-slate-500 mb-2">Sampul saat ini:</p>
-                                        <div class="h-32 w-full rounded-xl border border-slate-200 bg-white overflow-hidden shadow-inner">
-                                            <img src="{{ asset('storage/' . $artikel->gambar_utama) }}" alt="Sampul" class="h-full w-full object-cover">
+                                    <div onclick="document.getElementById('gambar_utama').click()" class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-slate-200 border-dashed rounded-xl bg-white hover:bg-slate-50 transition-colors cursor-pointer relative overflow-hidden group">
+                                        <input id="gambar_utama" name="gambar_utama" type="file" class="hidden" accept="image/*" onchange="previewImage(this)">
+                                        
+                                        <div id="upload_placeholder" class="space-y-2 text-center w-full">
+                                            @if($artikel->gambar_utama)
+                                                <div class="h-36 w-full rounded-lg overflow-hidden shadow-sm relative group-hover:opacity-90 transition-opacity">
+                                                    <img id="current_image" src="{{ asset('storage/' . $artikel->gambar_utama) }}" alt="Sampul saat ini" class="h-full w-full object-cover">
+                                                </div>
+                                                <p class="text-xs text-indigo-600 font-medium">Klik untuk mengubah gambar sampul</p>
+                                            @else
+                                                <svg class="mx-auto h-12 w-12 text-slate-300 group-hover:text-indigo-500 transition-colors" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
+                                                    <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                                </svg>
+                                                <div class="flex text-sm text-slate-600 justify-center">
+                                                    <span class="inline-flex items-center px-3 py-1.5 rounded-lg font-bold text-indigo-600 bg-indigo-50 group-hover:bg-indigo-100 transition-colors">
+                                                        Upload baru
+                                                    </span>
+                                                </div>
+                                                <p class="text-xs text-slate-500">PNG, JPG, GIF up to 2MB</p>
+                                            @endif
                                         </div>
-                                    </div>
-                                    @endif
 
-                                    <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-slate-200 border-dashed rounded-xl bg-white hover:bg-slate-50 transition-colors">
-                                        <div class="space-y-2 text-center">
-                                            <svg class="mx-auto h-12 w-12 text-slate-300" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
-                                                <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                            </svg>
-                                            <div class="flex text-sm text-slate-600 justify-center">
-                                                <label for="gambar_utama" class="relative cursor-pointer bg-white rounded-md font-bold text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
-                                                    <span>Upload baru</span>
-                                                    <input id="gambar_utama" name="gambar_utama" type="file" class="sr-only" accept="image/*">
-                                                </label>
-                                            </div>
-                                            <p class="text-xs text-slate-500">PNG, JPG, GIF up to 2MB</p>
+                                        <div id="preview_container" class="hidden w-full text-center">
+                                            <img id="image_preview" class="max-h-48 mx-auto rounded-lg shadow-sm object-cover" src="#" alt="Preview Gambar Baru">
+                                            <p id="file_name" class="mt-2 text-xs font-semibold text-slate-600 truncate"></p>
+                                            <span class="inline-block mt-1 text-xs text-indigo-600 hover:underline">Klik untuk ganti gambar</span>
                                         </div>
                                     </div>
-                                    <p class="text-xs text-slate-500 mt-2 text-center">Abaikan jika tidak ingin mengubah sampul.</p>
                                     @error('gambar_utama') <p class="mt-2 text-sm text-red-500 font-medium">{{ $message }}</p> @enderror
                                 </div>
                             </div>
@@ -122,5 +126,23 @@
             // Prevent file drops on Trix editor for now, unless you handle upload
             event.preventDefault();
         });
+
+        function previewImage(input) {
+            const placeholder = document.getElementById('upload_placeholder');
+            const previewContainer = document.getElementById('preview_container');
+            const imagePreview = document.getElementById('image_preview');
+            const fileName = document.getElementById('file_name');
+
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    imagePreview.src = e.target.result;
+                    fileName.textContent = input.files[0].name;
+                    placeholder.classList.add('hidden');
+                    previewContainer.classList.remove('hidden');
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
     </script>
 </x-app-layout>
