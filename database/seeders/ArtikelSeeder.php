@@ -31,7 +31,7 @@ class ArtikelSeeder extends Seeder
                 'konten' => '<p>Pada hari Minggu (25/12), Yayasan An Moerty Banyuwangi telah melaksanakan Rapat Koordinasi, Rapat Kerja, dan Evaluasi di Taman Songgo Langit. Kegiatan ini bertujuan untuk meningkatkan koordinasi antar unit di Yayasan An Moerty serta memperkuat kerja sama tim An Moerty Banyuwangi.</p>
 <p>Acara Rakor, Raker dan Evaluasi Yayasan An Moerty di awali dengan kegiatan senam pagi dan relaksasi yang di pimpin oleh Ibu Betty Kumala F., S.Psi., M.Psi Psikolog., CH., CHt. Kemudian berlanjut ke acara inti, diawali dengan pemaparan materi “Tata Kelola Management Organisasi” oleh Bapak Busairi Syamsul Arifin, S.Ak yang telah bergabung menjadi bagian dari tim An Moerty Banyuwangi.</p>
 <p>Setelahnya masing-masing dari perwakilan unit PKBM An Moerty, Biro Psikologi An Moerty, dan SDLB An Moerty memaparkan laporan hasil kerja yang telah dicapai selama tahun 2022 dan rencana yang akan dilakukan masing-masing unit di tahun 2023. Terakhir Ibu Betty Kumala F., S.Psi., M.Psi., Psikolog., CH., CHt selaku Pembina Yayasan An Moerty Banyuwangi memberikan evaluasi terhadap hasil pemaparan tiap unit.</p>',
-                'gambar_utama' => 'https://psikologibanyuwangi.com/wp-content/uploads/2023/12/Yayasan-Anmoerty.jpg',
+                'gambar_utama' => 'artikel/artikel_01_yayasan.png',
                 'alt_gambar' => 'Yayasan An Moerty Banyuwangi Siap Menjalani Tahun 2023',
                 'published_at' => '2023-09-20T08:03:48',
             ],
@@ -42,7 +42,7 @@ class ArtikelSeeder extends Seeder
                 'slug' => 'dalam-rangka-hari-kesehatan-nasional-ke-58',
                 'excerpt' => 'Dalam rangka Hari Kesehatan Nasional ke 58, Tim RSUD Blambangan Banyuwangi yang terdiri dari Dokter, Perawat dan Psikolog yang juga merupakan Psikolog di Yayasan An Moerty Banyuwangi memberikan motiva',
                 'konten' => '<p>Dalam rangka Hari Kesehatan Nasional ke 58, Tim RSUD Blambangan Banyuwangi yang terdiri dari Dokter, Perawat dan Psikolog yang juga merupakan Psikolog di Yayasan An Moerty Banyuwangi memberikan motivasi, arahan, pengetahuan dan wawasan dengan tema DOREMI (Dokter Remaja Milenial), selain itu untuk tema Psikologi, Tim dari RSUD Blambangan Banyuwangi juga memberikan pengetahuan tentang Psikologi Remaja di SMAN 1 Giri Taruna Bangsa dan SMAN 1 Glagah Banyuwangi.</p>',
-                'gambar_utama' => 'https://psikologibanyuwangi.com/wp-content/uploads/2023/12/WhatsApp-Image-2022-12-21-at-11.59.11.jpeg',
+                'gambar_utama' => 'artikel/artikel_02_kesehatan.png',
                 'alt_gambar' => 'Dalam Rangka Hari Kesehatan Nasional ke 58',
                 'published_at' => '2023-09-20T08:20:21',
             ],
@@ -63,7 +63,7 @@ class ArtikelSeeder extends Seeder
 <p>Slamet Riyadi, salah psikolog yang melakukan assessment kepada para ABK menambahkan, jika para siswa yang hadir dilihat secara khusus di mana kelemahan dan kelebihan mereka dari delapan faktor kecerdasan anak.</p>
 <p>Dari situlah kemudian hasil assessment diberikan agar ke depan siswa bisa mendapatkan pembelajaran yang tepat di sekolah. “Ada siswa yang lambat dalam menerima materi, tapi kecerdasan motoriknya cukup tinggi. Bahkan sampai berprestasi di tingkat kabupaten. Ini yang kita beri penilaian dalam assessment,” ungkapnya. (fre/*/als)</p>
 <p>Sumber Berita : <a href="https://radarbanyuwangi.jawapos.com/read/2019/09/16/155960/ratusan-abk-di-assessment-psikolog-dan-dokter" target="_blank" rel="noopener noreferrer">https://radarbanyuwangi.jawapos.com/read/2019/09/16/155960/ratusan-abk-di-assessment-psikolog-dan-dokter</a></p>',
-                'gambar_utama' => 'https://psikologibanyuwangi.com/wp-content/uploads/2023/12/psikologi-banyuwangi0.jpg',
+                'gambar_utama' => 'artikel/artikel_03_abk.png',
                 'alt_gambar' => 'Ratusan ABK di-Assessment Psikolog dan Dokter',
                 'published_at' => '2023-09-20T08:32:01',
             ],
@@ -103,7 +103,7 @@ class ArtikelSeeder extends Seeder
 <p><strong>Dokumentasi Kegiatan<br />
 <img class="alignnone size-medium wp-image-2154" src="https://psikologibanyuwangi.com/wp-content/uploads/2023/11/tk1-300x225.jpg" alt="" width="300" height="225" /> <img class="alignnone size-medium wp-image-2152" src="https://psikologibanyuwangi.com/wp-content/uploads/2023/11/tk-2-300x225.jpg" alt="" width="300" height="225" /><br />
 </strong></p>',
-                'gambar_utama' => 'https://psikologibanyuwangi.com/wp-content/uploads/2023/11/tk.jpg',
+                'gambar_utama' => 'artikel/artikel_04_parenting.png',
                 'alt_gambar' => 'Membentuk Karakter dan Bakat Anak Banyuwangi Melalui Assessment Psikologi dan Parenting',
                 'published_at' => '2023-11-19T12:43:49',
             ],
@@ -127,7 +127,7 @@ class ArtikelSeeder extends Seeder
 <p>Melalui Bimtek Pendidikan Inklusif ini, diharapkan Guru Pembimbing Khusus dapat menjadi agen perubahan di tingkat lokal. Dengan meningkatnya pemahaman dan keterampilan mereka, diharapkan pendidikan inklusif dapat menjadi sebuah kenyataan yang diadopsi secara luas di Kabupaten Bayuwangi. Dengan demikian, setiap anak, tanpa terkecuali, dapat mengakses pendidikan yang sesuai dengan potensi dan kebutuhannya.</p>
 <p>Bimtek Pendidikan Inklusif di Aula SMPN 1 Giri dan Aula SDN 4 Penganjuran bukan hanya sekadar pelatihan, melainkan langkah konkret dalam menyongsong masa depan pendidikan yang lebih inklusif dan merata.</p>
 <p></p>',
-                'gambar_utama' => 'https://psikologibanyuwangi.com/wp-content/uploads/2023/11/bimtek.jpg',
+                'gambar_utama' => 'artikel/artikel_05_bimtek.png',
                 'alt_gambar' => 'Bimtek Pendidikan Inklusif di Aula SMPN 1 Giri dan Aula SDN 4 Penganjuran',
                 'published_at' => '2023-11-20T03:13:49',
             ],
@@ -150,7 +150,7 @@ class ArtikelSeeder extends Seeder
 <p><strong>Dokumentasi Kegiatan:<br />
 <img class="alignnone size-medium wp-image-2145" src="https://psikologibanyuwangi.com/wp-content/uploads/2023/11/sa-1-300x225.jpg" alt="" width="300" height="225" /> <img class="alignnone size-medium wp-image-2141" src="https://psikologibanyuwangi.com/wp-content/uploads/2023/11/d-300x225.jpg" alt="" width="300" height="225" /><br />
 </strong></p>',
-                'gambar_utama' => 'https://psikologibanyuwangi.com/wp-content/uploads/2023/11/glagah.jpg',
+                'gambar_utama' => 'artikel/artikel_06_assessment.png',
                 'alt_gambar' => 'Assessment Psikologi Kelas XII di SMAN 1 Glagah Banyuwangi',
                 'published_at' => '2023-11-24T10:31:26',
             ],
@@ -174,7 +174,7 @@ class ArtikelSeeder extends Seeder
 <p>Dengan panduan dari Betty Kumala F., M. Psi, orang tua di Sekolah Taman Agung Cluring dapat merancang pola asuh yang mendukung perkembangan anak berkebutuhan khusus. Melalui pemahaman, komunikasi, dan dukungan yang konsisten, orang tua dapat menciptakan lingkungan yang positif dan inklusif, memberikan anak kesempatan untuk tumbuh dan berkembang sesuai dengan potensinya.</p>
 <p><strong>Dokementasi Kegiatan<br />
 <img class="alignnone size-medium wp-image-2257" src="https://psikologibanyuwangi.com/wp-content/uploads/2023/12/parenting-300x225.jpg" alt="" width="300" height="225" /> <img class="alignnone size-medium wp-image-2258" src="https://psikologibanyuwangi.com/wp-content/uploads/2023/12/parenting01-300x225.jpg" alt="" width="300" height="225" /></strong></p>',
-                'gambar_utama' => 'https://psikologibanyuwangi.com/wp-content/uploads/2023/12/parenting.jpg',
+                'gambar_utama' => 'artikel/artikel_07_abk_parenting.png',
                 'alt_gambar' => 'Panduan Parenting untuk Anak Berkebutuhan Khusus di Sekolah Taman Agung Cluring',
                 'published_at' => '2023-12-02T09:28:56',
             ],
@@ -196,7 +196,7 @@ class ArtikelSeeder extends Seeder
 <p><strong>Dokumentasi kegiatan </strong><br />
 <img class="alignnone size-medium wp-image-2270" src="https://psikologibanyuwangi.com/wp-content/uploads/2023/12/an-mory1-300x225.jpg" alt="" width="300" height="225" />    <img class="alignnone size-medium wp-image-2269" src="https://psikologibanyuwangi.com/wp-content/uploads/2023/12/An-mortyyyy-300x225.jpg" alt="" width="300" height="225" /></p>
 <p><img class="alignnone size-medium wp-image-2268" src="https://psikologibanyuwangi.com/wp-content/uploads/2023/12/an-mortyy-300x169.jpg" alt="" width="300" height="169" />    <img class="alignnone size-medium wp-image-2267" src="https://psikologibanyuwangi.com/wp-content/uploads/2023/12/an-morttty-300x169.jpg" alt="" width="300" height="169" /></p>',
-                'gambar_utama' => 'https://psikologibanyuwangi.com/wp-content/uploads/2023/12/anmorty.jpg',
+                'gambar_utama' => 'artikel/artikel_08_smpn3_parenting.jpg',
                 'alt_gambar' => 'Membangun Parenting Berkualitas Bersama Wali Murid SMPN 3 Banyuwangi untuk Anak Berkebutuhan Khusus',
                 'published_at' => '2023-12-11T05:11:05',
             ],
@@ -216,7 +216,7 @@ class ArtikelSeeder extends Seeder
 <p>Assessment psikologi di Akademi Penerbang Indonesia Banyuwangi bukan hanya suatu langkah dalam proses seleksi, tetapi merupakan fondasi untuk membangun generasi penerbang yang tidak hanya handal secara teknis tetapi juga stabil secara mental dan emosional. Dengan pemahaman mendalam dari Betty Kumala F., M. Psi, penerbangan diharapkan dapat terus menjadi profesi yang tidak hanya aman dan efisien, tetapi juga peduli terhadap kesejahteraan psikologis para penerbangnya.</p>
 <p><strong>Dokumentasi Kegiatan:<br />
 <img class="alignnone size-medium wp-image-2411" src="https://psikologibanyuwangi.com/wp-content/uploads/2023/12/api-300x225.jpg" alt="" width="300" height="225" /> <img class="alignnone size-medium wp-image-2410" src="https://psikologibanyuwangi.com/wp-content/uploads/2023/12/api-2-300x225.jpg" alt="" width="300" height="225" /></strong></p>',
-                'gambar_utama' => 'https://psikologibanyuwangi.com/wp-content/uploads/2023/12/api-1.jpg',
+                'gambar_utama' => 'artikel/artikel_09_penerbang.jpg',
                 'alt_gambar' => 'Assessment Psikologi di Akademi Penerbang Indonesia Banyuwangi',
                 'published_at' => '2023-12-30T12:21:53',
             ],
@@ -250,7 +250,7 @@ class ArtikelSeeder extends Seeder
 📲 <a href="https://wa.me/6282233392179" target="_blank" rel="noopener">0822-3339-2179</a><br />
 📍 Jl. Progo No.50, Singonegaran, Kec. Banyuwangi, Kabupaten Banyuwangi, Jawa Timur 68415</p>
 <p>👉 Konsultasi psikologi untuk dukung keberhasilan resolusi Anda sekarang juga!</p>',
-                'gambar_utama' => 'https://psikologibanyuwangi.com/wp-content/uploads/2025/11/psikologi-resolusi-1.jpg',
+                'gambar_utama' => 'artikel/artikel_10_resolusi.jpg',
                 'alt_gambar' => 'Psikologi Resolusi: Mengapa Resolusi Tahun Baru Sering Gagal dan Cara Memperbaikinya',
                 'published_at' => '2025-11-19T11:19:31',
             ],
@@ -281,7 +281,7 @@ class ArtikelSeeder extends Seeder
 📲 <a href="https://wa.me/6282233392179" target="_blank" rel="noopener">0822-3339-2179</a><br />
 📍 Jl. Progo No.50, Singonegaran, Kec. Banyuwangi, Kabupaten Banyuwangi, Jawa Timur 68415</p>
 <p>👉 Konsultasikan masalah mental dan tekanan emosional awal tahun bersama kami sekarang juga!</p>',
-                'gambar_utama' => 'https://psikologibanyuwangi.com/wp-content/uploads/2025/11/Mengenal-‘New-Year-New-Mental-Issues.jpg',
+                'gambar_utama' => 'artikel/artikel_11_mental_issues.jpg',
                 'alt_gambar' => 'Mengenal ‘New Year New Mental Issues’: Tekanan Emosional di Awal Tahun dari Tinjauan Psikologis',
                 'published_at' => '2025-11-20T09:21:02',
             ],
@@ -313,7 +313,7 @@ class ArtikelSeeder extends Seeder
 📲 <a href="https://wa.me/6282233392179" target="_blank" rel="noopener">0822-3339-2179</a><br />
 📍 Jl. Progo No.50, Singonegaran, Kec. Banyuwangi, Kabupaten Banyuwangi, Jawa Timur 68415</p>
 <p>👉 Konsultasikan pendidikan dan psikologi anak Anda sekarang untuk hasil terbaik!</p>',
-                'gambar_utama' => 'https://psikologibanyuwangi.com/wp-content/uploads/2025/11/Psikologi-Self-Esteem-Anak.jpg',
+                'gambar_utama' => 'artikel/artikel_12_self_esteem.jpg',
                 'alt_gambar' => 'Psikologi Self-Esteem Anak: Tips Membangun Kepercayaan Diri di Lingkungan Sekolah Banyuwangi',
                 'published_at' => '2025-11-21T09:21:02',
             ],
@@ -347,7 +347,7 @@ class ArtikelSeeder extends Seeder
 📲 <a href="https://wa.me/6282233392179" target="_blank" rel="noopener">0822-3339-2179</a><br />
 📍 Jl. Progo No.50, Singonegaran, Kec. Banyuwangi, Kabupaten Banyuwangi, Jawa Timur 68415</p>
 <p>👉 Mari kembangkan potensi positif Anda untuk komunitas yang lebih baik!</p>',
-                'gambar_utama' => 'https://psikologibanyuwangi.com/wp-content/uploads/2025/11/Psikologi-Membangun-Komunitas.jpg',
+                'gambar_utama' => 'artikel/artikel_13_komunitas.jpg',
                 'alt_gambar' => 'Psikologi Membangun Komunitas: Tips Menjadi Individu Berkontribusi Positif',
                 'published_at' => '2025-11-22T09:20:42',
             ],
@@ -384,7 +384,7 @@ class ArtikelSeeder extends Seeder
 📲 <a href="https://wa.me/6282233392179" target="_blank" rel="noopener">0822-3339-2179</a><br />
 📍 Jl. Progo No.50, Singonegaran, Kec. Banyuwangi, Kabupaten Banyuwangi, Jawa Timur 68415</p>
 <p>👉 Konsultasikan kebutuhan psikologis dan ruang kerja Anda sekarang juga!</p>',
-                'gambar_utama' => 'https://psikologibanyuwangi.com/wp-content/uploads/2025/11/Cara-Efektif-Menggunakan-Jeda-Istirahat.jpg',
+                'gambar_utama' => 'artikel/artikel_14_jeda_kreativitas.jpg',
                 'alt_gambar' => 'Cara Efektif Menggunakan Jeda untuk Meningkatkan Kreativitas dan Fokus',
                 'published_at' => '2025-11-23T09:20:38',
             ],
@@ -416,7 +416,7 @@ class ArtikelSeeder extends Seeder
 📲 <a href="https://wa.me/6282233392179" target="_blank" rel="noopener">0822-3339-2179</a><br />
 📍 Jl. Progo No.50, Singonegaran, Kec. Banyuwangi, Kabupaten Banyuwangi, Jawa Timur 68415</p>
 <p>👉 Konsultasikan stres akademik Anda dengan ahli psikologi profesional sekarang juga!</p>',
-                'gambar_utama' => 'https://psikologibanyuwangi.com/wp-content/uploads/2025/11/Tekanan-Akademik-dan-stres-akademik-1.jpg',
+                'gambar_utama' => 'artikel/artikel_15_stres_akademik.jpg',
                 'alt_gambar' => 'Tekanan Akademik dan Stres Akademik: Strategi Psikologis untuk Mahasiswa',
                 'published_at' => '2025-11-24T09:20:40',
             ],
@@ -452,7 +452,7 @@ class ArtikelSeeder extends Seeder
 📲 <a href="https://wa.me/6282233392179" target="_blank" rel="noopener">0822-3339-2179</a><br />
 📍 Jl. Progo No.50, Singonegaran, Kec. Banyuwangi, Kabupaten Banyuwangi, Jawa Timur 68415</p>
 <p>👉 Konsultasikan cara efektif menjaga kesehatan mental di era digital bersama ahli kami!</p>',
-                'gambar_utama' => 'https://psikologibanyuwangi.com/wp-content/uploads/2025/11/Panduan-Lengkap-Digital-Detox.jpg',
+                'gambar_utama' => 'artikel/artikel_16_digital_detox.jpg',
                 'alt_gambar' => 'Panduan Lengkap Digital Detox: Mengistirahatkan Otak dari Overload Informasi',
                 'published_at' => '2025-11-25T09:20:38',
             ],
@@ -484,7 +484,7 @@ class ArtikelSeeder extends Seeder
 📲 <a href="https://wa.me/6282233392179" target="_blank" rel="noopener">0822-3339-2179</a><br />
 📍 Jl. Progo No. 59 Banyuwangi, Jawa Timur</p>
 <p>👉 Konsultasikan kondisi psikologis Anda dan raih ketenangan hati menjelang tahun baru!</p>',
-                'gambar_utama' => 'https://psikologibanyuwangi.com/wp-content/uploads/2025/12/Cara-Efektif-Menggunakan-Jeda-Istirahat.jpg',
+                'gambar_utama' => 'artikel/artikel_17_refleksi.jpg',
                 'alt_gambar' => 'Refleksi Akhir Tahun: Cara Berdamai dengan Kegagalan di Tahun 2025',
                 'published_at' => '2025-12-24T12:14:43',
             ],
@@ -518,7 +518,7 @@ class ArtikelSeeder extends Seeder
 📲 <a href="https://wa.me/6282233392179" target="_blank" rel="noopener">0822-3339-2179</a><br />
 📍 Jl. Progo No. 59 Banyuwangi, Jawa Timur</p>
 <p>👉 Konsultasikan masalah kecanduan gadget anak Anda dengan ahlinya sekarang juga!</p>',
-                'gambar_utama' => 'https://psikologibanyuwangi.com/wp-content/uploads/2025/12/Psikologi-Self-Esteem-Anak.jpg',
+                'gambar_utama' => 'artikel/artikel_18_gadget_anak.jpg',
                 'alt_gambar' => 'Anak Kecanduan Gadget Saat Libur Sekolah? Ini Cara Membatasinya',
                 'published_at' => '2025-12-29T07:10:56',
             ],
@@ -552,7 +552,7 @@ class ArtikelSeeder extends Seeder
 <p>💡 Jangan tunggu masalah psikologis Anda semakin parah tanpa penanganan profesional</p>
 <p>📞 Hubungi Kami:<br />📌 An Moerty Psikologi Banyuwangi<br />📲 <a href=\'https://wa.me/6282233392179\' target=\'_blank\' rel=\'noopener\'>0822-3339-2179</a><br />📍 Jl. Progo No. 59 Banyuwangi, Jawa Timur</p>
 <p>👉 Konsultasi sekarang dan dapatkan solusi terbaik untuk kesehatan mental Anda!</p>',
-                'gambar_utama' => 'https://psikologibanyuwangi.com/wp-content/uploads/2026/01/Psikologi-Self-Esteem-Anak.jpg',
+                'gambar_utama' => 'artikel/artikel_19_konsultasi_psikolog.jpg',
                 'alt_gambar' => 'Tanda-tanda Anda Butuh Konsultasi ke Psikolog: Jangan Tunggu Parah',
                 'published_at' => '2026-01-24T07:10:56',
             ],
@@ -595,7 +595,7 @@ class ArtikelSeeder extends Seeder
 <p>💡 Merasa bingung dengan arah hidup di usia 20-an? Kami siap membantu Anda memahami dan mengatasi quarter life crisis dengan pendekatan profesional.</p>
 <p>📞 Hubungi Kami:<br />📌 An Moerty Psikologi Banyuwangi<br />📲 <a href=\'https://wa.me/6282233392179\' target=\'_blank\' rel=\'noopener\'>0822-3339-2179</a><br />📍 Jl. Progo No. 59 Banyuwangi, Jawa Timur</p>
 <p>👉 Konsultasi sekarang dan dapatkan panduan hidup yang lebih jelas!</p>',
-                'gambar_utama' => 'https://psikologibanyuwangi.com/wp-content/uploads/2026/01/Strategi-Mindfulness-di-Kawah-Ijen.jpg',
+                'gambar_utama' => 'artikel/artikel_20_quarter_life.jpg',
                 'alt_gambar' => 'Menghadapi Quarter Life Crisis di Usia 20-an: Bingung Arah Hidup?',
                 'published_at' => '2026-01-26T07:10:56',
             ],
@@ -625,7 +625,7 @@ class ArtikelSeeder extends Seeder
 <p>💡 Ingin memahami lebih dalam tentang perbedaan self-love dan egois untuk hidup lebih harmonis di bulan kasih sayang?</p>
 <p>📞 Hubungi Kami:<br />📌 An Moerty Psikologi Banyuwangi<br />📲 <a href=\'https://wa.me/6282233392179\' target=\'_blank\' rel=\'noopener\'>0822-3339-2179</a><br />📍 Jl. Progo No. 59 Banyuwangi, Jawa Timur</p>
 <p>👉 Konsultasi psikologi untuk membangun self-love dan hubungan yang sehat sekarang juga!</p>',
-                'gambar_utama' => 'https://psikologibanyuwangi.com/wp-content/uploads/2026/02/Strategi-Mindfulness-di-Kawah-Ijen.jpg',
+                'gambar_utama' => 'artikel/artikel_21_self_love.jpg',
                 'alt_gambar' => 'Self-Love vs Egois: Memahami Perbedaannya di Bulan Kasih Sayang',
                 'published_at' => '2026-02-02T07:10:47',
             ],
@@ -660,7 +660,7 @@ class ArtikelSeeder extends Seeder
 <p>💡 Ingin mengajarkan puasa pada anak usia dini dengan cara yang efektif dan tanpa paksaan?</p>
 <p>📞 Hubungi Kami:<br />📌 An Moerty Psikologi Banyuwangi<br />📲 <a href=\'https://wa.me/6282233392179\' target=\'_blank\' rel=\'noopener\'>0822-3339-2179</a><br />📍 Jl. Progo No. 59 Banyuwangi, Jawa Timur</p>
 <p>👉 Konsultasi gratis dan pelajari cara mendidik anak berpuasa dengan penuh kasih sayang!</p>',
-                'gambar_utama' => 'https://psikologibanyuwangi.com/wp-content/uploads/2026/02/Psikologi-Self-Esteem-Anak.jpg',
+                'gambar_utama' => 'artikel/artikel_22_puasa_anak.jpg',
                 'alt_gambar' => 'Mengajarkan Konsep Puasa pada Anak Usia Dini Tanpa Paksaan dengan Cara Efektif',
                 'published_at' => '2026-02-12T07:10:55',
             ],
@@ -689,7 +689,7 @@ class ArtikelSeeder extends Seeder
 <p>💡 Ingin belajar cara menjawab pertanyaan sensitif tanpa baper dan tetap menjaga hubungan sosial yang baik?</p>
 <p>📞 Hubungi Kami:<br />📌 An Moerty Psikologi Banyuwangi<br />📲 <a href=\'https://wa.me/62822233392179\' target=\'_blank\' rel=\'noopener\'>0822-3339-2179</a><br />📍 Jl. Progo No. 59 Banyuwangi, Jawa Timur</p>
 <p>👉 Konsultasi psikologi dengan tenaga ahli untuk solusi tepat menghadapi pertanyaan pribadi!</p>',
-                'gambar_utama' => 'https://psikologibanyuwangi.com/wp-content/uploads/2026/03/Cara-Efektif-Menggunakan-Jeda-Istirahat.jpg',
+                'gambar_utama' => 'artikel/artikel_23_nikah.jpg',
                 'alt_gambar' => 'Cara Menjawab Pertanyaan Kapan Nikah/Punya Anak Tanpa Baper dengan Bijak',
                 'published_at' => '2026-03-02T07:11:31',
             ],
@@ -718,7 +718,7 @@ class ArtikelSeeder extends Seeder
 <p>💡 Butuh panduan tepat mendampingi anak ujian tanpa menambah tekanan agar hasil maksimal?</p>
 <p>📞 Hubungi Kami:<br />📌 An Moerty Psikologi Banyuwangi<br />📲 <a href=\'https://wa.me/6282233392179\' target=\'_blank\' rel=\'noopener\'>0822-3339-2179</a><br />📍 Jl. Progo No. 59 Banyuwangi, Jawa Timur</p>
 <p>👉 Konsultasikan cara terbaik mendampingi anak dengan ahli psikologi profesional sekarang juga!</p>',
-                'gambar_utama' => 'https://psikologibanyuwangi.com/wp-content/uploads/2026/04/Tekanan-Akademik-dan-stres-akademik.jpg',
+                'gambar_utama' => 'artikel/artikel_24_ujian_anak.jpg',
                 'alt_gambar' => 'Peran Orang Tua Mendampingi Anak Ujian: Jangan Menambah Tekanan',
                 'published_at' => '2026-04-05T07:10:29',
             ],
@@ -767,7 +767,7 @@ class ArtikelSeeder extends Seeder
 <li><strong>Kesehatan Mental yang Stabil:</strong> Membangun fondasi emosional yang kuat untuk jangka panjang.</li>
 </ul>
 <p>An Moerty hadir sebagai jawaban atas kebutuhan akan pendampingan psikologi yang andal bagi siswa. Dengan pendekatan yang terstruktur dan didukung oleh para ahli, mereka berkomitmen untuk membantu setiap siswa mengatasi hambatan dan meraih potensi akademik serta personal terbaiknya.</p>',
-                'gambar_utama' => 'https://psikologibanyuwangi.com/wp-content/uploads/2026/07/an-moerty-solusi-psikologi-konseling-terpercaya-untuk-mengatasi-hambatan-dan-optimasi-belajar-siswa-img12.webp',
+                'gambar_utama' => 'artikel/artikel_25_anmoerty.jpg',
                 'alt_gambar' => 'pisikologi',
                 'published_at' => '2026-07-13T14:29:51',
             ],

@@ -11,21 +11,27 @@ class LayananSeeder extends Seeder
     public function run(): void
     {
         // === KATEGORI ===
-        $assessment = KategoriLayanan::create([
+        $assessment = KategoriLayanan::updateOrCreate(
+            ['slug'   => 'psychological-assessment'],
+            [
             'nama'   => 'Psychological Assessment',
             'slug'   => 'psychological-assessment',
             'ikon'   => 'clipboard-check',
             'urutan' => 1,
         ]);
 
-        $counseling = KategoriLayanan::create([
+        $counseling = KategoriLayanan::updateOrCreate(
+            ['slug'   => 'counseling'],
+            [
             'nama'   => 'Counseling',
             'slug'   => 'counseling',
             'ikon'   => 'heart-handshake',
             'urutan' => 2,
         ]);
 
-        $training = KategoriLayanan::create([
+        $training = KategoriLayanan::updateOrCreate(
+            ['slug'   => 'training'],
+            [
             'nama'   => 'Training',
             'slug'   => 'training',
             'ikon'   => 'users',
@@ -35,11 +41,14 @@ class LayananSeeder extends Seeder
         // === LAYANAN ===
 
         // 1. Psikotes
-        Layanan::create([
+        Layanan::updateOrCreate(
+            ['slug'             => 'psikotes'],
+            [
             'kategori_layanan_id' => $assessment->id,
             'nama'             => 'Psikotes',
             'slug'             => 'psikotes',
             'ikon'             => 'clipboard-list',
+            'gambar'           => 'layanan/layanan_psikotes.jpg',
             'deskripsi_singkat' => 'Layanan tes psikologi terstandarisasi untuk mengukur kemampuan kognitif, kepribadian, dan potensi individu.',
             'deskripsi_lengkap' => '<p>Psikotes (Tes Psikologi) merupakan serangkaian tes yang dirancang untuk mengukur kemampuan kognitif, kepribadian, bakat, minat, dan potensi seseorang secara objektif dan terstandarisasi.</p><p>Layanan Psikotes An Moerty Psikologi Banyuwangi menggunakan instrumen tes yang telah teruji validitas dan reliabilitasnya, dikelola oleh psikolog berpengalaman lebih dari 10 tahun.</p>',
             'manfaat' => [
@@ -63,11 +72,14 @@ class LayananSeeder extends Seeder
         ]);
 
         // 2. Interview
-        Layanan::create([
+        Layanan::updateOrCreate(
+            ['slug'             => 'interview'],
+            [
             'kategori_layanan_id' => $assessment->id,
             'nama'             => 'Interview',
             'slug'             => 'interview',
             'ikon'             => 'message-circle',
+            'gambar'           => 'layanan/layanan_interview.jpg',
             'deskripsi_singkat' => 'Layanan wawancara psikologis terstruktur untuk mengungkap kompetensi, motivasi, dan kesesuaian kandidat.',
             'deskripsi_lengkap' => '<p>Layanan Interview Psikologis kami menggunakan teknik wawancara berbasis kompetensi (Competency-Based Interview) yang terstruktur dan sistematis untuk menggali potensi, motivasi, serta kesesuaian kandidat dengan posisi dan budaya organisasi.</p>',
             'manfaat' => [
@@ -91,11 +103,14 @@ class LayananSeeder extends Seeder
         ]);
 
         // 3. FGD
-        Layanan::create([
+        Layanan::updateOrCreate(
+            ['slug'             => 'fgd'],
+            [
             'kategori_layanan_id' => $assessment->id,
             'nama'             => 'FGD (Focus Group Discussion)',
             'slug'             => 'fgd',
             'ikon'             => 'users-round',
+            'gambar'           => 'layanan/layanan_fgd.jpg',
             'deskripsi_singkat' => 'Simulasi diskusi kelompok terstruktur untuk mengamati kemampuan kepemimpinan, kerja sama tim, dan komunikasi kandidat.',
             'deskripsi_lengkap' => '<p>Focus Group Discussion (FGD) adalah metode asesmen kelompok yang mengamati perilaku nyata kandidat dalam situasi kerja tim yang disimulasikan. FGD efektif untuk mengungkap kompetensi kepemimpinan, kemampuan berargumentasi, dan keterampilan interpersonal.</p>',
             'manfaat' => [
@@ -119,11 +134,14 @@ class LayananSeeder extends Seeder
         ]);
 
         // 4. Konseling Kerja Karyawan
-        Layanan::create([
+        Layanan::updateOrCreate(
+            ['slug'             => 'konseling-kerja'],
+            [
             'kategori_layanan_id' => $counseling->id,
             'nama'             => 'Konseling Kerja Karyawan',
             'slug'             => 'konseling-kerja',
             'ikon'             => 'briefcase',
+            'gambar'           => 'layanan/layanan_konseling_kerja.jpg',
             'deskripsi_singkat' => 'Layanan konseling profesional untuk membantu karyawan mengatasi permasalahan terkait pekerjaan dan meningkatkan produktivitas.',
             'deskripsi_lengkap' => '<p>Konseling Kerja Karyawan adalah layanan dukungan psikologis yang dirancang untuk membantu karyawan menghadapi berbagai tantangan di lingkungan kerja, meningkatkan performa, dan menjaga kesehatan mental di tempat kerja.</p>',
             'manfaat' => [
@@ -147,11 +165,14 @@ class LayananSeeder extends Seeder
         ]);
 
         // 5. Konseling Permasalahan Karyawan
-        Layanan::create([
+        Layanan::updateOrCreate(
+            ['slug'             => 'konseling-masalah'],
+            [
             'kategori_layanan_id' => $counseling->id,
             'nama'             => 'Konseling Permasalahan Karyawan',
             'slug'             => 'konseling-masalah',
             'ikon'             => 'shield-heart',
+            'gambar'           => 'layanan/layanan_konseling_masalah.jpg',
             'deskripsi_singkat' => 'Layanan konseling untuk membantu karyawan menyelesaikan permasalahan pribadi yang berdampak pada kinerja dan kehidupan kerja.',
             'deskripsi_lengkap' => '<p>Konseling Permasalahan Karyawan memberikan ruang aman bagi karyawan untuk membicarakan dan menyelesaikan berbagai permasalahan personal yang mempengaruhi kinerja mereka di tempat kerja, dengan pendampingan psikolog berpengalaman.</p>',
             'manfaat' => [
@@ -175,11 +196,14 @@ class LayananSeeder extends Seeder
         ]);
 
         // 6. Training Indoor
-        Layanan::create([
+        Layanan::updateOrCreate(
+            ['slug'             => 'training-indoor'],
+            [
             'kategori_layanan_id' => $training->id,
             'nama'             => 'Training Indoor',
             'slug'             => 'training-indoor',
             'ikon'             => 'presentation',
+            'gambar'           => 'layanan/layanan_training_indoor.jpg',
             'deskripsi_singkat' => 'Program pelatihan di dalam ruangan yang berfokus pada pengembangan kompetensi, keterampilan interpersonal, dan kapasitas tim.',
             'deskripsi_lengkap' => '<p>Training Indoor An Moerty Psikologi dirancang dengan pendekatan experiential learning yang menggabungkan teori, praktik, dan refleksi. Program ini efektif untuk meningkatkan kompetensi individu dan memperkuat sinergi tim secara terstruktur.</p>',
             'manfaat' => [
@@ -203,11 +227,14 @@ class LayananSeeder extends Seeder
         ]);
 
         // 7. Training Outdoor
-        Layanan::create([
+        Layanan::updateOrCreate(
+            ['slug'             => 'training-outdoor'],
+            [
             'kategori_layanan_id' => $training->id,
             'nama'             => 'Training Outdoor',
             'slug'             => 'training-outdoor',
             'ikon'             => 'mountain-snow',
+            'gambar'           => 'layanan/layanan_training_outdoor.jpg',
             'deskripsi_singkat' => 'Program pelatihan di luar ruangan yang menggabungkan aktivitas alam dengan pengembangan tim, kepemimpinan, dan karakter.',
             'deskripsi_lengkap' => '<p>Training Outdoor An Moerty Psikologi menggunakan alam terbuka sebagai media pembelajaran yang efektif. Melalui aktivitas yang menantang dan menyenangkan, peserta mengalami pembelajaran langsung tentang kerja tim, kepemimpinan, dan pengembangan karakter.</p>',
             'manfaat' => [
