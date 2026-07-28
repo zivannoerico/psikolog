@@ -6,23 +6,24 @@
 
 
 <section class="hero" aria-labelledby="hero-heading">
-  <div class="hero-inner">
-    <div class="hero-content">
-      <span class="hero-label" aria-hidden="true">Layanan Psikologi & Konseling Terpercaya</span>
-      <h1 class="hero-title" id="hero-heading">
-        Buka Potensi Terbaik<br>
-        <span class="accent">Diri Anda</span>
-      </h1>
-      <p class="hero-subtitle">
-        Bersama tim Psikolog An Moerty yang berpengalaman lebih dari 10 tahun, kami siap memandu Anda untuk mengenali potensi, mengatasi tantangan, dan mengoptimalkan kualitas diri.
-      </p>
-      <div class="hero-actions">
-        <a href="<?php echo e(route('layanan.index')); ?>" class="btn btn--primary btn--lg">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-          Lihat Layanan
-        </a>
-        <a href="https://wa.me/<?php echo e(preg_replace('/^0/', '62', preg_replace('/[^0-9]/', '', \App\Models\Setting::get('kontak_telpon', '082233392179')))); ?>?text=<?php echo e(urlencode(\App\Models\Setting::get('wa_pesan_default', 'Halo An Moerty Psikologi, saya ingin berkonsultasi. Apakah bisa bantu saya?'))); ?>" class="btn btn--outline btn--lg" target="_blank" rel="noopener noreferrer">
-          <?php if (isset($component)) { $__componentOriginaledff2ccfeec601febf5e74cf0afbb38c = $component; } ?>
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <span class="hero-label" aria-hidden="true">Layanan Psikologi & Konseling Terpercaya</span>
+        <h1 class="hero-title" id="hero-heading">
+          Buka Potensi Terbaik<br>
+          <span class="accent">Diri Anda</span>
+        </h1>
+        <p class="hero-subtitle">
+          Bersama tim Psikolog An Moerty yang berpengalaman lebih dari 10 tahun, kami siap memandu Anda untuk mengenali potensi, mengatasi tantangan, dan mengoptimalkan kualitas diri.
+        </p>
+        <div class="hero-actions">
+          <a href="<?php echo e(route('layanan.index')); ?>" class="btn btn--primary btn--lg">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            Lihat Layanan
+          </a>
+          <a href="https://wa.me/<?php echo e(preg_replace('/^0/', '62', preg_replace('/[^0-9]/', '', \App\Models\Setting::get('kontak_telpon', '082233392179')))); ?>?text=<?php echo e(urlencode(\App\Models\Setting::get('wa_pesan_default', 'Halo An Moerty Psikologi, saya ingin berkonsultasi. Apakah bisa bantu saya?'))); ?>" class="btn btn--outline btn--lg" target="_blank" rel="noopener noreferrer">
+            <?php if (isset($component)) { $__componentOriginaledff2ccfeec601febf5e74cf0afbb38c = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginaledff2ccfeec601febf5e74cf0afbb38c = $attributes; } ?>
 <?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.icon.phone','data' => ['style' => 'width: 18px; height: 18px;']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('icon.phone'); ?>
@@ -42,21 +43,22 @@
 <?php $component = $__componentOriginaledff2ccfeec601febf5e74cf0afbb38c; ?>
 <?php unset($__componentOriginaledff2ccfeec601febf5e74cf0afbb38c); ?>
 <?php endif; ?>
-          Hubungi Kami
-        </a>
+            Hubungi Kami
+          </a>
+        </div>
       </div>
-    </div>
 
-    <div class="hero-visual" aria-hidden="true">
-      <div class="hero-img-wrap">
-        <img
-          src="<?php echo e(\App\Models\Setting::get('hero_gambar') ? asset('storage/' . \App\Models\Setting::get('hero_gambar')) : 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=800&q=80'); ?>"
-          alt="Psikolog An Moerty Banyuwangi memberikan konseling profesional"
-          class="hero-img-main"
-          loading="eager"
-          fetchpriority="high"
-          width="520"
-          height="650">
+      <div class="hero-visual" aria-hidden="true">
+        <div class="hero-img-wrap">
+          <img
+            src="<?php echo e(\App\Models\Setting::get('hero_gambar') ? asset('storage/' . \App\Models\Setting::get('hero_gambar')) : asset('images/hero-psikologi.webp')); ?>"
+            alt="Psikolog An Moerty Banyuwangi memberikan konseling profesional"
+            class="hero-img-main"
+            loading="eager"
+            fetchpriority="high"
+            width="520"
+            height="650">
+        </div>
       </div>
     </div>
   </div>
@@ -95,7 +97,7 @@
 
       <div class="about-visual reveal">
         <img
-          src="<?php echo e(\App\Models\Setting::get('tentang_gambar') ? asset('storage/' . \App\Models\Setting::get('tentang_gambar')) : 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=700&q=80'); ?>"
+          src="<?php echo e(\App\Models\Setting::get('tentang_gambar') ? asset('storage/' . \App\Models\Setting::get('tentang_gambar')) : asset('images/bu-betty.webp')); ?>"
           alt="Tim psikolog An Moerty Psikologi Banyuwangi"
           class="about-img"
           loading="lazy"
@@ -410,4 +412,4 @@
 </section>
 
 <?php $__env->stopSection(); ?>
-<?php echo $__env->make('layouts.frontend', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\psikolog\resources\views/frontend-home.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.frontend', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\ADVAN\Documents\psikolog\resources\views/frontend-home.blade.php ENDPATH**/ ?>

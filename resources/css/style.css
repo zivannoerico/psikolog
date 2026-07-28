@@ -711,15 +711,13 @@ h1, h2, h3, h4, h5, h6 {
 .hero-content {
   position: relative;
   z-index: 2;
-  padding: var(--space-16) var(--space-8);
+  padding: var(--space-12) var(--space-4) var(--space-12) 0;
   max-width: 580px;
-  justify-self: end;
 }
 
 @media (min-width: 1200px) {
   .hero-content {
-    padding-right: var(--space-16);
-    padding-left: calc((100vw - var(--container-max)) / 2 + var(--space-8));
+    padding-right: var(--space-8);
   }
 }
 
@@ -2251,17 +2249,19 @@ textarea.form-control {
   }
 
   .hero-content {
-    padding: var(--space-12) var(--space-8) var(--space-8);
-    max-width: 600px;
-    margin: 0 auto;
-    text-align: center;
-    justify-self: center;
+    padding: var(--space-10) var(--space-6);
+    max-width: 100%;
+    text-align: left;
+    justify-self: stretch;
   }
 
-  .hero-visual { display: none; }
+  .hero-visual {
+    display: flex;
+    padding: var(--space-6);
+  }
 
-  .hero-actions { justify-content: center; }
-  .hero-subtitle { margin-left: auto; margin-right: auto; }
+  .hero-actions { justify-content: flex-start; }
+  .hero-subtitle { margin-left: 0; margin-right: 0; }
 
   .hero-stats-inner {
     justify-content: center;
@@ -2270,7 +2270,7 @@ textarea.form-control {
 
   .about-layout { grid-template-columns: 1fr; }
   .about-content { padding-right: 0; order: -1; }
-  .about-visual { display: none; }
+  .about-visual { display: flex; justify-content: center; }
 
   .contact-layout { grid-template-columns: 1fr; }
 
