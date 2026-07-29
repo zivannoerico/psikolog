@@ -166,7 +166,7 @@
 
     <a href="{{ route('artikel.index') }}" class="mobile-nav-link">Artikel</a>
     <a href="{{ route('faq.index') }}" class="mobile-nav-link">FAQ</a>
-    <a href="{{ route('tim.index') }}" class="mobile-nav-link">Tim Psikolog</a>
+
 
     <div style="padding-top: 1.5rem;">
       <a href="{{ route('kontak.index') }}" class="btn btn--primary btn--full">Konsultasi Gratis</a>
@@ -217,7 +217,7 @@
             <li><a href="{{ route('layanan.index') }}" class="footer-link">Layanan</a></li>
             <li><a href="{{ route('artikel.index') }}" class="footer-link">Artikel</a></li>
             <li><a href="{{ route('faq.index') }}" class="footer-link">FAQ</a></li>
-            <li><a href="{{ route('tim.index') }}" class="footer-link">Tim Psikolog</a></li>
+
             <li><a href="{{ route('kontak.index') }}" class="footer-link">Hubungi Kami</a></li>
           </ul>
         </div>

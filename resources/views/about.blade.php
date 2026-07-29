@@ -135,35 +135,7 @@
   </div>
 </section>
 
-{{-- Tim Psikolog --}}
-@if($tim->count())
-<section class="section section--alt" aria-labelledby="tim-heading">
-  <div class="container">
-    <div class="section-header section-header--center reveal">
-      <div class="section-label">Tim Kami</div>
-      <h2 class="section-title" id="tim-heading">Tim Psikolog An Moerty</h2>
-      <p class="section-subtitle">Didukung oleh psikolog berpengalaman dan berdedikasi tinggi untuk memberikan pelayanan terbaik.</p>
-    </div>
 
-    <div class="grid-auto-3">
-      @foreach($tim as $i => $psikolog)
-        <article class="psikolog-card reveal reveal-delay-{{ ($i % 3) + 1 }}" aria-labelledby="psik-{{ $psikolog->id }}">
-          @if($psikolog->foto)
-            <img src="{{ asset('storage/' . $psikolog->foto) }}" alt="Foto {{ $psikolog->nama_lengkap }}" class="psikolog-img" loading="lazy" width="100" height="100">
-          @else
-            <div class="psikolog-img" style="background:var(--clr-pink-light); display:flex; align-items:center; justify-content:center; font-family:var(--font-heading); font-weight:800; font-size:2rem; color:var(--clr-pink);" aria-hidden="true">{{ $psikolog->initials }}</div>
-          @endif
-          <h3 class="psikolog-name" id="psik-{{ $psikolog->id }}">{{ $psikolog->nama_lengkap }}</h3>
-          <p class="psikolog-title">{{ $psikolog->spesialisasi }}</p>
-          @if($psikolog->bio)
-            <p class="psikolog-bio">{{ Str::limit($psikolog->bio, 150) }}</p>
-          @endif
-        </article>
-      @endforeach
-    </div>
-  </div>
-</section>
-@endif
 
 {{-- Galeri --}}
 @if($galeri->count())

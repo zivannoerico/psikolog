@@ -412,4 +412,4 @@
 </section>
 
 <?php $__env->stopSection(); ?>
-<?php echo $__env->make('layouts.frontend', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\ADVAN\Documents\psikolog\resources\views/frontend-home.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.frontend', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\psikolog\resources\views/frontend-home.blade.php ENDPATH**/ ?>

@@ -185,7 +185,7 @@
 
     <a href="<?php echo e(route('artikel.index')); ?>" class="mobile-nav-link">Artikel</a>
     <a href="<?php echo e(route('faq.index')); ?>" class="mobile-nav-link">FAQ</a>
-    <a href="<?php echo e(route('tim.index')); ?>" class="mobile-nav-link">Tim Psikolog</a>
+
 
     <div style="padding-top: 1.5rem;">
       <a href="<?php echo e(route('kontak.index')); ?>" class="btn btn--primary btn--full">Konsultasi Gratis</a>
@@ -293,7 +293,7 @@
             <li><a href="<?php echo e(route('layanan.index')); ?>" class="footer-link">Layanan</a></li>
             <li><a href="<?php echo e(route('artikel.index')); ?>" class="footer-link">Artikel</a></li>
             <li><a href="<?php echo e(route('faq.index')); ?>" class="footer-link">FAQ</a></li>
-            <li><a href="<?php echo e(route('tim.index')); ?>" class="footer-link">Tim Psikolog</a></li>
+
             <li><a href="<?php echo e(route('kontak.index')); ?>" class="footer-link">Hubungi Kami</a></li>
           </ul>
         </div>
@@ -558,4 +558,4 @@
   </div>
 </body>
 </html>
-<?php /**PATH C:\Users\ADVAN\Documents\psikolog\resources\views/layouts/frontend.blade.php ENDPATH**/ ?>
+<?php /**PATH D:\psikolog\resources\views/layouts/frontend.blade.php ENDPATH**/ ?>

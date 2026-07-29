@@ -122,6 +122,7 @@ body {
 img, video, svg {
   display: block;
   max-width: 100%;
+  height: auto;
 }
 
 a {
@@ -2103,6 +2104,32 @@ textarea.form-control {
 .contact-info-text a:hover { color: var(--clr-pink-hover); }
 
 /* ============================================================
+   CONTACT PAGE
+   ============================================================ */
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: var(--space-12);
+  align-items: start;
+}
+
+.contact-map-wrap {
+  width: 100%;
+  aspect-ratio: 16/9;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-top: var(--space-8);
+  border: 1px solid var(--clr-border);
+}
+
+.contact-map-wrap iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+/* ============================================================
    SERVICE DETAIL PAGE
    ============================================================ */
 .layanan-detail-grid {
@@ -2209,6 +2236,61 @@ textarea.form-control {
 .prose blockquote { border-left: 3px solid var(--clr-pink); padding-left: 1.25em; font-style: italic; color: var(--clr-text-2); margin: 1.5em 0; }
 
 /* ============================================================
+   FORMS
+   ============================================================ */
+.form-group {
+  margin-bottom: var(--space-5);
+}
+
+.form-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--clr-text);
+  margin-bottom: var(--space-2);
+}
+
+.form-label .required {
+  color: var(--clr-pink);
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 0.9375rem;
+  font-family: inherit;
+  color: var(--clr-text);
+  background-color: var(--clr-bg-alt);
+  border: 1.5px solid var(--clr-border);
+  border-radius: var(--radius-sm);
+  transition: var(--tr-fast);
+}
+
+.form-control::placeholder {
+  color: var(--clr-text-3);
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--clr-pink);
+  background-color: var(--clr-white);
+  box-shadow: 0 0 0 3px var(--clr-pink-light);
+}
+
+.form-control.error {
+  border-color: #ef4444;
+}
+
+.form-error {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: #ef4444;
+  font-size: 0.8125rem;
+  margin-top: var(--space-2);
+}
+
+/* ============================================================
    UTILITY CLASSES
    ============================================================ */
 .text-center { text-align: center; }
@@ -2269,10 +2351,10 @@ textarea.form-control {
   }
 
   .about-layout { grid-template-columns: 1fr; }
-  .about-content { padding-right: 0; order: -1; }
+  .about-content { padding-right: 0; }
   .about-visual { display: flex; justify-content: center; }
 
-  .contact-layout { grid-template-columns: 1fr; }
+  .contact-layout { grid-template-columns: 1fr; gap: var(--space-8); }
 
   .layanan-detail-grid { grid-template-columns: 1fr; }
   .layanan-sidebar { position: static; }
@@ -2459,7 +2541,7 @@ textarea.form-control {
   .back-to-top { right: var(--space-4); bottom: calc(var(--space-5) + 56px); }
 
   .page-hero {
-    padding: calc(var(--navbar-h) + var(--space-8)) 0 var(--space-8);
+    padding: calc(var(--navbar-h) + var(--space-4)) 0 var(--space-8);
   }
   .page-hero-title { font-size: 1.75rem; }
   .page-hero-subtitle { font-size: 0.9375rem; }
@@ -2474,7 +2556,15 @@ textarea.form-control {
   }
   .footer-desc { font-size: 0.8125rem; }
 
-  .about-badge { display: none; }
+  .about-badge {
+    right: 0;
+    bottom: -15px;
+    padding: var(--space-2) var(--space-3);
+  }
+  .about-badge-icon { width: 32px; height: 32px; }
+  .about-badge-icon svg { width: 16px; height: 16px; }
+  .about-badge-text .num { font-size: 1rem; }
+  .about-badge-text .label { font-size: 0.65rem; }
   .hero-img-card { display: none; }
 
   /* Pagination mobile */

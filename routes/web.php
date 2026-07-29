@@ -37,8 +37,6 @@ Route::get('/faq', [FaqController::class, 'index'])->name('faq.index');
 
 Route::get('/testimoni', [TestimoniController::class, 'index'])->name('testimoni.index');
 
-Route::get('/tim-psikolog', [TimController::class, 'index'])->name('tim.index');
-
 Route::get('/dashboard', [\App\Http\Controllers\Admin\DashboardController::class, 'index'])
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
