@@ -946,7 +946,7 @@ h1, h2, h3, h4, h5, h6 {
    ============================================================ */
 .grid-auto-3 {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: var(--space-6);
 }
 
@@ -1424,14 +1424,7 @@ h1, h2, h3, h4, h5, h6 {
   height: 60px;
   width: auto;
   object-fit: contain;
-  filter: grayscale(100%) brightness(0.6);
-  opacity: 0.5;
   transition: var(--tr-base);
-}
-
-.klien-logo:hover {
-  filter: grayscale(0%) brightness(1);
-  opacity: 1;
 }
 
 @keyframes klien-scroll {
