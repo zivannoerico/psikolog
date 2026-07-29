@@ -63,35 +63,10 @@
     </div>
   </div>
 
-  <div class="hero-stats-bar">
-    <div class="container">
-      <div class="hero-stats-inner">
-        <div class="hero-stat-item">
-          <span class="hero-stat-num">10+</span>
-          <span class="hero-stat-label">Tahun Pengalaman</span>
-        </div>
-        <div class="hero-stat-divider" aria-hidden="true"></div>
-        <div class="hero-stat-item">
-          <span class="hero-stat-num">500+</span>
-          <span class="hero-stat-label">Klien Terlayani</span>
-        </div>
-        <div class="hero-stat-divider" aria-hidden="true"></div>
-        <div class="hero-stat-item">
-          <span class="hero-stat-num">7</span>
-          <span class="hero-stat-label">Jenis Layanan</span>
-        </div>
-        <div class="hero-stat-divider" aria-hidden="true"></div>
-        <div class="hero-stat-item">
-          <span class="hero-stat-num">100%</span>
-          <span class="hero-stat-label">Kerahasiaan Terjamin</span>
-        </div>
-      </div>
-    </div>
-  </div>
 </section>
 
 
-<section class="section" id="tentang" aria-labelledby="about-heading">
+<section class="section" id="tentang" aria-labelledby="about-heading" style="padding-top: 2rem;">
   <div class="container">
     <div class="about-layout">
 
@@ -142,11 +117,36 @@
           </div>
         </div>
 
+
+
         <div class="about-footer">
           <a href="<?php echo e(route('tentang')); ?>" class="btn btn--outline">
             Pelajari Lebih Lanjut
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
           </a>
+        </div>
+      </div>
+    </div>
+  </div> <!-- End of about container -->
+
+  <div class="about-stats-bar">
+    <div class="container">
+      <div class="about-stats-inner">
+        <div class="about-stat-item">
+          <div class="stat-num">10+</div>
+          <div class="stat-label">Tahun Pengalaman</div>
+        </div>
+        <div class="about-stat-item">
+          <div class="stat-num">500+</div>
+          <div class="stat-label">Klien Terlayani</div>
+        </div>
+        <div class="about-stat-item">
+          <div class="stat-num">7</div>
+          <div class="stat-label">Jenis Layanan</div>
+        </div>
+        <div class="about-stat-item">
+          <div class="stat-num">100%</div>
+          <div class="stat-label">Kerahasiaan Terjamin</div>
         </div>
       </div>
     </div>
