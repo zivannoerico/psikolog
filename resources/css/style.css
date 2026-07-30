@@ -2747,3 +2747,12 @@ textarea.form-control {
 
   .page-hero-title { font-size: 1.5rem; }
 }
+
+.desktop-only { display: flex !important; }
+@media (max-width: 1024px) {
+  .desktop-only { display: none !important; }
+  .mobile-only { display: block !important; }
+}
+@media (min-width: 1025px) {
+  .mobile-only { display: none !important; }
+}

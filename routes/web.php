@@ -55,6 +55,7 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(
     Route::resource('artikel', \App\Http\Controllers\Admin\ArtikelController::class);
     Route::resource('layanan', \App\Http\Controllers\Admin\LayananController::class);
     Route::resource('testimoni', \App\Http\Controllers\Admin\TestimoniController::class);
+    Route::resource('faq', \App\Http\Controllers\Admin\FaqController::class);
 });
 
 require __DIR__.'/auth.php';

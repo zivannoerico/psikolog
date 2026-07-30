@@ -99,12 +99,12 @@
                                     @error('urutan') <p class="mt-2 text-sm text-red-500 font-medium">{{ $message }}</p> @enderror
                                 </div>
 
-                                <div>
+                                <div x-data="{ aktif: {{ old('aktif', 1) ? 'true' : 'false' }} }">
                                     <label class="block text-sm font-bold text-slate-700 mb-2">Status Publikasi</label>
-                                    <label class="inline-flex items-center cursor-pointer">
-                                        <input type="checkbox" name="aktif" value="1" {{ old('aktif', '1') == '1' ? 'checked' : '' }} class="sr-only peer">
+                                    <label class="inline-flex items-center cursor-pointer mt-2">
+                                        <input type="checkbox" name="aktif" value="1" x-model="aktif" class="sr-only peer">
                                         <div class="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-indigo-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-indigo-600"></div>
-                                        <span class="ml-3 text-sm font-medium text-slate-700">Layanan Aktif</span>
+                                        <span class="ml-3 text-sm font-medium text-slate-700" x-text="aktif ? 'Ya, tampilkan' : 'Tidak, sembunyikan'"></span>
                                     </label>
                                     @error('aktif') <p class="mt-2 text-sm text-red-500 font-medium">{{ $message }}</p> @enderror
                                 </div>
