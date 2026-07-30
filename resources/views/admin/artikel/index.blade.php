@@ -26,7 +26,7 @@
                         </svg>
                     </div>
                     <div class="ml-3">
-                        <p class="text-sm font-medium text-emerald-800">
+                          <p class="text-sm font-medium text-emerald-800">
                             {{ session('success') }}
                         </p>
                     </div>

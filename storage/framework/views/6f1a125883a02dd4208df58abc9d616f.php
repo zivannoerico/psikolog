@@ -62,32 +62,8 @@
 
       
       <a href="<?php echo e(route('home')); ?>" class="navbar-logo" aria-label="An Moerty Psikologi — Beranda">
-        <div class="navbar-logo-icon" aria-hidden="true">
-          <?php if (isset($component)) { $__componentOriginal2b6f9fe004ca6dd33a48f4f6eb431ad9 = $component; } ?>
-<?php if (isset($attributes)) { $__attributesOriginal2b6f9fe004ca6dd33a48f4f6eb431ad9 = $attributes; } ?>
-<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.icon.logo','data' => ['class' => 'text-white','style' => 'width: 20px; height: 20px;']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
-<?php $component->withName('icon.logo'); ?>
-<?php if ($component->shouldRender()): ?>
-<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
-<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\AnonymousComponent::class))->getConstructor()): ?>
-<?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
-<?php endif; ?>
-<?php $component->withAttributes(['class' => 'text-white','style' => 'width: 20px; height: 20px;']); ?>
-<?php echo $__env->renderComponent(); ?>
-<?php endif; ?>
-<?php if (isset($__attributesOriginal2b6f9fe004ca6dd33a48f4f6eb431ad9)): ?>
-<?php $attributes = $__attributesOriginal2b6f9fe004ca6dd33a48f4f6eb431ad9; ?>
-<?php unset($__attributesOriginal2b6f9fe004ca6dd33a48f4f6eb431ad9); ?>
-<?php endif; ?>
-<?php if (isset($__componentOriginal2b6f9fe004ca6dd33a48f4f6eb431ad9)): ?>
-<?php $component = $__componentOriginal2b6f9fe004ca6dd33a48f4f6eb431ad9; ?>
-<?php unset($__componentOriginal2b6f9fe004ca6dd33a48f4f6eb431ad9); ?>
-<?php endif; ?>
-        </div>
-        <div class="navbar-logo-text">
-          <span class="brand">An Moerty</span>
-          <span class="tagline">Psikologi Banyuwangi</span>
-        </div>
+      <img src="<?php echo e(asset('images/logo.png')); ?>" alt="Logo An Moerty">
+       
       </a>
 
       
@@ -382,7 +358,7 @@
     <div class="footer-bottom">
       <div class="container">
         <div class="footer-bottom-inner">
-          <p class="footer-copy">&copy; <?php echo e(date('Y')); ?> Psikologi Banyuwangi. All Rights Reserved | By <a href="#" rel="noopener noreferrer">Semesta Multitekno</a></p>
+          <p class="footer-copy">&copy; <?php echo e(date('Y')); ?> Psikologi Banyuwangi. All Rights Reserved | By <a href="https://semesta.co.id/" target="_blank" rel="noopener noreferrer">Semesta <span style="color: var(--clr-pink);">Multitekno</span></a></p>
           <p class="footer-copy">
             <a href="<?php echo e(route('kontak.index')); ?>" style="color:rgba(255,255,255,0.4)">Hubungi Kami</a>
             &nbsp;·&nbsp;

@@ -263,7 +263,7 @@
     <div class="footer-bottom">
       <div class="container">
         <div class="footer-bottom-inner">
-          <p class="footer-copy">&copy; {{ date('Y') }} Psikologi Banyuwangi. All Rights Reserved | By <a href="#" rel="noopener noreferrer">Semesta Multitekno</a></p>
+          <p class="footer-copy">&copy; {{ date('Y') }} Psikologi Banyuwangi. All Rights Reserved | By <a href="https://semesta.co.id/" target="_blank" rel="noopener noreferrer">Semesta <span style="color: var(--clr-pink);">Multitekno</span></a></p>
           <p class="footer-copy">
             <a href="{{ route('kontak.index') }}" style="color:rgba(255,255,255,0.4)">Hubungi Kami</a>
             &nbsp;·&nbsp;

@@ -48,8 +48,32 @@
 
 </section>
 
+{{-- ===================== STATS BAR ===================== --}}
+<div class="about-stats-bar" style="margin-top: 0; padding: 2.5rem 0;">
+  <div class="container">
+    <div class="about-stats-inner">
+      <div class="about-stat-item">
+        <div class="stat-num">10+</div>
+        <div class="stat-label">Tahun Pengalaman</div>
+      </div>
+      <div class="about-stat-item">
+        <div class="stat-num">500+</div>
+        <div class="stat-label">Klien Terlayani</div>
+      </div>
+      <div class="about-stat-item">
+        <div class="stat-num">7</div>
+        <div class="stat-label">Jenis Layanan</div>
+      </div>
+      <div class="about-stat-item">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Kerahasiaan Terjamin</div>
+      </div>
+    </div>
+  </div>
+</div>
+
 {{-- ===================== TENTANG / ABOUT SECTION ===================== --}}
-<section class="section" id="tentang" aria-labelledby="about-heading" style="padding-top: 2rem;">
+<section class="section" id="tentang" aria-labelledby="about-heading" style="padding-top: 4rem;">
   <div class="container">
     <div class="about-layout">
 
@@ -109,31 +133,6 @@
           </a>
         </div>
       </div>
-    </div>
-  </div> <!-- End of about container -->
-
-  <div class="about-stats-bar">
-    <div class="container">
-      <div class="about-stats-inner">
-        <div class="about-stat-item">
-          <div class="stat-num">10+</div>
-          <div class="stat-label">Tahun Pengalaman</div>
-        </div>
-        <div class="about-stat-item">
-          <div class="stat-num">500+</div>
-          <div class="stat-label">Klien Terlayani</div>
-        </div>
-        <div class="about-stat-item">
-          <div class="stat-num">7</div>
-          <div class="stat-label">Jenis Layanan</div>
-        </div>
-        <div class="about-stat-item">
-          <div class="stat-num">100%</div>
-          <div class="stat-label">Kerahasiaan Terjamin</div>
-        </div>
-      </div>
-    </div>
-  </div>
 </section>
 
 {{-- ===================== LAYANAN SECTION ===================== --}}
