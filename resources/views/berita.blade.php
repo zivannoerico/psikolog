@@ -79,6 +79,15 @@
               </div>
 
               <p class="card-text" style="font-size: 0.875rem; color: var(--clr-text-3); line-height: 1.7;">{{ Str::limit($art->excerpt, 120) }}</p>
+              <div style="margin-top: auto; padding-top: 1.5rem;">
+                <a href="{{ route('artikel.show', $art->slug) }}" style="display: inline-flex; align-items: center; gap: 0.5rem; color: var(--clr-pink); font-weight: 600; font-size: 0.875rem; text-decoration: none;">
+                  Baca Selengkapnya
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14"></path>
+                    <path d="M12 5l7 7-7 7"></path>
+                  </svg>
+                </a>
+              </div>
             </div>
           </article>
         @endforeach

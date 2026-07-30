@@ -49,15 +49,26 @@
       </div>
 
       <div class="hero-visual" aria-hidden="true">
-        <div class="hero-img-wrap">
-          <img
-            src="<?php echo e(\App\Models\Setting::get('hero_gambar') ? asset('storage/' . \App\Models\Setting::get('hero_gambar')) : asset('images/hero-psikologi.webp')); ?>"
-            alt="Psikolog An Moerty Banyuwangi memberikan konseling profesional"
-            class="hero-img-main"
-            loading="eager"
-            fetchpriority="high"
-            width="520"
-            height="650">
+        <div class="hero-img-wrap" style="display: flex; gap: 12px; align-items: center; justify-content: center; width: 100%; max-width: 650px; aspect-ratio: 1/1; max-height: 550px; margin: 0 auto; position: relative;">
+          <?php $heroImg = \App\Models\Setting::get('hero_gambar') ? asset('storage/' . \App\Models\Setting::get('hero_gambar')) : asset('images/hero-psikologi.webp'); ?>
+          
+          <div style="flex: 1; height: 80%; overflow: hidden; border-radius: 1.5rem; transform: skewX(-10deg) translateY(20px); border: 6px solid var(--clr-surface); box-shadow: 0 10px 25px rgba(0,0,0,0.08); position: relative;">
+            <div style="width: calc(300% + 24px); height: 100%; transform: skewX(10deg); position: absolute; left: -10%; top: 0;">
+              <img src="<?php echo e($heroImg); ?>" alt="Hero 1" style="width: 100%; height: 100%; object-fit: cover;" loading="eager" fetchpriority="high">
+            </div>
+          </div>
+          
+          <div style="flex: 1; height: 100%; overflow: hidden; border-radius: 1.5rem; transform: skewX(-10deg); border: 6px solid var(--clr-surface); box-shadow: 0 20px 40px rgba(0,0,0,0.15); position: relative; z-index: 2;">
+            <div style="width: calc(300% + 24px); height: 100%; transform: skewX(10deg); position: absolute; left: calc(-100% - 12px); top: 0;">
+              <img src="<?php echo e($heroImg); ?>" alt="Hero 2" style="width: 100%; height: 100%; object-fit: cover;" loading="eager" fetchpriority="high">
+            </div>
+          </div>
+          
+          <div style="flex: 1; height: 80%; overflow: hidden; border-radius: 1.5rem; transform: skewX(-10deg) translateY(-20px); border: 6px solid var(--clr-surface); box-shadow: 0 10px 25px rgba(0,0,0,0.08); position: relative;">
+            <div style="width: calc(300% + 24px); height: 100%; transform: skewX(10deg); position: absolute; left: calc(-200% - 24px + 10%); top: 0;">
+              <img src="<?php echo e($heroImg); ?>" alt="Hero 3" style="width: 100%; height: 100%; object-fit: cover;" loading="eager" fetchpriority="high">
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -264,6 +275,15 @@
               <time datetime="<?php echo e($art->published_at?->format('Y-m-d')); ?>"><?php echo e($art->published_at?->translatedFormat('d M Y')); ?></time>
             </div>
             <p class="card-text"><?php echo e(Str::limit($art->excerpt, 100)); ?></p>
+            <div style="margin-top: auto; padding-top: 1.5rem;">
+              <a href="<?php echo e(route('artikel.show', $art->slug)); ?>" style="display: inline-flex; align-items: center; gap: 0.5rem; color: var(--clr-pink); font-weight: 600; font-size: 0.875rem; text-decoration: none;">
+                Baca Selengkapnya
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14"></path>
+                  <path d="M12 5l7 7-7 7"></path>
+                </svg>
+              </a>
+            </div>
           </div>
         </article>
       <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

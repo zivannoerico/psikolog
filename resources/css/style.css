@@ -1065,9 +1065,10 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: var(--radius-lg);
   border: 1px solid var(--clr-border);
   overflow: hidden;
-  transition: var(--tr-base);
+  transition: transform var(--transition-bounce), box-shadow var(--transition-normal);
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 
 .card:hover {
@@ -1109,12 +1110,20 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: var(--space-3);
   line-height: 1.4;
   color: var(--clr-text);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .card-text {
   font-size: 0.875rem;
   color: var(--clr-text-2);
   line-height: 1.7;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .card-meta {
@@ -1422,7 +1431,11 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   gap: 0;
   width: max-content;
-  animation: klien-scroll 10s linear infinite;
+  animation: klien-scroll 25s linear infinite;
+}
+
+.klien-marquee-track:hover {
+  animation-play-state: paused;
 }
 
 .klien-marquee-group {
