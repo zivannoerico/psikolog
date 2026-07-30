@@ -404,8 +404,16 @@ h1, h2, h3, h4, h5, h6 {
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
 
-#navbar.scrolled .navbar-logo-text .brand {
-  color: var(--clr-white);
+#navbar .navbar-logo img {
+  height: 38px;
+  width: auto;
+  object-fit: contain;
+  filter: brightness(0.25) sepia(1) hue-rotate(300deg) saturate(3);
+  transition: filter 0.3s var(--ease-out);
+}
+
+#navbar.scrolled .navbar-logo img {
+  filter: brightness(0) invert(1);
 }
 
 #navbar.scrolled .navbar-logo-text .tagline {

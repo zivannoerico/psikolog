@@ -62,13 +62,8 @@
 
       {{-- Logo --}}
       <a href="{{ route('home') }}" class="navbar-logo" aria-label="An Moerty Psikologi — Beranda">
-        <div class="navbar-logo-icon" aria-hidden="true">
-          <x-icon.logo class="text-white" style="width: 20px; height: 20px;"/>
-        </div>
-        <div class="navbar-logo-text">
-          <span class="brand">An Moerty</span>
-          <span class="tagline">Psikologi Banyuwangi</span>
-        </div>
+      <img src="{{ asset('images/logo.png') }}" alt="Logo An Moerty">
+       
       </a>
 
       {{-- Desktop Nav --}}
