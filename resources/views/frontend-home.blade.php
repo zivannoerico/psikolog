@@ -64,19 +64,19 @@
   <div class="container">
     <div class="about-stats-inner">
       <div class="about-stat-item">
-        <div class="stat-num">10+</div>
+        <div class="stat-num" style="margin-bottom: 12px;">10+</div>
         <div class="stat-label">Tahun Pengalaman</div>
       </div>
       <div class="about-stat-item">
-        <div class="stat-num">500+</div>
+        <div class="stat-num" style="margin-bottom: 12px;">500+</div>
         <div class="stat-label">Klien Terlayani</div>
       </div>
       <div class="about-stat-item">
-        <div class="stat-num">7</div>
+        <div class="stat-num" style="margin-bottom: 12px;">7</div>
         <div class="stat-label">Jenis Layanan</div>
       </div>
       <div class="about-stat-item">
-        <div class="stat-num">100%</div>
+        <div class="stat-num" style="margin-bottom: 12px;">100%</div>
         <div class="stat-label">Kerahasiaan Terjamin</div>
       </div>
     </div>
@@ -145,26 +145,23 @@
     </div>
   </div>
 
-  {{-- STATS BAR (Desktop) --}}
-  <div class="about-stats-bar desktop-only" style="margin-top: 3rem; padding: 1.5rem 0; border-top: 1px solid var(--clr-divider); width: 100%;">
-    <div class="container">
-      <div class="about-stats-inner" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; width: 100%;">
-        <div class="about-stat-item">
-          <div class="stat-num" style="margin-bottom: 12px;">10+</div>
-          <div class="stat-label">Tahun Pengalaman</div>
-        </div>
-        <div class="about-stat-item">
-          <div class="stat-num" style="margin-bottom: 12px;">500+</div>
-          <div class="stat-label">Klien Terlayani</div>
-        </div>
-        <div class="about-stat-item">
-          <div class="stat-num" style="margin-bottom: 12px;">7</div>
-          <div class="stat-label">Jenis Layanan</div>
-        </div>
-        <div class="about-stat-item">
-          <div class="stat-num" style="margin-bottom: 12px;">100%</div>
-          <div class="stat-label">Kerahasiaan Terjamin</div>
-        </div>
+  <div class="about-stats-bar desktop-only" style="margin-top: 3rem; padding: 1.5rem 15%; border-top: 1px solid var(--clr-divider); width: 100%;">
+    <div class="about-stats-inner" style="display: flex; justify-content: space-between; width: 100%; max-width: none;">
+      <div class="about-stat-item" style="border: none; padding: 0;">
+        <div class="stat-num" style="margin-bottom: 12px;">10+</div>
+        <div class="stat-label">Tahun Pengalaman</div>
+      </div>
+      <div class="about-stat-item" style="border: none; padding: 0;">
+        <div class="stat-num" style="margin-bottom: 12px;">500+</div>
+        <div class="stat-label">Klien Terlayani</div>
+      </div>
+      <div class="about-stat-item" style="border: none; padding: 0;">
+        <div class="stat-num" style="margin-bottom: 12px;">7</div>
+        <div class="stat-label">Jenis Layanan</div>
+      </div>
+      <div class="about-stat-item" style="border: none; padding: 0;">
+        <div class="stat-num" style="margin-bottom: 12px;">100%</div>
+        <div class="stat-label">Kerahasiaan Terjamin</div>
       </div>
     </div>
   </div>
