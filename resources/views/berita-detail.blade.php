@@ -89,13 +89,24 @@
     </div>
     <div class="grid-3">
       @foreach($related as $i => $art)
-        <article class="card reveal reveal-delay-{{ $i + 1 }}" aria-labelledby="rel-{{ $art->id }}">
-          <a href="{{ route('artikel.show', $art->slug) }}" tabindex="-1" aria-hidden="true">
-            <img src="{{ $art->gambar_utama ? asset('storage/'.$art->gambar_utama) : 'https://images.unsplash.com/photo-1512758017271-d7b84c2113f1?auto=format&fit=crop&w=600&q=80' }}" alt="{{ $art->judul }}" class="card-img" loading="lazy" width="600" height="338">
+        <article class="card reveal reveal-delay-{{ $i + 1 }}" aria-labelledby="rel-{{ $art->id }}" style="display: flex; flex-direction: column; height: 100%;">
+          <a href="{{ route('artikel.show', $art->slug) }}" tabindex="-1" aria-hidden="true" style="display: block; width: 100%; aspect-ratio: 16/9; overflow: hidden; background-color: var(--clr-bg-alt);">
+            <img src="{{ $art->gambar_utama ? asset('storage/'.$art->gambar_utama) : 'https://images.unsplash.com/photo-1512758017271-d7b84c2113f1?auto=format&fit=crop&w=600&q=80' }}" alt="{{ $art->judul }}" class="card-img" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;" width="600" height="338">
           </a>
-          <div class="card-body">
-            <h3 class="card-title" id="rel-{{ $art->id }}"><a href="{{ route('artikel.show', $art->slug) }}">{{ $art->judul }}</a></h3>
-            <p class="card-text">{{ Str::limit($art->excerpt, 100) }}</p>
+          <div class="card-body" style="padding: var(--space-5); display: flex; flex-direction: column; flex-grow: 1;">
+            <h3 class="card-title" id="rel-{{ $art->id }}" style="margin-bottom: var(--space-4); font-size: 1.125rem; line-height: 1.5;">
+              <a href="{{ route('artikel.show', $art->slug) }}">{{ $art->judul }}</a>
+            </h3>
+            <p class="card-text" style="font-size: 0.875rem; color: var(--clr-text-3); line-height: 1.7;">{{ Str::limit($art->excerpt, 100) }}</p>
+            <div style="margin-top: auto; padding-top: 1.5rem;">
+              <a href="{{ route('artikel.show', $art->slug) }}" style="display: inline-flex; align-items: center; gap: 0.5rem; color: var(--clr-pink); font-weight: 600; font-size: 0.875rem; text-decoration: none;">
+                Baca Selengkapnya
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14"></path>
+                  <path d="M12 5l7 7-7 7"></path>
+                </svg>
+              </a>
+            </div>
           </div>
         </article>
       @endforeach
