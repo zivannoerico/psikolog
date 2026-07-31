@@ -28,7 +28,7 @@ class SettingSeeder extends Seeder
             ['key' => 'kontak_alamat_1', 'value' => 'Jl. Progo No. 59 Banyuwangi, Jawa Timur',                                                'type' => 'text',     'label' => 'Alamat 1',          'group' => 'kontak'],
             ['key' => 'kontak_alamat_2', 'value' => 'Jl. Progo No.50, Singonegaran, Kec. Banyuwangi, Kabupaten Banyuwangi, Jawa Timur 68415', 'type' => 'text',     'label' => 'Alamat 2',          'group' => 'kontak'],
             ['key' => 'kontak_email',    'value' => 'anmoertybanyuwangi@gmail.com',                                                            'type' => 'text',     'label' => 'Email',             'group' => 'kontak'],
-            ['key' => 'kontak_maps_url', 'value' => 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3948.86877953051!2d114.3642738!3d-8.2159187!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd15ab2f6631b17%3A0xc3c5ab04bb520b2!2sPsikologi%20Banyuwangi%20(An%20Moerty)!5e0!3m2!1sen!2sid!4v1700000000000!5m2!1sen!2sid', 'type' => 'textarea', 'label' => 'Google Maps Embed URL', 'group' => 'kontak'],
+            ['key' => 'kontak_maps_url', 'value' => 'https://maps.google.com/maps?q=Psikologi%20Banyuwangi%20An%20Moerty&t=m&z=15&output=embed&iwloc=near', 'type' => 'textarea', 'label' => 'Google Maps Embed URL', 'group' => 'kontak'],
             ['key' => 'wa_pesan_default', 'value' => 'Halo An Moerty Psikologi, saya ingin berkonsultasi mengenai layanan psikologi Anda. Bisakah kita berbicara lebih lanjut?', 'type' => 'textarea', 'label' => 'Pesan WA Default', 'group' => 'kontak'],
 
             // === SOSIAL MEDIA ===

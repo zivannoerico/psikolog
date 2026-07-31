@@ -247,7 +247,7 @@
           {{-- Google Maps --}}
           <div class="footer-map-wrap" aria-label="Peta lokasi An Moerty Psikologi Banyuwangi">
             <iframe
-              src="{{ \App\Models\Setting::get('kontak_maps_url', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15795.12260655762!2d114.3703249!3d-8.2074744!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd1450011c5799d%3A0xf39dd47429df5a03!2sPsikologi%20Banyuwangi%20An%20Moerty!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid') }}"
+              src="{{ \App\Models\Setting::get('kontak_maps_url', 'https://maps.google.com/maps?q=Psikologi%20Banyuwangi%20An%20Moerty&t=m&z=15&output=embed&iwloc=near') }}"
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
               title="Lokasi An Moerty Psikologi Banyuwangi"

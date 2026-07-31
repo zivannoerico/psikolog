@@ -201,13 +201,13 @@
           <h2 class="section-title" style="margin-bottom:var(--space-2);">Lokasi Kami</h2>
           <p style="color:var(--clr-text-2);">Kunjungi kantor kami untuk layanan konsultasi tatap muka.</p>
         </div>
-        <a href="https://maps.app.goo.gl/gEqDqS69rGgM7i74A" target="_blank" rel="noopener noreferrer" class="btn btn--outline" style="border-radius:var(--radius-md); white-space:nowrap;">
+        <a href="https://www.google.com/maps/search/?api=1&query=Psikologi+Banyuwangi+An+Moerty" target="_blank" rel="noopener noreferrer" class="btn btn--outline" style="border-radius:var(--radius-md); white-space:nowrap;">
           Buka di Google Maps
         </a>
       </div>
       <div class="contact-map-wrap" aria-label="Peta lokasi An Moerty Psikologi Banyuwangi" style="box-shadow:0 10px 15px -3px rgba(0,0,0,0.1); border-radius:var(--radius-lg); overflow:hidden; border:1px solid var(--clr-border);">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15795.12260655762!2d114.3703249!3d-8.2074744!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd1450011c5799d%3A0xf39dd47429df5a03!2sPsikologi%20Banyuwangi%20An%20Moerty!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid"
+          src="{{ \App\Models\Setting::get('kontak_maps_url', 'https://maps.google.com/maps?q=Psikologi%20Banyuwangi%20An%20Moerty&t=m&z=15&output=embed&iwloc=near') }}"
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
           title="Lokasi An Moerty Psikologi Banyuwangi di Google Maps"
