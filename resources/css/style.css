@@ -1655,7 +1655,7 @@ h1, h2, h3, h4, h5, h6 {
    CTA SECTION
    ============================================================ */
 .cta-section {
-  background: var(--clr-text);
+  background: var(--clr-pink);
   border-radius: var(--radius-xl);
   padding: var(--space-16) var(--space-12);
   text-align: center;

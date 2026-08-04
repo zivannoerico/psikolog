@@ -378,7 +378,7 @@
 <?php endif; ?>
 
 
-<section class="section section--alt" id="klien" aria-labelledby="klien-heading">
+<section class="section" id="klien" aria-labelledby="klien-heading">
   <div class="container">
     <div class="section-header section-header--center reveal">
       <div class="section-label">Klien Kami</div>
