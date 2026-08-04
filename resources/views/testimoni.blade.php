@@ -62,14 +62,61 @@
   </div>
 </section>
 
-<section class="section--sm">
-  <div class="container">
-    <div class="cta-section reveal">
-      <div class="cta-content">
-        <h2 class="cta-title">Bergabunglah Bersama Klien Kami</h2>
-        <p class="cta-subtitle">Rasakan sendiri manfaat layanan psikologi profesional An Moerty.</p>
-        <div class="cta-actions">
-          <a href="{{ route('kontak.index') }}" class="btn btn--white btn--lg">Hubungi Kami</a>
+<section class="section cta-compact-section" aria-labelledby="testi-cta-heading" style="padding-top: 2rem; padding-bottom: 4rem;">
+  <div class="container cta-container-compact">
+    <div class="cta-clean-card reveal">
+      <div class="cta-single-glow" aria-hidden="true"></div>
+      <div class="cta-compact-grid">
+        <div class="cta-left-minimal">
+          <div class="cta-badge-minimal">
+            <span class="cta-badge-dot-gold"></span>
+            <span>Pengalaman Klien</span>
+          </div>
+          <h2 class="cta-headline-compact" id="testi-cta-heading">
+            Bergabunglah Bersama<br>
+            <span class="cta-gold-text">Ratusan Klien Terbantu Kami.</span>
+          </h2>
+          <p class="cta-desc-compact">
+            Rasakan sendiri manfaat layanan psikologi dan konseling profesional bersama tim ahli An Moerty Banyuwangi.
+          </p>
+          <div class="cta-compact-actions">
+            <a href="https://wa.me/{{ preg_replace('/^0/', '62', preg_replace('/[^0-9]/', '', \App\Models\Setting::get('kontak_telpon', '082233392179'))) }}?text={{ urlencode(\App\Models\Setting::get('wa_pesan_default', 'Halo An Moerty Psikologi, saya ingin bertanya seputar layanan.')) }}" class="cta-btn-compact cta-btn-main" target="_blank" rel="noopener noreferrer">
+              <x-icon.whatsapp style="width: 18px; height: 18px;" />
+              <span>Chat WhatsApp</span>
+            </a>
+            <a href="{{ route('layanan.index') }}" class="cta-btn-compact cta-btn-sub">
+              <span>Lihat Layanan</span>
+            </a>
+          </div>
+        </div>
+        <div class="cta-right-minimal">
+          <div class="cta-compact-trust-card">
+            <div class="cta-trust-header">
+              <div class="cta-mini-avatar-wrap">
+                <img src="{{ asset('images/bu-betty.webp') }}" alt="Psikolog An Moerty" class="cta-mini-avatar">
+                <span class="cta-mini-status" title="Online"></span>
+              </div>
+              <div>
+                <div class="cta-online-text">Layanan Konseling Profesional</div>
+                <div class="cta-speed-text">Respon Cepat &lt; 15 Menit</div>
+              </div>
+            </div>
+            <div class="cta-compact-features">
+              <div class="cta-compact-feature">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#C8607A" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <span>100% Kerahasiaan Terjamin</span>
+              </div>
+              <div class="cta-compact-feature">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#C8607A" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                <span>Jadwal Sesi Fleksibel</span>
+              </div>
+            </div>
+            <div class="cta-compact-rating">
+              <span class="cta-stars-gold">★★★★★</span>
+              <span class="cta-rating-score">4.9/5.0</span>
+              <span class="cta-rating-count">(Dipercaya 500+ Klien)</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
