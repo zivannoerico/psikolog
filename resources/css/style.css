@@ -1655,34 +1655,38 @@ h1, h2, h3, h4, h5, h6 {
    CTA SECTION
    ============================================================ */
 .cta-section {
-  background: var(--clr-pink);
+  background: #13121A;
   border-radius: var(--radius-xl);
   padding: var(--space-16) var(--space-12);
   text-align: center;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  border: 1px solid rgba(255,255,255,0.05);
 }
 
 .cta-section::before {
   content: '';
   position: absolute;
-  top: -80px;
-  left: -80px;
-  width: 360px;
-  height: 360px;
-  background: radial-gradient(circle, rgba(200,96,122,0.2) 0%, transparent 70%);
+  top: -100px;
+  left: -100px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(200,96,122,0.25) 0%, transparent 70%);
   border-radius: 50%;
+  pointer-events: none;
 }
 
 .cta-section::after {
   content: '';
   position: absolute;
-  bottom: -60px;
-  right: -60px;
-  width: 280px;
-  height: 280px;
-  background: radial-gradient(circle, rgba(200,96,122,0.15) 0%, transparent 70%);
+  bottom: -100px;
+  right: -100px;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(200,96,122,0.2) 0%, transparent 70%);
   border-radius: 50%;
+  pointer-events: none;
 }
 
 .cta-content {

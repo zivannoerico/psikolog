@@ -404,7 +404,7 @@
         <h2 class="cta-title" id="cta-heading">Siap Memulai Perjalanan<br>Menuju Diri Terbaik?</h2>
         <p class="cta-subtitle">Hubungi kami sekarang dan dapatkan konsultasi awal bersama tim psikolog profesional An Moerty Banyuwangi.</p>
         <div class="cta-actions">
-          <a href="https://wa.me/{{ preg_replace('/^0/', '62', preg_replace('/[^0-9]/', '', \App\Models\Setting::get('kontak_telpon', '082233392179'))) }}?text={{ urlencode(\App\Models\Setting::get('wa_pesan_default', 'Halo An Moerty Psikologi, saya ingin konsultasi. Bisakah kita berbicara?')) }}" class="btn btn--white btn--lg" target="_blank" rel="noopener noreferrer">
+          <a href="https://wa.me/{{ preg_replace('/^0/', '62', preg_replace('/[^0-9]/', '', \App\Models\Setting::get('kontak_telpon', '082233392179'))) }}?text={{ urlencode(\App\Models\Setting::get('wa_pesan_default', 'Halo An Moerty Psikologi, saya ingin konsultasi. Bisakah kita berbicara?')) }}" class="btn btn--primary btn--lg" target="_blank" rel="noopener noreferrer">
             <x-icon.whatsapp style="width: 18px; height: 18px;" />
             Chat WhatsApp
           </a>
