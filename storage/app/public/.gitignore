@@ -1,2 +1,8 @@
 *
 !.gitignore
+!artikel/
+!artikel/**
+!layanan/
+!layanan/**
+!tim/
+!tim/**
