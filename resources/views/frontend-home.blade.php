@@ -32,19 +32,19 @@
       </div>
 
       <div class="hero-visual" aria-hidden="true">
-        <div class="hero-img-wrap" style="display: flex; gap: 12px; align-items: center; justify-content: center; width: 100%; max-width: 650px; aspect-ratio: 1/1; max-height: 550px; margin: 0 auto; position: relative;">
+        <div class="hero-img-wrap custom-mobile-hero" style="display: flex; gap: 12px; align-items: center; justify-content: center; width: 100%; max-width: 650px; aspect-ratio: 1/1; max-height: 550px; margin: 0 auto; position: relative;">
           @php $heroImg = \App\Models\Setting::get('hero_gambar') ? asset('storage/' . \App\Models\Setting::get('hero_gambar')) : asset('images/hero-psikologi.webp'); @endphp
           
-          <div style="flex: 1; height: 80%; overflow: hidden; border-radius: 1.5rem; transform: skewX(-10deg) translateY(20px); border: 6px solid var(--clr-surface); box-shadow: 0 10px 25px rgba(0,0,0,0.08); position: relative;">
-            <img src="{{ $heroImg }}" alt="Hero 1" style="width: 100%; height: 100%; object-fit: cover; transform: skewX(10deg) scale(1.35); object-position: 48% center;" loading="eager" fetchpriority="high">
+          <div class="custom-mobile-hero-item custom-mobile-hero-item-1" style="flex: 1; height: 80%; overflow: hidden; border-radius: 1.5rem; transform: skewX(-10deg) translateY(20px); border: 6px solid var(--clr-surface); box-shadow: 0 10px 25px rgba(0,0,0,0.08); position: relative;">
+            <img class="custom-mobile-hero-img" src="{{ $heroImg }}" alt="Hero 1" style="width: 100%; height: 100%; object-fit: cover; transform: skewX(10deg) scale(1.35); object-position: 48% center;" loading="eager" fetchpriority="high">
           </div>
           
-          <div style="flex: 1; height: 100%; overflow: hidden; border-radius: 1.5rem; transform: skewX(-10deg); border: 6px solid var(--clr-surface); box-shadow: 0 20px 40px rgba(0,0,0,0.15); position: relative; z-index: 2;">
-            <img src="{{ $heroImg }}" alt="Hero 2" style="width: 100%; height: 100%; object-fit: cover; transform: skewX(10deg) scale(1.35); object-position: 72% center;" loading="eager" fetchpriority="high">
+          <div class="custom-mobile-hero-item custom-mobile-hero-item-2" style="flex: 1; height: 100%; overflow: hidden; border-radius: 1.5rem; transform: skewX(-10deg); border: 6px solid var(--clr-surface); box-shadow: 0 20px 40px rgba(0,0,0,0.15); position: relative; z-index: 2;">
+            <img class="custom-mobile-hero-img" src="{{ $heroImg }}" alt="Hero 2" style="width: 100%; height: 100%; object-fit: cover; transform: skewX(10deg) scale(1.35); object-position: 72% center;" loading="eager" fetchpriority="high">
           </div>
           
-          <div style="flex: 1; height: 80%; overflow: hidden; border-radius: 1.5rem; transform: skewX(-10deg) translateY(-20px); border: 6px solid var(--clr-surface); box-shadow: 0 10px 25px rgba(0,0,0,0.08); position: relative;">
-            <img src="{{ $heroImg }}" alt="Hero 3" style="width: 100%; height: 100%; object-fit: cover; transform: skewX(10deg) scale(1.35); object-position: 95% center;" loading="eager" fetchpriority="high">
+          <div class="custom-mobile-hero-item custom-mobile-hero-item-3" style="flex: 1; height: 80%; overflow: hidden; border-radius: 1.5rem; transform: skewX(-10deg) translateY(-20px); border: 6px solid var(--clr-surface); box-shadow: 0 10px 25px rgba(0,0,0,0.08); position: relative;">
+            <img class="custom-mobile-hero-img" src="{{ $heroImg }}" alt="Hero 3" style="width: 100%; height: 100%; object-fit: cover; transform: skewX(10deg) scale(1.35); object-position: 95% center;" loading="eager" fetchpriority="high">
           </div>
         </div>
       </div>
@@ -53,29 +53,6 @@
 
 </section>
 
-{{-- ===================== STATS BAR (Mobile Only) ===================== --}}
-<div class="about-stats-bar mobile-only" style="margin-top: 0; padding: 2.5rem 0;">
-  <div class="container">
-    <div class="about-stats-inner">
-      <div class="about-stat-item">
-        <div class="stat-num" style="margin-bottom: 12px;">10+</div>
-        <div class="stat-label">Tahun Pengalaman</div>
-      </div>
-      <div class="about-stat-item">
-        <div class="stat-num" style="margin-bottom: 12px;">500+</div>
-        <div class="stat-label">Klien Terlayani</div>
-      </div>
-      <div class="about-stat-item">
-        <div class="stat-num" style="margin-bottom: 12px;">7</div>
-        <div class="stat-label">Jenis Layanan</div>
-      </div>
-      <div class="about-stat-item">
-        <div class="stat-num" style="margin-bottom: 12px;">100%</div>
-        <div class="stat-label">Kerahasiaan Terjamin</div>
-      </div>
-    </div>
-  </div>
-</div>
 
 {{-- ===================== TENTANG / ABOUT SECTION ===================== --}}
 <section class="section" id="tentang" aria-labelledby="about-heading" style="padding-top: 4rem;">
@@ -97,6 +74,28 @@
           <div class="about-badge-text">
             <div class="num">10+</div>
             <div class="label">Tahun Pengalaman</div>
+          </div>
+        </div>
+      </div>
+
+      {{-- Mobile Stats Bar (moved directly under photo) --}}
+      <div class="about-stats-bar mobile-only" style="margin-top: 2rem; margin-bottom: 1rem; background: transparent;">
+        <div class="about-stats-inner">
+          <div class="about-stat-item" style="border: none; padding: 0;">
+            <div class="stat-num" style="margin-bottom: 8px;">10+</div>
+            <div class="stat-label">Tahun Pengalaman</div>
+          </div>
+          <div class="about-stat-item" style="border: none; padding: 0;">
+            <div class="stat-num" style="margin-bottom: 8px;">500+</div>
+            <div class="stat-label">Klien Terlayani</div>
+          </div>
+          <div class="about-stat-item" style="border: none; padding: 0;">
+            <div class="stat-num" style="margin-bottom: 8px;">7</div>
+            <div class="stat-label">Jenis Layanan</div>
+          </div>
+          <div class="about-stat-item" style="border: none; padding: 0;">
+            <div class="stat-num" style="margin-bottom: 8px;">100%</div>
+            <div class="stat-label">Kerahasiaan Terjamin</div>
           </div>
         </div>
       </div>
@@ -139,23 +138,25 @@
     </div>
   </div>
 
-  <div class="about-stats-bar desktop-only" style="margin-top: 3rem; padding: 1.5rem 15%; border-top: 1px solid var(--clr-divider); width: 100%;">
-    <div class="about-stats-inner" style="display: flex; justify-content: space-between; width: 100%; max-width: none;">
-      <div class="about-stat-item" style="border: none; padding: 0;">
-        <div class="stat-num" style="margin-bottom: 12px;">10+</div>
-        <div class="stat-label">Tahun Pengalaman</div>
-      </div>
-      <div class="about-stat-item" style="border: none; padding: 0;">
-        <div class="stat-num" style="margin-bottom: 12px;">500+</div>
-        <div class="stat-label">Klien Terlayani</div>
-      </div>
-      <div class="about-stat-item" style="border: none; padding: 0;">
-        <div class="stat-num" style="margin-bottom: 12px;">7</div>
-        <div class="stat-label">Jenis Layanan</div>
-      </div>
-      <div class="about-stat-item" style="border: none; padding: 0;">
-        <div class="stat-num" style="margin-bottom: 12px;">100%</div>
-        <div class="stat-label">Kerahasiaan Terjamin</div>
+  <div class="about-stats-bar desktop-only" style="margin-top: 3rem; background: transparent;">
+    <div class="container">
+      <div class="about-stats-inner">
+        <div class="about-stat-item" style="border: none; padding: 0;">
+          <div class="stat-num" style="margin-bottom: 12px;">10+</div>
+          <div class="stat-label">Tahun Pengalaman</div>
+        </div>
+        <div class="about-stat-item" style="border: none; padding: 0;">
+          <div class="stat-num" style="margin-bottom: 12px;">500+</div>
+          <div class="stat-label">Klien Terlayani</div>
+        </div>
+        <div class="about-stat-item" style="border: none; padding: 0;">
+          <div class="stat-num" style="margin-bottom: 12px;">7</div>
+          <div class="stat-label">Jenis Layanan</div>
+        </div>
+        <div class="about-stat-item" style="border: none; padding: 0;">
+          <div class="stat-num" style="margin-bottom: 12px;">100%</div>
+          <div class="stat-label">Kerahasiaan Terjamin</div>
+        </div>
       </div>
     </div>
   </div>

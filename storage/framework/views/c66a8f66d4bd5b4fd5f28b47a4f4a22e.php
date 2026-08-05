@@ -1,5 +1,3 @@
-
-
 <?php $__env->startSection('title', 'Layanan — An Moerty Psikologi Banyuwangi'); ?>
 <?php $__env->startSection('description', 'Layanan psikologi profesional An Moerty Banyuwangi: Psikotes, Interview, FGD, Konseling Kerja, Konseling Permasalahan, Training Indoor, dan Training Outdoor.'); ?>
 
@@ -72,15 +70,80 @@
   <?php endif; ?>
 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
-<section class="section--sm">
-  <div class="container">
-    <div class="cta-section reveal">
-      <div class="cta-content">
-        <h2 class="cta-title">Butuh Layanan Khusus?</h2>
-        <p class="cta-subtitle">Kami dapat menyesuaikan layanan dengan kebutuhan spesifik Anda dan organisasi Anda.</p>
-        <div class="cta-actions">
-          <a href="https://wa.me/<?php echo e(preg_replace('/^0/', '62', preg_replace('/[^0-9]/', '', \App\Models\Setting::get('kontak_telpon', '082233392179')))); ?>" class="btn btn--white btn--lg" target="_blank" rel="noopener noreferrer">Konsultasi via WhatsApp</a>
-          <a href="<?php echo e(route('kontak.index')); ?>" class="btn btn--outline-white btn--lg">Kirim Pesan</a>
+<section class="section cta-compact-section" aria-labelledby="layanan-cta-heading" style="padding-top: 2rem; padding-bottom: 4rem;">
+  <div class="container cta-container-compact">
+    <div class="cta-clean-card reveal">
+      <div class="cta-single-glow" aria-hidden="true"></div>
+      <div class="cta-compact-grid">
+        <div class="cta-left-minimal">
+          <div class="cta-badge-minimal">
+            <span class="cta-badge-dot-gold"></span>
+            <span>Layanan Kustom & Khusus</span>
+          </div>
+          <h2 class="cta-headline-compact" id="layanan-cta-heading">
+            Butuh Layanan Khusus<br>
+            <span class="cta-gold-text">Untuk Sekolah Atau Perusahaan?</span>
+          </h2>
+          <p class="cta-desc-compact">
+            Kami dapat menyesuaikan program asesmen dan konseling sesuai kebutuhan spesifik Anda dan organisasi Anda.
+          </p>
+          <div class="cta-compact-actions">
+            <a href="https://wa.me/<?php echo e(preg_replace('/^0/', '62', preg_replace('/[^0-9]/', '', \App\Models\Setting::get('kontak_telpon', '082233392179')))); ?>?text=<?php echo e(urlencode(\App\Models\Setting::get('wa_pesan_default', 'Halo An Moerty Psikologi, saya ingin konsultasi mengenai layanan khusus.'))); ?>" class="cta-btn-compact cta-btn-main" target="_blank" rel="noopener noreferrer">
+              <?php if (isset($component)) { $__componentOriginal934a6fed68095f5c15b2a798e8efa6f7 = $component; } ?>
+<?php if (isset($attributes)) { $__attributesOriginal934a6fed68095f5c15b2a798e8efa6f7 = $attributes; } ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.icon.whatsapp','data' => ['style' => 'width: 18px; height: 18px;']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component->withName('icon.whatsapp'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\AnonymousComponent::class))->getConstructor()): ?>
+<?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
+<?php endif; ?>
+<?php $component->withAttributes(['style' => 'width: 18px; height: 18px;']); ?>
+<?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__attributesOriginal934a6fed68095f5c15b2a798e8efa6f7)): ?>
+<?php $attributes = $__attributesOriginal934a6fed68095f5c15b2a798e8efa6f7; ?>
+<?php unset($__attributesOriginal934a6fed68095f5c15b2a798e8efa6f7); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginal934a6fed68095f5c15b2a798e8efa6f7)): ?>
+<?php $component = $__componentOriginal934a6fed68095f5c15b2a798e8efa6f7; ?>
+<?php unset($__componentOriginal934a6fed68095f5c15b2a798e8efa6f7); ?>
+<?php endif; ?>
+              <span>Chat WhatsApp</span>
+            </a>
+            <a href="<?php echo e(route('kontak.index')); ?>" class="cta-btn-compact cta-btn-sub">
+              <span>Hubungi Kami</span>
+            </a>
+          </div>
+        </div>
+        <div class="cta-right-minimal">
+          <div class="cta-compact-trust-card">
+            <div class="cta-trust-header">
+              <div class="cta-mini-avatar-wrap">
+                <img src="<?php echo e(asset('images/bu-betty.webp')); ?>" alt="Psikolog An Moerty" class="cta-mini-avatar">
+                <span class="cta-mini-status" title="Online"></span>
+              </div>
+              <div>
+                <div class="cta-online-text">Layanan Kustom Fleksibel</div>
+                <div class="cta-speed-text">Respon Cepat &lt; 15 Menit</div>
+              </div>
+            </div>
+            <div class="cta-compact-features">
+              <div class="cta-compact-feature">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#C8607A" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <span>Asesmen & Student Profiling</span>
+              </div>
+              <div class="cta-compact-feature">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#C8607A" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                <span>Program Khusus Organisasi</span>
+              </div>
+            </div>
+            <div class="cta-compact-rating">
+              <span class="cta-stars-gold">★★★★★</span>
+              <span class="cta-rating-score">4.9/5.0</span>
+              <span class="cta-rating-count">(Dipercaya 500+ Klien)</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>

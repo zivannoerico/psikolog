@@ -49,25 +49,19 @@
       </div>
 
       <div class="hero-visual" aria-hidden="true">
-        <div class="hero-img-wrap" style="display: flex; gap: 12px; align-items: center; justify-content: center; width: 100%; max-width: 650px; aspect-ratio: 1/1; max-height: 550px; margin: 0 auto; position: relative;">
+        <div class="hero-img-wrap custom-mobile-hero" style="display: flex; gap: 12px; align-items: center; justify-content: center; width: 100%; max-width: 650px; aspect-ratio: 1/1; max-height: 550px; margin: 0 auto; position: relative;">
           <?php $heroImg = \App\Models\Setting::get('hero_gambar') ? asset('storage/' . \App\Models\Setting::get('hero_gambar')) : asset('images/hero-psikologi.webp'); ?>
           
-          <div style="flex: 1; height: 80%; overflow: hidden; border-radius: 1.5rem; transform: skewX(-10deg) translateY(20px); border: 6px solid var(--clr-surface); box-shadow: 0 10px 25px rgba(0,0,0,0.08); position: relative;">
-            <div style="width: calc(300% + 24px); height: 100%; transform: skewX(10deg); position: absolute; left: -10%; top: 0;">
-              <img src="<?php echo e($heroImg); ?>" alt="Hero 1" style="width: 100%; height: 100%; object-fit: cover;" loading="eager" fetchpriority="high">
-            </div>
+          <div class="custom-mobile-hero-item custom-mobile-hero-item-1" style="flex: 1; height: 80%; overflow: hidden; border-radius: 1.5rem; transform: skewX(-10deg) translateY(20px); border: 6px solid var(--clr-surface); box-shadow: 0 10px 25px rgba(0,0,0,0.08); position: relative;">
+            <img class="custom-mobile-hero-img" src="<?php echo e($heroImg); ?>" alt="Hero 1" style="width: 100%; height: 100%; object-fit: cover; transform: skewX(10deg) scale(1.35); object-position: 48% center;" loading="eager" fetchpriority="high">
           </div>
           
-          <div style="flex: 1; height: 100%; overflow: hidden; border-radius: 1.5rem; transform: skewX(-10deg); border: 6px solid var(--clr-surface); box-shadow: 0 20px 40px rgba(0,0,0,0.15); position: relative; z-index: 2;">
-            <div style="width: calc(300% + 24px); height: 100%; transform: skewX(10deg); position: absolute; left: calc(-100% - 12px); top: 0;">
-              <img src="<?php echo e($heroImg); ?>" alt="Hero 2" style="width: 100%; height: 100%; object-fit: cover;" loading="eager" fetchpriority="high">
-            </div>
+          <div class="custom-mobile-hero-item custom-mobile-hero-item-2" style="flex: 1; height: 100%; overflow: hidden; border-radius: 1.5rem; transform: skewX(-10deg); border: 6px solid var(--clr-surface); box-shadow: 0 20px 40px rgba(0,0,0,0.15); position: relative; z-index: 2;">
+            <img class="custom-mobile-hero-img" src="<?php echo e($heroImg); ?>" alt="Hero 2" style="width: 100%; height: 100%; object-fit: cover; transform: skewX(10deg) scale(1.35); object-position: 72% center;" loading="eager" fetchpriority="high">
           </div>
           
-          <div style="flex: 1; height: 80%; overflow: hidden; border-radius: 1.5rem; transform: skewX(-10deg) translateY(-20px); border: 6px solid var(--clr-surface); box-shadow: 0 10px 25px rgba(0,0,0,0.08); position: relative;">
-            <div style="width: calc(300% + 24px); height: 100%; transform: skewX(10deg); position: absolute; left: calc(-200% - 24px + 10%); top: 0;">
-              <img src="<?php echo e($heroImg); ?>" alt="Hero 3" style="width: 100%; height: 100%; object-fit: cover;" loading="eager" fetchpriority="high">
-            </div>
+          <div class="custom-mobile-hero-item custom-mobile-hero-item-3" style="flex: 1; height: 80%; overflow: hidden; border-radius: 1.5rem; transform: skewX(-10deg) translateY(-20px); border: 6px solid var(--clr-surface); box-shadow: 0 10px 25px rgba(0,0,0,0.08); position: relative;">
+            <img class="custom-mobile-hero-img" src="<?php echo e($heroImg); ?>" alt="Hero 3" style="width: 100%; height: 100%; object-fit: cover; transform: skewX(10deg) scale(1.35); object-position: 95% center;" loading="eager" fetchpriority="high">
           </div>
         </div>
       </div>
@@ -76,29 +70,6 @@
 
 </section>
 
-
-<div class="about-stats-bar mobile-only" style="margin-top: 0; padding: 2.5rem 0;">
-  <div class="container">
-    <div class="about-stats-inner">
-      <div class="about-stat-item">
-        <div class="stat-num" style="margin-bottom: 12px;">10+</div>
-        <div class="stat-label">Tahun Pengalaman</div>
-      </div>
-      <div class="about-stat-item">
-        <div class="stat-num" style="margin-bottom: 12px;">500+</div>
-        <div class="stat-label">Klien Terlayani</div>
-      </div>
-      <div class="about-stat-item">
-        <div class="stat-num" style="margin-bottom: 12px;">7</div>
-        <div class="stat-label">Jenis Layanan</div>
-      </div>
-      <div class="about-stat-item">
-        <div class="stat-num" style="margin-bottom: 12px;">100%</div>
-        <div class="stat-label">Kerahasiaan Terjamin</div>
-      </div>
-    </div>
-  </div>
-</div>
 
 
 <section class="section" id="tentang" aria-labelledby="about-heading" style="padding-top: 4rem;">
@@ -120,6 +91,28 @@
           <div class="about-badge-text">
             <div class="num">10+</div>
             <div class="label">Tahun Pengalaman</div>
+          </div>
+        </div>
+      </div>
+
+      
+      <div class="about-stats-bar mobile-only" style="margin-top: 2rem; margin-bottom: 1rem; background: transparent;">
+        <div class="about-stats-inner">
+          <div class="about-stat-item" style="border: none; padding: 0;">
+            <div class="stat-num" style="margin-bottom: 8px;">10+</div>
+            <div class="stat-label">Tahun Pengalaman</div>
+          </div>
+          <div class="about-stat-item" style="border: none; padding: 0;">
+            <div class="stat-num" style="margin-bottom: 8px;">500+</div>
+            <div class="stat-label">Klien Terlayani</div>
+          </div>
+          <div class="about-stat-item" style="border: none; padding: 0;">
+            <div class="stat-num" style="margin-bottom: 8px;">7</div>
+            <div class="stat-label">Jenis Layanan</div>
+          </div>
+          <div class="about-stat-item" style="border: none; padding: 0;">
+            <div class="stat-num" style="margin-bottom: 8px;">100%</div>
+            <div class="stat-label">Kerahasiaan Terjamin</div>
           </div>
         </div>
       </div>
@@ -162,23 +155,25 @@
     </div>
   </div>
 
-  <div class="about-stats-bar desktop-only" style="margin-top: 3rem; padding: 1.5rem 15%; border-top: 1px solid var(--clr-divider); width: 100%;">
-    <div class="about-stats-inner" style="display: flex; justify-content: space-between; width: 100%; max-width: none;">
-      <div class="about-stat-item" style="border: none; padding: 0;">
-        <div class="stat-num" style="margin-bottom: 12px;">10+</div>
-        <div class="stat-label">Tahun Pengalaman</div>
-      </div>
-      <div class="about-stat-item" style="border: none; padding: 0;">
-        <div class="stat-num" style="margin-bottom: 12px;">500+</div>
-        <div class="stat-label">Klien Terlayani</div>
-      </div>
-      <div class="about-stat-item" style="border: none; padding: 0;">
-        <div class="stat-num" style="margin-bottom: 12px;">7</div>
-        <div class="stat-label">Jenis Layanan</div>
-      </div>
-      <div class="about-stat-item" style="border: none; padding: 0;">
-        <div class="stat-num" style="margin-bottom: 12px;">100%</div>
-        <div class="stat-label">Kerahasiaan Terjamin</div>
+  <div class="about-stats-bar desktop-only" style="margin-top: 3rem; background: transparent;">
+    <div class="container">
+      <div class="about-stats-inner">
+        <div class="about-stat-item" style="border: none; padding: 0;">
+          <div class="stat-num" style="margin-bottom: 12px;">10+</div>
+          <div class="stat-label">Tahun Pengalaman</div>
+        </div>
+        <div class="about-stat-item" style="border: none; padding: 0;">
+          <div class="stat-num" style="margin-bottom: 12px;">500+</div>
+          <div class="stat-label">Klien Terlayani</div>
+        </div>
+        <div class="about-stat-item" style="border: none; padding: 0;">
+          <div class="stat-num" style="margin-bottom: 12px;">7</div>
+          <div class="stat-label">Jenis Layanan</div>
+        </div>
+        <div class="about-stat-item" style="border: none; padding: 0;">
+          <div class="stat-num" style="margin-bottom: 12px;">100%</div>
+          <div class="stat-label">Kerahasiaan Terjamin</div>
+        </div>
       </div>
     </div>
   </div>
@@ -414,15 +409,34 @@
 </section>
 
 
-<section class="section" aria-labelledby="cta-heading">
-  <div class="container">
-    <div class="cta-section reveal">
-      <div class="cta-content">
-        <h2 class="cta-title" id="cta-heading">Siap Memulai Perjalanan<br>Menuju Diri Terbaik?</h2>
-        <p class="cta-subtitle">Hubungi kami sekarang dan dapatkan konsultasi awal bersama tim psikolog profesional An Moerty Banyuwangi.</p>
-        <div class="cta-actions">
-          <a href="https://wa.me/<?php echo e(preg_replace('/^0/', '62', preg_replace('/[^0-9]/', '', \App\Models\Setting::get('kontak_telpon', '082233392179')))); ?>?text=<?php echo e(urlencode(\App\Models\Setting::get('wa_pesan_default', 'Halo An Moerty Psikologi, saya ingin konsultasi. Bisakah kita berbicara?'))); ?>" class="btn btn--white btn--lg" target="_blank" rel="noopener noreferrer">
-            <?php if (isset($component)) { $__componentOriginal934a6fed68095f5c15b2a798e8efa6f7 = $component; } ?>
+<section class="section cta-compact-section" aria-labelledby="cta-heading" style="padding-top: 2rem; padding-bottom: 4rem;">
+  <div class="container cta-container-compact">
+    <div class="cta-clean-card reveal">
+      
+      
+      <div class="cta-single-glow" aria-hidden="true"></div>
+
+      <div class="cta-compact-grid">
+        
+        
+        <div class="cta-left-minimal">
+          <div class="cta-badge-minimal">
+            <span class="cta-badge-dot-gold"></span>
+            <span>Ruang Konsultasi Rahasia</span>
+          </div>
+
+          <h2 class="cta-headline-compact" id="cta-heading">
+            Setiap Perubahan Besar<br>
+            <span class="cta-gold-text">Dimulai Dari Keberanian Bercerita.</span>
+          </h2>
+
+          <p class="cta-desc-compact">
+            Konsultasikan kecemasan dan hambatan Anda secara rahasia bersama tim psikolog profesional An Moerty Banyuwangi.
+          </p>
+
+          <div class="cta-compact-actions">
+            <a href="https://wa.me/<?php echo e(preg_replace('/^0/', '62', preg_replace('/[^0-9]/', '', \App\Models\Setting::get('kontak_telpon', '082233392179')))); ?>?text=<?php echo e(urlencode(\App\Models\Setting::get('wa_pesan_default', 'Halo An Moerty Psikologi, saya ingin konsultasi. Bisakah bantu jadwalnya?'))); ?>" class="cta-btn-compact cta-btn-main" target="_blank" rel="noopener noreferrer">
+              <?php if (isset($component)) { $__componentOriginal934a6fed68095f5c15b2a798e8efa6f7 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal934a6fed68095f5c15b2a798e8efa6f7 = $attributes; } ?>
 <?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.icon.whatsapp','data' => ['style' => 'width: 18px; height: 18px;']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('icon.whatsapp'); ?>
@@ -442,10 +456,49 @@
 <?php $component = $__componentOriginal934a6fed68095f5c15b2a798e8efa6f7; ?>
 <?php unset($__componentOriginal934a6fed68095f5c15b2a798e8efa6f7); ?>
 <?php endif; ?>
-            Chat WhatsApp
-          </a>
-          <a href="<?php echo e(route('kontak.index')); ?>" class="btn btn--outline-white btn--lg">Kirim Pesan</a>
+              <span>Chat WhatsApp</span>
+            </a>
+            <a href="<?php echo e(route('layanan.index')); ?>" class="cta-btn-compact cta-btn-sub">
+              <span>Pelajari Layanan</span>
+            </a>
+          </div>
         </div>
+
+        
+        <div class="cta-right-minimal">
+          <div class="cta-compact-trust-card">
+            
+            <div class="cta-trust-header">
+              <div class="cta-mini-avatar-wrap">
+                <img src="<?php echo e(asset('images/bu-betty.webp')); ?>" alt="Psikolog An Moerty" class="cta-mini-avatar">
+                <span class="cta-mini-status" title="Online"></span>
+              </div>
+              <div>
+                <div class="cta-online-text">Psikolog Online Sekarang</div>
+                <div class="cta-speed-text">Respon Cepat &lt; 15 Menit</div>
+              </div>
+            </div>
+
+            <div class="cta-compact-features">
+              <div class="cta-compact-feature">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#C8607A" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <span>100% Kerahasiaan Terjamin</span>
+              </div>
+              <div class="cta-compact-feature">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#C8607A" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                <span>Jadwal Sesi Fleksibel</span>
+              </div>
+            </div>
+
+            <div class="cta-compact-rating">
+              <span class="cta-stars-gold">★★★★★</span>
+              <span class="cta-rating-score">4.9/5.0</span>
+              <span class="cta-rating-count">(Dipercaya 500+ Klien)</span>
+            </div>
+
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
