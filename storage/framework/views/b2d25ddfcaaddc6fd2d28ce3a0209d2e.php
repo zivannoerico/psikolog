@@ -76,6 +76,30 @@
   <div class="container">
     <div class="about-layout">
 
+      <style>
+        @media (min-width: 992px) {
+          .about-visual {
+            margin-left: 0 !important;
+          }
+        }
+        /* Penyesuaian jarak stats bar agar tidak mepet */
+        .about-stats-inner {
+          gap: 1.5rem !important;
+        }
+        .about-stat-item {
+          padding-left: 1rem;
+          padding-right: 1rem;
+        }
+        @media (min-width: 1024px) {
+          .about-stats-inner {
+            gap: 2.5rem !important;
+          }
+          .about-stat-item {
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+          }
+        }
+      </style>
       <div class="about-visual reveal">
         <img
           src="<?php echo e(\App\Models\Setting::get('tentang_gambar') ? asset('storage/' . \App\Models\Setting::get('tentang_gambar')) : asset('images/bu-betty.webp')); ?>"
@@ -96,21 +120,21 @@
       </div>
 
       
-      <div class="about-stats-bar mobile-only" style="margin-top: 2rem; margin-bottom: 1rem; background: transparent;">
+      <div class="about-stats-bar mobile-only" style="margin-top: 2rem; margin-bottom: 1rem;">
         <div class="about-stats-inner">
-          <div class="about-stat-item" style="border: none; padding: 0;">
+          <div class="about-stat-item">
             <div class="stat-num" style="margin-bottom: 8px;">10+</div>
             <div class="stat-label">Tahun Pengalaman</div>
           </div>
-          <div class="about-stat-item" style="border: none; padding: 0;">
+          <div class="about-stat-item">
             <div class="stat-num" style="margin-bottom: 8px;">500+</div>
             <div class="stat-label">Klien Terlayani</div>
           </div>
-          <div class="about-stat-item" style="border: none; padding: 0;">
+          <div class="about-stat-item">
             <div class="stat-num" style="margin-bottom: 8px;">7</div>
             <div class="stat-label">Jenis Layanan</div>
           </div>
-          <div class="about-stat-item" style="border: none; padding: 0;">
+          <div class="about-stat-item">
             <div class="stat-num" style="margin-bottom: 8px;">100%</div>
             <div class="stat-label">Kerahasiaan Terjamin</div>
           </div>
@@ -155,22 +179,22 @@
     </div>
   </div>
 
-  <div class="about-stats-bar desktop-only" style="margin-top: 3rem; background: transparent;">
+  <div class="about-stats-bar desktop-only" style="margin-top: 3rem;">
     <div class="container">
       <div class="about-stats-inner">
-        <div class="about-stat-item" style="border: none; padding: 0;">
+        <div class="about-stat-item">
           <div class="stat-num" style="margin-bottom: 12px;">10+</div>
           <div class="stat-label">Tahun Pengalaman</div>
         </div>
-        <div class="about-stat-item" style="border: none; padding: 0;">
+        <div class="about-stat-item">
           <div class="stat-num" style="margin-bottom: 12px;">500+</div>
           <div class="stat-label">Klien Terlayani</div>
         </div>
-        <div class="about-stat-item" style="border: none; padding: 0;">
+        <div class="about-stat-item">
           <div class="stat-num" style="margin-bottom: 12px;">7</div>
           <div class="stat-label">Jenis Layanan</div>
         </div>
-        <div class="about-stat-item" style="border: none; padding: 0;">
+        <div class="about-stat-item">
           <div class="stat-num" style="margin-bottom: 12px;">100%</div>
           <div class="stat-label">Kerahasiaan Terjamin</div>
         </div>

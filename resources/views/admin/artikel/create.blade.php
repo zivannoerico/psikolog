@@ -15,7 +15,13 @@
 
     <!-- Trix Editor CSS -->
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.0/dist/trix.css">
-    
+    <style>
+        .prose .trix-content figure { margin: 0 0 1rem 0 !important; }
+        .prose .trix-content img { margin: 0 !important; }
+        .prose .trix-content figcaption { margin: 0 !important; text-align: center; }
+        .trix-content .attachment { padding: 0 !important; margin-bottom: 1rem !important; }
+        trix-editor { min-height: 400px; }
+    </style>
     <div class="bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden">
         <div class="p-6 sm:p-10">
             <form action="{{ route('admin.artikel.store') }}" method="POST" enctype="multipart/form-data">
