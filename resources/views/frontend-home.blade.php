@@ -10,22 +10,18 @@
 <section class="hero" aria-labelledby="hero-heading">
   <div class="container">
     <div class="hero-inner">
-      {{-- LEFT COLUMN: Content & CTA --}}
       <div class="hero-content">
         <span class="hero-label" aria-hidden="true">
           <span class="hero-label-dot">•</span>
           LAYANAN PSIKOLOGI &amp; KONSELING TERPERCAYA
         </span>
-        
         <h1 class="hero-title" id="hero-heading">
           Buka Potensi Terbaik<br>
           <span class="accent">Diri Anda</span>
         </h1>
-        
         <p class="hero-subtitle">
           Bersama tim Psikolog An Moerty yang berpengalaman lebih dari 10 tahun, kami siap memandu Anda untuk mengenali potensi, mengatasi tantangan, dan mengoptimalkan kualitas diri.
         </p>
-        
         <div class="hero-actions">
           <a href="{{ route('layanan.index') }}" class="btn btn--primary btn--lg hero-btn-main">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
@@ -38,17 +34,16 @@
         </div>
       </div>
 
-      {{-- RIGHT COLUMN: Exact Reference Style Visual Composition --}}
       <div class="hero-visual" aria-hidden="true">
         <div class="hero-ref-composition">
           
-          {{-- STAT 1: Top-Left Big Counter (8+ years of practice / 10+ Tahun Pengalaman) --}}
+          {{-- STAT 1: Top-Left Big Counter (10+ Tahun Pengalaman) --}}
           <div class="hero-ref-stat hero-stat-top-left">
             <span class="hero-ref-stat-num">10+</span>
             <span class="hero-ref-stat-label">Tahun Pengalaman</span>
           </div>
 
-          {{-- BADGE 1: Top-Right (Positive / Terpercaya) --}}
+          {{-- BADGE 1: Top-Right (Heart / Terpercaya) --}}
           <div class="hero-ref-badge-wrap hero-badge-top-right">
             <span class="hero-pill-badge pill-solid">Terpercaya</span>
           </div>
@@ -85,7 +80,7 @@
             <span class="hero-pill-badge pill-dark">Nyaman</span>
           </div>
 
-          {{-- STAT 2: Bottom-Right Big Counter (100+ happy customers / 500+ Klien Terbantu) --}}
+          {{-- STAT 2: Bottom-Right Big Counter (500+ Klien Terbantu) --}}
           <div class="hero-ref-stat hero-stat-bottom-right">
             <span class="hero-ref-stat-num">500+</span>
             <span class="hero-ref-stat-label">Klien Terbantu</span>
@@ -97,36 +92,35 @@
   </div>
 </section>
 
+{{-- ===================== STATS BAR (Mobile Only) ===================== --}}
+<div class="about-stats-bar mobile-only" style="margin-top: 0; padding: 2.5rem 0;">
+  <div class="container">
+    <div class="about-stats-inner">
+      <div class="about-stat-item">
+        <div class="stat-num" style="margin-bottom: 12px;">10+</div>
+        <div class="stat-label">Tahun Pengalaman</div>
+      </div>
+      <div class="about-stat-item">
+        <div class="stat-num" style="margin-bottom: 12px;">500+</div>
+        <div class="stat-label">Klien Terlayani</div>
+      </div>
+      <div class="about-stat-item">
+        <div class="stat-num" style="margin-bottom: 12px;">7</div>
+        <div class="stat-label">Jenis Layanan</div>
+      </div>
+      <div class="about-stat-item">
+        <div class="stat-num" style="margin-bottom: 12px;">100%</div>
+        <div class="stat-label">Kerahasiaan Terjamin</div>
+      </div>
+    </div>
+  </div>
+</div>
 
 {{-- ===================== TENTANG / ABOUT SECTION ===================== --}}
 <section class="section" id="tentang" aria-labelledby="about-heading" style="padding-top: 4rem;">
   <div class="container">
     <div class="about-layout">
 
-      <style>
-        @media (min-width: 992px) {
-          .about-visual {
-            margin-left: 0 !important;
-          }
-        }
-        /* Penyesuaian jarak stats bar agar tidak mepet */
-        .about-stats-inner {
-          gap: 1.5rem !important;
-        }
-        .about-stat-item {
-          padding-left: 1rem;
-          padding-right: 1rem;
-        }
-        @media (min-width: 1024px) {
-          .about-stats-inner {
-            gap: 2.5rem !important;
-          }
-          .about-stat-item {
-            padding-left: 1.5rem;
-            padding-right: 1.5rem;
-          }
-        }
-      </style>
       <div class="about-visual reveal">
         <img
           src="{{ \App\Models\Setting::get('tentang_gambar') ? asset('storage/' . \App\Models\Setting::get('tentang_gambar')) : asset('images/bu-betty.webp') }}"
@@ -142,28 +136,6 @@
           <div class="about-badge-text">
             <div class="num">10+</div>
             <div class="label">Tahun Pengalaman</div>
-          </div>
-        </div>
-      </div>
-
-      {{-- Mobile Stats Bar (moved directly under photo) --}}
-      <div class="about-stats-bar mobile-only" style="margin-top: 2rem; margin-bottom: 1rem;">
-        <div class="about-stats-inner">
-          <div class="about-stat-item">
-            <div class="stat-num" style="margin-bottom: 8px;">10+</div>
-            <div class="stat-label">Tahun Pengalaman</div>
-          </div>
-          <div class="about-stat-item">
-            <div class="stat-num" style="margin-bottom: 8px;">500+</div>
-            <div class="stat-label">Klien Terlayani</div>
-          </div>
-          <div class="about-stat-item">
-            <div class="stat-num" style="margin-bottom: 8px;">7</div>
-            <div class="stat-label">Jenis Layanan</div>
-          </div>
-          <div class="about-stat-item">
-            <div class="stat-num" style="margin-bottom: 8px;">100%</div>
-            <div class="stat-label">Kerahasiaan Terjamin</div>
           </div>
         </div>
       </div>
@@ -206,25 +178,23 @@
     </div>
   </div>
 
-  <div class="about-stats-bar desktop-only" style="margin-top: 3rem;">
-    <div class="container">
-      <div class="about-stats-inner">
-        <div class="about-stat-item">
-          <div class="stat-num" style="margin-bottom: 12px;">10+</div>
-          <div class="stat-label">Tahun Pengalaman</div>
-        </div>
-        <div class="about-stat-item">
-          <div class="stat-num" style="margin-bottom: 12px;">500+</div>
-          <div class="stat-label">Klien Terlayani</div>
-        </div>
-        <div class="about-stat-item">
-          <div class="stat-num" style="margin-bottom: 12px;">7</div>
-          <div class="stat-label">Jenis Layanan</div>
-        </div>
-        <div class="about-stat-item">
-          <div class="stat-num" style="margin-bottom: 12px;">100%</div>
-          <div class="stat-label">Kerahasiaan Terjamin</div>
-        </div>
+  <div class="about-stats-bar desktop-only" style="margin-top: 3rem; padding: 1.5rem 15%; border-top: 1px solid var(--clr-divider); width: 100%;">
+    <div class="about-stats-inner" style="display: flex; justify-content: space-between; width: 100%; max-width: none;">
+      <div class="about-stat-item" style="border: none; padding: 0;">
+        <div class="stat-num" style="margin-bottom: 12px;">10+</div>
+        <div class="stat-label">Tahun Pengalaman</div>
+      </div>
+      <div class="about-stat-item" style="border: none; padding: 0;">
+        <div class="stat-num" style="margin-bottom: 12px;">500+</div>
+        <div class="stat-label">Klien Terlayani</div>
+      </div>
+      <div class="about-stat-item" style="border: none; padding: 0;">
+        <div class="stat-num" style="margin-bottom: 12px;">7</div>
+        <div class="stat-label">Jenis Layanan</div>
+      </div>
+      <div class="about-stat-item" style="border: none; padding: 0;">
+        <div class="stat-num" style="margin-bottom: 12px;">100%</div>
+        <div class="stat-label">Kerahasiaan Terjamin</div>
       </div>
     </div>
   </div>
@@ -336,65 +306,8 @@
       <a href="{{ route('artikel.index') }}" class="btn btn--outline">Lihat Semua Artikel</a>
     </div>
   </div>
-@endif
-
-{{-- ===================== DOKUMENTASI SECTION ===================== --}}
-<section class="section" id="dokumentasi" aria-labelledby="dokumentasi-heading" style="padding-top: var(--space-20);">
-  <div class="container">
-    <div class="section-header section-header--center reveal">
-      <div class="section-label">Dokumentasi</div>
-      <h2 class="section-title" id="dokumentasi-heading">Momen & Kegiatan An Moerty</h2>
-      <p class="section-subtitle">Intip berbagai rekam jejak kegiatan, pelatihan, dan layanan psikologi kami di lapangan.</p>
-    </div>
-
-    <div class="home-dok-showcase reveal">
-      @php
-        $showcaseFotos = $galeri->take(2);
-        $showcaseVideo = $dokVideo->first();
-      @endphp
-
-      @if($showcaseFotos->count() > 0 || $showcaseVideo)
-        <div class="home-dok-grid">
-          @foreach($showcaseFotos as $foto)
-            <a href="{{ route('dokumentasi.index') }}" class="home-dok-card">
-              <img src="{{ asset('storage/' . $foto->gambar) }}" alt="{{ $foto->alt ?? $foto->judul }}" class="home-dok-card-img" loading="lazy">
-              <div class="home-dok-card-gradient"></div>
-              <div class="home-dok-card-content">
-                <span class="home-dok-card-tag">Foto Kegiatan</span>
-                <h3 class="home-dok-card-title">{{ $foto->judul ?? 'Dokumentasi An Moerty' }}</h3>
-              </div>
-            </a>
-          @endforeach
-
-          @if($showcaseVideo)
-            <a href="{{ route('dokumentasi.index') }}" class="home-dok-card home-dok-card--video">
-              <img src="{{ $showcaseVideo->thumbnail_url }}" alt="{{ $showcaseVideo->judul }}" class="home-dok-card-img" loading="lazy">
-              <div class="home-dok-card-gradient"></div>
-              <div class="home-dok-play-btn" aria-hidden="true">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-              </div>
-              <div class="home-dok-card-content">
-                <span class="home-dok-card-tag home-dok-card-tag--video">Video Dokumentasi</span>
-                <h3 class="home-dok-card-title">{{ $showcaseVideo->judul }}</h3>
-              </div>
-            </a>
-          @endif
-        </div>
-      @else
-        <div class="dok-empty reveal" style="padding: 2rem 0; text-align: center; color: var(--clr-text-2);">
-          <p>Dokumentasi foto dan video akan segera diperbarui.</p>
-        </div>
-      @endif
-    </div>
-
-    <div class="section-footer reveal" style="margin-top: 2.5rem;">
-      <a href="{{ route('dokumentasi.index') }}" class="btn btn--outline">
-        <span>Lihat Semua Dokumentasi</span>
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 6px;"><path d="M5 12h14"></path><path d="M12 5l7 7-7 7"></path></svg>
-      </a>
-    </div>
-  </div>
 </section>
+@endif
 
 {{-- ===================== TESTIMONI SECTION ===================== --}}
 @if($testimoni->count())
@@ -479,8 +392,6 @@
   </div>
 </section>
 @endif
-
-
 
 {{-- ===================== KLIEN KAMI SECTION ===================== --}}
 <section class="section" id="klien" aria-labelledby="klien-heading">
