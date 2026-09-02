@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="<?php echo e(str_replace('_', '-', app()->getLocale())); ?>">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+        <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
-        <link rel="icon" type="image/png" href="{{ asset('images/logo.png') }}">
+        <title><?php echo e(config('app.name', 'Laravel')); ?></title>
+        <link rel="icon" type="image/png" href="<?php echo e(asset('images/logo.png')); ?>">
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,7 +14,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
         <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
+        <?php echo app('Illuminate\Foundation\Vite')(['resources/css/app.css', 'resources/js/app.js']); ?>
         <style>
             body { font-family: 'Outfit', sans-serif; }
         </style>
@@ -22,27 +22,30 @@
     <body class="antialiased bg-slate-50 text-slate-800" x-data="{ sidebarOpen: false }">
         <div class="flex h-screen overflow-hidden">
             <!-- Sidebar -->
-            @include('layouts.sidebar')
+            <?php echo $__env->make('layouts.sidebar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
             <!-- Main Content Area -->
             <div class="relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden">
                 <!-- Topbar -->
-                @include('layouts.topbar')
+                <?php echo $__env->make('layouts.topbar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
                 <!-- Page Heading -->
-                @if (isset($header))
+                <?php if(isset($header)): ?>
                     <header class="bg-white/70 backdrop-blur-md sticky top-16 lg:top-0 z-20 border-b border-slate-100">
                         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 w-full">
-                            {{ $header }}
+                            <?php echo e($header); ?>
+
                         </div>
                     </header>
-                @endif
+                <?php endif; ?>
 
                 <!-- Page Content -->
                 <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
-                    {{ $slot }}
+                    <?php echo e($slot); ?>
+
                 </main>
             </div>
         </div>
     </body>
 </html>
+<?php /**PATH D:\project pkl\psikolog\resources\views/layouts/app.blade.php ENDPATH**/ ?>

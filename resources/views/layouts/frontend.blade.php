@@ -10,6 +10,7 @@
   <meta name="description" content="@yield('description', 'Lembaga asesmen dan layanan konseling profesional di Banyuwangi. Melayani student profiling, study analysis, dan identifikasi hambatan belajar.')">
   <meta name="keywords" content="@yield('keywords', 'psikologi banyuwangi, konseling banyuwangi, psikotes banyuwangi, an moerty psikologi')">
   <link rel="canonical" href="{{ url()->current() }}">
+  <link rel="icon" type="image/png" href="{{ asset('images/logo.png') }}">
 
   {{-- Open Graph --}}
   <meta property="og:type" content="@yield('og_type', 'website')">
@@ -119,6 +120,22 @@
           <a href="{{ route('artikel.index') }}" class="nav-link {{ request()->routeIs('artikel.*') ? 'active' : '' }}">Artikel</a>
         </li>
         <li class="nav-item">
+          <a href="{{ route('dokumentasi.index') }}" class="nav-link {{ request()->routeIs('dokumentasi.*') ? 'active' : '' }}" aria-haspopup="true" aria-expanded="false">
+            Dokumentasi
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </a>
+          <div class="dropdown" role="menu" aria-label="Sub-menu Dokumentasi">
+            <a href="{{ route('dokumentasi.foto') }}" class="dropdown-link" role="menuitem">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+              Dokumentasi Foto
+            </a>
+            <a href="{{ route('dokumentasi.video') }}" class="dropdown-link" role="menuitem">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              Dokumentasi Video
+            </a>
+          </div>
+        </li>
+        <li class="nav-item">
           <a href="{{ route('faq.index') }}" class="nav-link {{ request()->routeIs('faq.*') ? 'active' : '' }}">FAQ</a>
         </li>
       </ul>
@@ -160,6 +177,17 @@
     </div>
 
     <a href="{{ route('artikel.index') }}" class="mobile-nav-link">Artikel</a>
+    <div>
+      <button class="mobile-nav-link" id="mobileDokumentasiBtn" aria-expanded="false" style="width:100%;background:none;border:none;cursor:pointer;font:inherit;text-align:left;">
+        Dokumentasi
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="mobile-submenu" id="mobileDokumentasiSub">
+        <a href="{{ route('dokumentasi.index') }}" class="mobile-submenu-link">Ringkasan Dokumentasi</a>
+        <a href="{{ route('dokumentasi.foto') }}" class="mobile-submenu-link">Dokumentasi Foto</a>
+        <a href="{{ route('dokumentasi.video') }}" class="mobile-submenu-link">Dokumentasi Video</a>
+      </div>
+    </div>
     <a href="{{ route('faq.index') }}" class="mobile-nav-link">FAQ</a>
 
 
@@ -211,8 +239,8 @@
             <li><a href="{{ route('tentang') }}" class="footer-link">Tentang Kami</a></li>
             <li><a href="{{ route('layanan.index') }}" class="footer-link">Layanan</a></li>
             <li><a href="{{ route('artikel.index') }}" class="footer-link">Artikel</a></li>
+            <li><a href="{{ route('dokumentasi.index') }}" class="footer-link">Dokumentasi</a></li>
             <li><a href="{{ route('faq.index') }}" class="footer-link">FAQ</a></li>
-
             <li><a href="{{ route('kontak.index') }}" class="footer-link">Hubungi Kami</a></li>
           </ul>
         </div>
@@ -331,6 +359,13 @@
     mobileLayananBtn?.addEventListener('click', () => {
       const open = mobileLayananSub.classList.toggle('open');
       mobileLayananBtn.setAttribute('aria-expanded', open);
+    });
+
+    const mobileDokumentasiBtn = document.getElementById('mobileDokumentasiBtn');
+    const mobileDokumentasiSub = document.getElementById('mobileDokumentasiSub');
+    mobileDokumentasiBtn?.addEventListener('click', () => {
+      const open = mobileDokumentasiSub.classList.toggle('open');
+      mobileDokumentasiBtn.setAttribute('aria-expanded', open);
     });
 
     // ─── Back To Top ────────────────────────────────────────────────────────

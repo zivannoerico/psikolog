@@ -1,12 +1,10 @@
-@extends('layouts.frontend')
+<?php $__env->startSection('title', 'Psikologi Banyuwangi — An Moerty | Layanan Psikologi & Konseling Profesional'); ?>
+<?php $__env->startSection('description', 'Bersama tim Psikolog An Moerty yang berpengalaman lebih dari 10 tahun, kami siap memandu Anda mengenali potensi, mengatasi tantangan, dan mengoptimalkan kualitas diri.'); ?>
+<?php $__env->startSection('og_title', 'An Moerty Psikologi Banyuwangi'); ?>
 
-@section('title', 'Psikologi Banyuwangi — An Moerty | Layanan Psikologi & Konseling Profesional')
-@section('description', 'Bersama tim Psikolog An Moerty yang berpengalaman lebih dari 10 tahun, kami siap memandu Anda mengenali potensi, mengatasi tantangan, dan mengoptimalkan kualitas diri.')
-@section('og_title', 'An Moerty Psikologi Banyuwangi')
+<?php $__env->startSection('content'); ?>
 
-@section('content')
 
-{{-- ===================== HERO SECTION ===================== --}}
 <section class="hero" aria-labelledby="hero-heading">
   <div class="container">
     <div class="hero-inner">
@@ -20,12 +18,31 @@
           Bersama tim Psikolog An Moerty yang berpengalaman lebih dari 10 tahun, kami siap memandu Anda untuk mengenali potensi, mengatasi tantangan, dan mengoptimalkan kualitas diri.
         </p>
         <div class="hero-actions">
-          <a href="{{ route('layanan.index') }}" class="btn btn--primary btn--lg">
+          <a href="<?php echo e(route('layanan.index')); ?>" class="btn btn--primary btn--lg">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
             Lihat Layanan
           </a>
-          <a href="https://wa.me/{{ preg_replace('/^0/', '62', preg_replace('/[^0-9]/', '', \App\Models\Setting::get('kontak_telpon', '082233392179'))) }}?text={{ urlencode(\App\Models\Setting::get('wa_pesan_default', 'Halo An Moerty Psikologi, saya ingin berkonsultasi. Apakah bisa bantu saya?')) }}" class="btn btn--outline btn--lg" target="_blank" rel="noopener noreferrer">
-            <x-icon.phone style="width: 18px; height: 18px;" />
+          <a href="https://wa.me/<?php echo e(preg_replace('/^0/', '62', preg_replace('/[^0-9]/', '', \App\Models\Setting::get('kontak_telpon', '082233392179')))); ?>?text=<?php echo e(urlencode(\App\Models\Setting::get('wa_pesan_default', 'Halo An Moerty Psikologi, saya ingin berkonsultasi. Apakah bisa bantu saya?'))); ?>" class="btn btn--outline btn--lg" target="_blank" rel="noopener noreferrer">
+            <?php if (isset($component)) { $__componentOriginaledff2ccfeec601febf5e74cf0afbb38c = $component; } ?>
+<?php if (isset($attributes)) { $__attributesOriginaledff2ccfeec601febf5e74cf0afbb38c = $attributes; } ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.icon.phone','data' => ['style' => 'width: 18px; height: 18px;']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component->withName('icon.phone'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\AnonymousComponent::class))->getConstructor()): ?>
+<?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
+<?php endif; ?>
+<?php $component->withAttributes(['style' => 'width: 18px; height: 18px;']); ?>
+<?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__attributesOriginaledff2ccfeec601febf5e74cf0afbb38c)): ?>
+<?php $attributes = $__attributesOriginaledff2ccfeec601febf5e74cf0afbb38c; ?>
+<?php unset($__attributesOriginaledff2ccfeec601febf5e74cf0afbb38c); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginaledff2ccfeec601febf5e74cf0afbb38c)): ?>
+<?php $component = $__componentOriginaledff2ccfeec601febf5e74cf0afbb38c; ?>
+<?php unset($__componentOriginaledff2ccfeec601febf5e74cf0afbb38c); ?>
+<?php endif; ?>
             Hubungi Kami
           </a>
         </div>
@@ -33,18 +50,18 @@
 
       <div class="hero-visual" aria-hidden="true">
         <div class="hero-img-wrap custom-mobile-hero" style="display: flex; gap: 12px; align-items: center; justify-content: center; width: 100%; max-width: 650px; aspect-ratio: 1/1; max-height: 550px; margin: 0 auto; position: relative;">
-          @php $heroImg = \App\Models\Setting::get('hero_gambar') ? asset('storage/' . \App\Models\Setting::get('hero_gambar')) : asset('images/hero-psikologi.webp'); @endphp
+          <?php $heroImg = \App\Models\Setting::get('hero_gambar') ? asset('storage/' . \App\Models\Setting::get('hero_gambar')) : asset('images/hero-psikologi.webp'); ?>
           
           <div class="custom-mobile-hero-item custom-mobile-hero-item-1" style="flex: 1; height: 80%; overflow: hidden; border-radius: 1.5rem; transform: skewX(-10deg) translateY(20px); border: 6px solid var(--clr-surface); box-shadow: 0 10px 25px rgba(0,0,0,0.08); position: relative;">
-            <img class="custom-mobile-hero-img" src="{{ $heroImg }}" alt="Hero 1" style="width: 100%; height: 100%; object-fit: cover; transform: skewX(10deg) scale(1.35); object-position: 48% center;" loading="eager" fetchpriority="high">
+            <img class="custom-mobile-hero-img" src="<?php echo e($heroImg); ?>" alt="Hero 1" style="width: 100%; height: 100%; object-fit: cover; transform: skewX(10deg) scale(1.35); object-position: 48% center;" loading="eager" fetchpriority="high">
           </div>
           
           <div class="custom-mobile-hero-item custom-mobile-hero-item-2" style="flex: 1; height: 100%; overflow: hidden; border-radius: 1.5rem; transform: skewX(-10deg); border: 6px solid var(--clr-surface); box-shadow: 0 20px 40px rgba(0,0,0,0.15); position: relative; z-index: 2;">
-            <img class="custom-mobile-hero-img" src="{{ $heroImg }}" alt="Hero 2" style="width: 100%; height: 100%; object-fit: cover; transform: skewX(10deg) scale(1.35); object-position: 72% center;" loading="eager" fetchpriority="high">
+            <img class="custom-mobile-hero-img" src="<?php echo e($heroImg); ?>" alt="Hero 2" style="width: 100%; height: 100%; object-fit: cover; transform: skewX(10deg) scale(1.35); object-position: 72% center;" loading="eager" fetchpriority="high">
           </div>
           
           <div class="custom-mobile-hero-item custom-mobile-hero-item-3" style="flex: 1; height: 80%; overflow: hidden; border-radius: 1.5rem; transform: skewX(-10deg) translateY(-20px); border: 6px solid var(--clr-surface); box-shadow: 0 10px 25px rgba(0,0,0,0.08); position: relative;">
-            <img class="custom-mobile-hero-img" src="{{ $heroImg }}" alt="Hero 3" style="width: 100%; height: 100%; object-fit: cover; transform: skewX(10deg) scale(1.35); object-position: 95% center;" loading="eager" fetchpriority="high">
+            <img class="custom-mobile-hero-img" src="<?php echo e($heroImg); ?>" alt="Hero 3" style="width: 100%; height: 100%; object-fit: cover; transform: skewX(10deg) scale(1.35); object-position: 95% center;" loading="eager" fetchpriority="high">
           </div>
         </div>
       </div>
@@ -54,7 +71,7 @@
 </section>
 
 
-{{-- ===================== TENTANG / ABOUT SECTION ===================== --}}
+
 <section class="section" id="tentang" aria-labelledby="about-heading" style="padding-top: 4rem;">
   <div class="container">
     <div class="about-layout">
@@ -85,7 +102,7 @@
       </style>
       <div class="about-visual reveal">
         <img
-          src="{{ \App\Models\Setting::get('tentang_gambar') ? asset('storage/' . \App\Models\Setting::get('tentang_gambar')) : asset('images/bu-betty.webp') }}"
+          src="<?php echo e(\App\Models\Setting::get('tentang_gambar') ? asset('storage/' . \App\Models\Setting::get('tentang_gambar')) : asset('images/bu-betty.webp')); ?>"
           alt="Tim psikolog An Moerty Psikologi Banyuwangi"
           class="about-img"
           loading="lazy"
@@ -102,7 +119,7 @@
         </div>
       </div>
 
-      {{-- Mobile Stats Bar (moved directly under photo) --}}
+      
       <div class="about-stats-bar mobile-only" style="margin-top: 2rem; margin-bottom: 1rem;">
         <div class="about-stats-inner">
           <div class="about-stat-item">
@@ -153,7 +170,7 @@
         </div>
 
         <div class="about-footer">
-          <a href="{{ route('tentang') }}" class="btn btn--outline">
+          <a href="<?php echo e(route('tentang')); ?>" class="btn btn--outline">
             Pelajari Lebih Lanjut
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
           </a>
@@ -186,7 +203,7 @@
   </div>
 </section>
 
-{{-- ===================== LAYANAN SECTION ===================== --}}
+
 <section class="section" id="layanan" aria-labelledby="layanan-heading">
   <div class="container">
     <div class="section-header section-header--center reveal">
@@ -196,56 +213,56 @@
     </div>
 
     <div class="grid-auto-3 reveal">
-      @forelse ($layanan as $i => $item)
-        <article class="service-card" aria-labelledby="layanan-{{ $item->id }}">
+      <?php $__empty_1 = true; $__currentLoopData = $layanan; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $i => $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+        <article class="service-card" aria-labelledby="layanan-<?php echo e($item->id); ?>">
           <div class="service-icon-wrap" aria-hidden="true">
-            @switch($item->ikon)
-              @case('clipboard-list')
+            <?php switch($item->ikon):
+              case ('clipboard-list'): ?>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 12h6M9 16h4"/></svg>
-                @break
-              @case('message-circle')
+                <?php break; ?>
+              <?php case ('message-circle'): ?>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
-                @break
-              @case('users-round')
+                <?php break; ?>
+              <?php case ('users-round'): ?>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
-                @break
-              @case('briefcase')
+                <?php break; ?>
+              <?php case ('briefcase'): ?>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
-                @break
-              @case('shield-heart')
+                <?php break; ?>
+              <?php case ('shield-heart'): ?>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M12 8c-1.66 0-3 1.34-3 3 0 2.4 2.53 4.37 3 4.74.47-.37 3-2.34 3-4.74 0-1.66-1.34-3-3-3z"/></svg>
-                @break
-              @case('presentation')
+                <?php break; ?>
+              <?php case ('presentation'): ?>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h20"/><path d="M21 3v11a2 2 0 01-2 2H5a2 2 0 01-2-2V3"/><path d="M7 21l5-5 5 5"/></svg>
-                @break
-              @default
+                <?php break; ?>
+              <?php default: ?>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l4-8 4 5 3-3 4 6"/></svg>
-            @endswitch
+            <?php endswitch; ?>
           </div>
           <div class="service-card-body">
-            <h3 class="service-card-title" id="layanan-{{ $item->id }}">{{ $item->nama }}</h3>
-            <p class="service-card-desc">{{ $item->deskripsi_singkat }}</p>
+            <h3 class="service-card-title" id="layanan-<?php echo e($item->id); ?>"><?php echo e($item->nama); ?></h3>
+            <p class="service-card-desc"><?php echo e($item->deskripsi_singkat); ?></p>
           </div>
-          <a href="{{ route('layanan.show', $item->slug) }}" class="service-card-link" aria-label="Pelajari lebih lanjut tentang {{ $item->nama }}">
+          <a href="<?php echo e(route('layanan.show', $item->slug)); ?>" class="service-card-link" aria-label="Pelajari lebih lanjut tentang <?php echo e($item->nama); ?>">
             Pelajari Lebih Lanjut
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
           </a>
         </article>
-      @empty
+      <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
         <p class="text-muted" style="grid-column:1/-1; text-align:center;">Layanan belum tersedia.</p>
-      @endforelse
+      <?php endif; ?>
     </div>
 
     <div class="section-footer reveal">
-      <a href="{{ route('layanan.index') }}" class="btn btn--outline">Lihat Semua Layanan</a>
+      <a href="<?php echo e(route('layanan.index')); ?>" class="btn btn--outline">Lihat Semua Layanan</a>
     </div>
   </div>
 </section>
 
-{{-- ===================== KEUNGGULAN SECTION (REMOVED) ===================== --}}
 
-{{-- ===================== ARTIKEL TERBARU ===================== --}}
-@if($artikel->count())
+
+
+<?php if($artikel->count()): ?>
 <section class="section" id="artikel" aria-labelledby="artikel-heading">
   <div class="container">
     <div class="section-header section-header--center reveal">
@@ -255,27 +272,27 @@
     </div>
 
     <div class="grid-3 reveal">
-      @foreach($artikel as $i => $art)
-        <article class="card" aria-labelledby="art-{{ $art->id }}">
-          <a href="{{ route('artikel.show', $art->slug) }}" tabindex="-1" aria-hidden="true" class="card-img-link">
+      <?php $__currentLoopData = $artikel; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $i => $art): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+        <article class="card" aria-labelledby="art-<?php echo e($art->id); ?>">
+          <a href="<?php echo e(route('artikel.show', $art->slug)); ?>" tabindex="-1" aria-hidden="true" class="card-img-link">
             <img
-              src="{{ $art->gambar_utama ? asset('storage/' . $art->gambar_utama) : 'https://images.unsplash.com/photo-1512758017271-d7b84c2113f1?auto=format&fit=crop&w=600&q=80' }}"
-              alt="{{ $art->alt_gambar ?? $art->judul }}"
+              src="<?php echo e($art->gambar_utama ? asset('storage/' . $art->gambar_utama) : 'https://images.unsplash.com/photo-1512758017271-d7b84c2113f1?auto=format&fit=crop&w=600&q=80'); ?>"
+              alt="<?php echo e($art->alt_gambar ?? $art->judul); ?>"
               class="card-img"
               loading="lazy"
               width="400"
               height="225">
           </a>
           <div class="card-body">
-            <h3 class="card-title" id="art-{{ $art->id }}">
-              <a href="{{ route('artikel.show', $art->slug) }}">{{ $art->judul }}</a>
+            <h3 class="card-title" id="art-<?php echo e($art->id); ?>">
+              <a href="<?php echo e(route('artikel.show', $art->slug)); ?>"><?php echo e($art->judul); ?></a>
             </h3>
             <div class="card-meta">
-              <time datetime="{{ $art->published_at?->format('Y-m-d') }}">{{ $art->published_at?->translatedFormat('d M Y') }}</time>
+              <time datetime="<?php echo e($art->published_at?->format('Y-m-d')); ?>"><?php echo e($art->published_at?->translatedFormat('d M Y')); ?></time>
             </div>
-            <p class="card-text">{{ Str::limit($art->excerpt, 100) }}</p>
+            <p class="card-text"><?php echo e(Str::limit($art->excerpt, 100)); ?></p>
             <div style="margin-top: auto; padding-top: 1.5rem;">
-              <a href="{{ route('artikel.show', $art->slug) }}" style="display: inline-flex; align-items: center; gap: 0.5rem; color: var(--clr-pink); font-weight: 600; font-size: 0.875rem; text-decoration: none;">
+              <a href="<?php echo e(route('artikel.show', $art->slug)); ?>" style="display: inline-flex; align-items: center; gap: 0.5rem; color: var(--clr-pink); font-weight: 600; font-size: 0.875rem; text-decoration: none;">
                 Baca Selengkapnya
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M5 12h14"></path>
@@ -285,16 +302,16 @@
             </div>
           </div>
         </article>
-      @endforeach
+      <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     </div>
 
     <div class="section-footer reveal">
-      <a href="{{ route('artikel.index') }}" class="btn btn--outline">Lihat Semua Artikel</a>
+      <a href="<?php echo e(route('artikel.index')); ?>" class="btn btn--outline">Lihat Semua Artikel</a>
     </div>
   </div>
-@endif
+<?php endif; ?>
 
-{{-- ===================== DOKUMENTASI SECTION ===================== --}}
+
 <section class="section" id="dokumentasi" aria-labelledby="dokumentasi-heading" style="padding-top: var(--space-20);">
   <div class="container">
     <div class="section-header section-header--center reveal">
@@ -304,47 +321,47 @@
     </div>
 
     <div class="home-dok-showcase reveal">
-      @php
+      <?php
         $showcaseFotos = $galeri->take(2);
         $showcaseVideo = $dokVideo->first();
-      @endphp
+      ?>
 
-      @if($showcaseFotos->count() > 0 || $showcaseVideo)
+      <?php if($showcaseFotos->count() > 0 || $showcaseVideo): ?>
         <div class="home-dok-grid">
-          @foreach($showcaseFotos as $foto)
-            <a href="{{ route('dokumentasi.index') }}" class="home-dok-card">
-              <img src="{{ asset('storage/' . $foto->gambar) }}" alt="{{ $foto->alt ?? $foto->judul }}" class="home-dok-card-img" loading="lazy">
+          <?php $__currentLoopData = $showcaseFotos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $foto): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <a href="<?php echo e(route('dokumentasi.index')); ?>" class="home-dok-card">
+              <img src="<?php echo e(asset('storage/' . $foto->gambar)); ?>" alt="<?php echo e($foto->alt ?? $foto->judul); ?>" class="home-dok-card-img" loading="lazy">
               <div class="home-dok-card-gradient"></div>
               <div class="home-dok-card-content">
                 <span class="home-dok-card-tag">Foto Kegiatan</span>
-                <h3 class="home-dok-card-title">{{ $foto->judul ?? 'Dokumentasi An Moerty' }}</h3>
+                <h3 class="home-dok-card-title"><?php echo e($foto->judul ?? 'Dokumentasi An Moerty'); ?></h3>
               </div>
             </a>
-          @endforeach
+          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
-          @if($showcaseVideo)
-            <a href="{{ route('dokumentasi.index') }}" class="home-dok-card home-dok-card--video">
-              <img src="{{ $showcaseVideo->thumbnail_url }}" alt="{{ $showcaseVideo->judul }}" class="home-dok-card-img" loading="lazy">
+          <?php if($showcaseVideo): ?>
+            <a href="<?php echo e(route('dokumentasi.index')); ?>" class="home-dok-card home-dok-card--video">
+              <img src="<?php echo e($showcaseVideo->thumbnail_url); ?>" alt="<?php echo e($showcaseVideo->judul); ?>" class="home-dok-card-img" loading="lazy">
               <div class="home-dok-card-gradient"></div>
               <div class="home-dok-play-btn" aria-hidden="true">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
               </div>
               <div class="home-dok-card-content">
                 <span class="home-dok-card-tag home-dok-card-tag--video">Video Dokumentasi</span>
-                <h3 class="home-dok-card-title">{{ $showcaseVideo->judul }}</h3>
+                <h3 class="home-dok-card-title"><?php echo e($showcaseVideo->judul); ?></h3>
               </div>
             </a>
-          @endif
+          <?php endif; ?>
         </div>
-      @else
+      <?php else: ?>
         <div class="dok-empty reveal" style="padding: 2rem 0; text-align: center; color: var(--clr-text-2);">
           <p>Dokumentasi foto dan video akan segera diperbarui.</p>
         </div>
-      @endif
+      <?php endif; ?>
     </div>
 
     <div class="section-footer reveal" style="margin-top: 2.5rem;">
-      <a href="{{ route('dokumentasi.index') }}" class="btn btn--outline">
+      <a href="<?php echo e(route('dokumentasi.index')); ?>" class="btn btn--outline">
         <span>Lihat Semua Dokumentasi</span>
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 6px;"><path d="M5 12h14"></path><path d="M12 5l7 7-7 7"></path></svg>
       </a>
@@ -352,8 +369,8 @@
   </div>
 </section>
 
-{{-- ===================== TESTIMONI SECTION ===================== --}}
-@if($testimoni->count())
+
+<?php if($testimoni->count()): ?>
 <section class="section section--alt" id="testimoni" aria-labelledby="testimoni-heading">
   <div class="container">
     <div class="section-header section-header--center reveal">
@@ -365,80 +382,80 @@
     <div class="testi-scroll-wrap reveal">
       <div class="testi-scroll-track">
         <div class="testi-scroll-group">
-          @foreach($testimoni as $testi)
-            <article class="testi-card" aria-labelledby="testi-name-{{ $testi->id }}">
-              <div class="testi-stars" aria-label="{{ $testi->rating }} dari 5 bintang">
-                @for($s = 1; $s <= 5; $s++)
+          <?php $__currentLoopData = $testimoni; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $testi): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <article class="testi-card" aria-labelledby="testi-name-<?php echo e($testi->id); ?>">
+              <div class="testi-stars" aria-label="<?php echo e($testi->rating); ?> dari 5 bintang">
+                <?php for($s = 1; $s <= 5; $s++): ?>
                   <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
-                    @if($s <= $testi->rating)
+                    <?php if($s <= $testi->rating): ?>
                       <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#FBBF24" stroke="#FBBF24"/>
-                    @else
+                    <?php else: ?>
                       <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="none" stroke="#E5E7EB" stroke-width="2"/>
-                    @endif
+                    <?php endif; ?>
                   </svg>
-                @endfor
+                <?php endfor; ?>
               </div>
               <blockquote>
-                <p class="testi-text">"{{ $testi->isi }}"</p>
+                <p class="testi-text">"<?php echo e($testi->isi); ?>"</p>
               </blockquote>
               <div class="testi-author">
-                @if($testi->foto)
-                  <img src="{{ asset('storage/' . $testi->foto) }}" alt="Foto {{ $testi->nama }}" class="testi-avatar" width="44" height="44" loading="lazy">
-                @else
-                  <div class="testi-avatar" aria-hidden="true">{{ $testi->initials }}</div>
-                @endif
+                <?php if($testi->foto): ?>
+                  <img src="<?php echo e(asset('storage/' . $testi->foto)); ?>" alt="Foto <?php echo e($testi->nama); ?>" class="testi-avatar" width="44" height="44" loading="lazy">
+                <?php else: ?>
+                  <div class="testi-avatar" aria-hidden="true"><?php echo e($testi->initials); ?></div>
+                <?php endif; ?>
                 <div>
-                  <div class="testi-name" id="testi-name-{{ $testi->id }}">{{ $testi->nama }}</div>
-                  <div class="testi-role">{{ $testi->jabatan }}@if($testi->institusi) — {{ $testi->institusi }}@endif</div>
+                  <div class="testi-name" id="testi-name-<?php echo e($testi->id); ?>"><?php echo e($testi->nama); ?></div>
+                  <div class="testi-role"><?php echo e($testi->jabatan); ?><?php if($testi->institusi): ?> — <?php echo e($testi->institusi); ?><?php endif; ?></div>
                 </div>
               </div>
             </article>
-          @endforeach
+          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </div>
         <div class="testi-scroll-group" aria-hidden="true">
-          @foreach($testimoni as $testi)
-            <article class="testi-card" aria-labelledby="testi-name-{{ $testi->id }}">
-              <div class="testi-stars" aria-label="{{ $testi->rating }} dari 5 bintang">
-                @for($s = 1; $s <= 5; $s++)
+          <?php $__currentLoopData = $testimoni; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $testi): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <article class="testi-card" aria-labelledby="testi-name-<?php echo e($testi->id); ?>">
+              <div class="testi-stars" aria-label="<?php echo e($testi->rating); ?> dari 5 bintang">
+                <?php for($s = 1; $s <= 5; $s++): ?>
                   <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
-                    @if($s <= $testi->rating)
+                    <?php if($s <= $testi->rating): ?>
                       <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#FBBF24" stroke="#FBBF24"/>
-                    @else
+                    <?php else: ?>
                       <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="none" stroke="#E5E7EB" stroke-width="2"/>
-                    @endif
+                    <?php endif; ?>
                   </svg>
-                @endfor
+                <?php endfor; ?>
               </div>
               <blockquote>
-                <p class="testi-text">"{{ $testi->isi }}"</p>
+                <p class="testi-text">"<?php echo e($testi->isi); ?>"</p>
               </blockquote>
               <div class="testi-author">
-                @if($testi->foto)
-                  <img src="{{ asset('storage/' . $testi->foto) }}" alt="Foto {{ $testi->nama }}" class="testi-avatar" width="44" height="44" loading="lazy">
-                @else
-                  <div class="testi-avatar" aria-hidden="true">{{ $testi->initials }}</div>
-                @endif
+                <?php if($testi->foto): ?>
+                  <img src="<?php echo e(asset('storage/' . $testi->foto)); ?>" alt="Foto <?php echo e($testi->nama); ?>" class="testi-avatar" width="44" height="44" loading="lazy">
+                <?php else: ?>
+                  <div class="testi-avatar" aria-hidden="true"><?php echo e($testi->initials); ?></div>
+                <?php endif; ?>
                 <div>
-                  <div class="testi-name" id="testi-name-{{ $testi->id }}">{{ $testi->nama }}</div>
-                  <div class="testi-role">{{ $testi->jabatan }}@if($testi->institusi) — {{ $testi->institusi }}@endif</div>
+                  <div class="testi-name" id="testi-name-<?php echo e($testi->id); ?>"><?php echo e($testi->nama); ?></div>
+                  <div class="testi-role"><?php echo e($testi->jabatan); ?><?php if($testi->institusi): ?> — <?php echo e($testi->institusi); ?><?php endif; ?></div>
                 </div>
               </div>
             </article>
-          @endforeach
+          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </div>
       </div>
     </div>
 
     <div class="section-footer reveal">
-      <a href="{{ route('testimoni.index') }}" class="btn btn--outline">Lihat Semua Testimoni</a>
+      <a href="<?php echo e(route('testimoni.index')); ?>" class="btn btn--outline">Lihat Semua Testimoni</a>
     </div>
   </div>
 </section>
-@endif
+<?php endif; ?>
 
 
 
-{{-- ===================== KLIEN KAMI SECTION ===================== --}}
+
 <section class="section" id="klien" aria-labelledby="klien-heading">
   <div class="container">
     <div class="section-header section-header--center reveal">
@@ -450,41 +467,41 @@
     <div class="klien-marquee reveal" aria-label="Logo perusahaan klien">
       <div class="klien-marquee-track">
         <div class="klien-marquee-group">
-          <img src="{{ asset('images/klien/a.png') }}" alt="Logo Klien" class="klien-logo" loading="lazy" width="130" height="65">
-          <img src="{{ asset('images/klien/b.png') }}" alt="Logo Klien" class="klien-logo" loading="lazy" width="130" height="65">
-          <img src="{{ asset('images/klien/c.png') }}" alt="Logo Klien" class="klien-logo" loading="lazy" width="130" height="65">
-          <img src="{{ asset('images/klien/d.png') }}" alt="Logo Klien" class="klien-logo" loading="lazy" width="130" height="65">
-          <img src="{{ asset('images/klien/Capture.png') }}" alt="Logo Klien" class="klien-logo" loading="lazy" width="130" height="65">
-          <img src="{{ asset('images/klien/e.png') }}" alt="Logo Klien" class="klien-logo" loading="lazy" width="130" height="65">
-          <img src="{{ asset('images/klien/f.png') }}" alt="Logo Klien" class="klien-logo" loading="lazy" width="130" height="65">
-          <img src="{{ asset('images/klien/ff.png') }}" alt="Logo Klien" class="klien-logo" loading="lazy" width="130" height="65">
+          <img src="<?php echo e(asset('images/klien/a.png')); ?>" alt="Logo Klien" class="klien-logo" loading="lazy" width="130" height="65">
+          <img src="<?php echo e(asset('images/klien/b.png')); ?>" alt="Logo Klien" class="klien-logo" loading="lazy" width="130" height="65">
+          <img src="<?php echo e(asset('images/klien/c.png')); ?>" alt="Logo Klien" class="klien-logo" loading="lazy" width="130" height="65">
+          <img src="<?php echo e(asset('images/klien/d.png')); ?>" alt="Logo Klien" class="klien-logo" loading="lazy" width="130" height="65">
+          <img src="<?php echo e(asset('images/klien/Capture.png')); ?>" alt="Logo Klien" class="klien-logo" loading="lazy" width="130" height="65">
+          <img src="<?php echo e(asset('images/klien/e.png')); ?>" alt="Logo Klien" class="klien-logo" loading="lazy" width="130" height="65">
+          <img src="<?php echo e(asset('images/klien/f.png')); ?>" alt="Logo Klien" class="klien-logo" loading="lazy" width="130" height="65">
+          <img src="<?php echo e(asset('images/klien/ff.png')); ?>" alt="Logo Klien" class="klien-logo" loading="lazy" width="130" height="65">
         </div>
         <div class="klien-marquee-group" aria-hidden="true">
-          <img src="{{ asset('images/klien/a.png') }}" alt="Logo Klien" class="klien-logo" loading="lazy" width="130" height="65">
-          <img src="{{ asset('images/klien/b.png') }}" alt="Logo Klien" class="klien-logo" loading="lazy" width="130" height="65">
-          <img src="{{ asset('images/klien/c.png') }}" alt="Logo Klien" class="klien-logo" loading="lazy" width="130" height="65">
-          <img src="{{ asset('images/klien/d.png') }}" alt="Logo Klien" class="klien-logo" loading="lazy" width="130" height="65">
-          <img src="{{ asset('images/klien/Capture.png') }}" alt="Logo Klien" class="klien-logo" loading="lazy" width="130" height="65">
-          <img src="{{ asset('images/klien/e.png') }}" alt="Logo Klien" class="klien-logo" loading="lazy" width="130" height="65">
-          <img src="{{ asset('images/klien/f.png') }}" alt="Logo Klien" class="klien-logo" loading="lazy" width="130" height="65">
-          <img src="{{ asset('images/klien/ff.png') }}" alt="Logo Klien" class="klien-logo" loading="lazy" width="130" height="65">
+          <img src="<?php echo e(asset('images/klien/a.png')); ?>" alt="Logo Klien" class="klien-logo" loading="lazy" width="130" height="65">
+          <img src="<?php echo e(asset('images/klien/b.png')); ?>" alt="Logo Klien" class="klien-logo" loading="lazy" width="130" height="65">
+          <img src="<?php echo e(asset('images/klien/c.png')); ?>" alt="Logo Klien" class="klien-logo" loading="lazy" width="130" height="65">
+          <img src="<?php echo e(asset('images/klien/d.png')); ?>" alt="Logo Klien" class="klien-logo" loading="lazy" width="130" height="65">
+          <img src="<?php echo e(asset('images/klien/Capture.png')); ?>" alt="Logo Klien" class="klien-logo" loading="lazy" width="130" height="65">
+          <img src="<?php echo e(asset('images/klien/e.png')); ?>" alt="Logo Klien" class="klien-logo" loading="lazy" width="130" height="65">
+          <img src="<?php echo e(asset('images/klien/f.png')); ?>" alt="Logo Klien" class="klien-logo" loading="lazy" width="130" height="65">
+          <img src="<?php echo e(asset('images/klien/ff.png')); ?>" alt="Logo Klien" class="klien-logo" loading="lazy" width="130" height="65">
         </div>
       </div>
     </div>
   </div>
 </section>
 
-{{-- ===================== ELEGANT COMPACT CTA SECTION ===================== --}}
+
 <section class="section cta-compact-section" aria-labelledby="cta-heading" style="padding-top: 2rem; padding-bottom: 4rem;">
   <div class="container cta-container-compact">
     <div class="cta-clean-card reveal">
       
-      {{-- Single Subtle Background Glow --}}
+      
       <div class="cta-single-glow" aria-hidden="true"></div>
 
       <div class="cta-compact-grid">
         
-        {{-- LEFT SIDE --}}
+        
         <div class="cta-left-minimal">
           <div class="cta-badge-minimal">
             <span class="cta-badge-dot-gold"></span>
@@ -501,23 +518,42 @@
           </p>
 
           <div class="cta-compact-actions">
-            <a href="https://wa.me/{{ preg_replace('/^0/', '62', preg_replace('/[^0-9]/', '', \App\Models\Setting::get('kontak_telpon', '082233392179'))) }}?text={{ urlencode(\App\Models\Setting::get('wa_pesan_default', 'Halo An Moerty Psikologi, saya ingin konsultasi. Bisakah bantu jadwalnya?')) }}" class="cta-btn-compact cta-btn-main" target="_blank" rel="noopener noreferrer">
-              <x-icon.whatsapp style="width: 18px; height: 18px;" />
+            <a href="https://wa.me/<?php echo e(preg_replace('/^0/', '62', preg_replace('/[^0-9]/', '', \App\Models\Setting::get('kontak_telpon', '082233392179')))); ?>?text=<?php echo e(urlencode(\App\Models\Setting::get('wa_pesan_default', 'Halo An Moerty Psikologi, saya ingin konsultasi. Bisakah bantu jadwalnya?'))); ?>" class="cta-btn-compact cta-btn-main" target="_blank" rel="noopener noreferrer">
+              <?php if (isset($component)) { $__componentOriginal934a6fed68095f5c15b2a798e8efa6f7 = $component; } ?>
+<?php if (isset($attributes)) { $__attributesOriginal934a6fed68095f5c15b2a798e8efa6f7 = $attributes; } ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.icon.whatsapp','data' => ['style' => 'width: 18px; height: 18px;']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component->withName('icon.whatsapp'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\AnonymousComponent::class))->getConstructor()): ?>
+<?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
+<?php endif; ?>
+<?php $component->withAttributes(['style' => 'width: 18px; height: 18px;']); ?>
+<?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__attributesOriginal934a6fed68095f5c15b2a798e8efa6f7)): ?>
+<?php $attributes = $__attributesOriginal934a6fed68095f5c15b2a798e8efa6f7; ?>
+<?php unset($__attributesOriginal934a6fed68095f5c15b2a798e8efa6f7); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginal934a6fed68095f5c15b2a798e8efa6f7)): ?>
+<?php $component = $__componentOriginal934a6fed68095f5c15b2a798e8efa6f7; ?>
+<?php unset($__componentOriginal934a6fed68095f5c15b2a798e8efa6f7); ?>
+<?php endif; ?>
               <span>Chat WhatsApp</span>
             </a>
-            <a href="{{ route('layanan.index') }}" class="cta-btn-compact cta-btn-sub">
+            <a href="<?php echo e(route('layanan.index')); ?>" class="cta-btn-compact cta-btn-sub">
               <span>Pelajari Layanan</span>
             </a>
           </div>
         </div>
 
-        {{-- RIGHT SIDE (Compact Card ~20% smaller) --}}
+        
         <div class="cta-right-minimal">
           <div class="cta-compact-trust-card">
             
             <div class="cta-trust-header">
               <div class="cta-mini-avatar-wrap">
-                <img src="{{ asset('images/bu-betty.webp') }}" alt="Psikolog An Moerty" class="cta-mini-avatar">
+                <img src="<?php echo e(asset('images/bu-betty.webp')); ?>" alt="Psikolog An Moerty" class="cta-mini-avatar">
                 <span class="cta-mini-status" title="Online"></span>
               </div>
               <div>
@@ -551,4 +587,5 @@
   </div>
 </section>
 
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.frontend', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\project pkl\psikolog\resources\views/frontend-home.blade.php ENDPATH**/ ?>

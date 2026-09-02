@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ArtikelController;
+use App\Http\Controllers\DokumentasiController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KontakController;
@@ -37,6 +38,10 @@ Route::get('/faq', [FaqController::class, 'index'])->name('faq.index');
 
 Route::get('/testimoni', [TestimoniController::class, 'index'])->name('testimoni.index');
 
+Route::get('/dokumentasi', [DokumentasiController::class, 'index'])->name('dokumentasi.index');
+Route::get('/dokumentasi/foto', [DokumentasiController::class, 'foto'])->name('dokumentasi.foto');
+Route::get('/dokumentasi/video', [DokumentasiController::class, 'video'])->name('dokumentasi.video');
+
 Route::get('/dashboard', [\App\Http\Controllers\Admin\DashboardController::class, 'index'])
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
@@ -56,6 +61,9 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(
     Route::resource('layanan', \App\Http\Controllers\Admin\LayananController::class);
     Route::resource('testimoni', \App\Http\Controllers\Admin\TestimoniController::class);
     Route::resource('faq', \App\Http\Controllers\Admin\FaqController::class);
+    Route::resource('galeri', \App\Http\Controllers\Admin\GaleriController::class);
+    Route::resource('dokumentasi-video', \App\Http\Controllers\Admin\DokumentasiVideoController::class);
 });
 
 require __DIR__.'/auth.php';
+
