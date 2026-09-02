@@ -8,49 +8,147 @@
 
 {{-- ===================== HERO SECTION ===================== --}}
 <section class="hero" aria-labelledby="hero-heading">
+  {{-- Subtle warm background ambient glow --}}
+  <div class="hero-bg-glow" aria-hidden="true"></div>
+
   <div class="container">
     <div class="hero-inner">
+      {{-- LEFT COLUMN: Content & CTA --}}
       <div class="hero-content">
-        <span class="hero-label" aria-hidden="true">Layanan Psikologi & Konseling Terpercaya</span>
+        <span class="hero-label" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="hero-label-icon"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          LAYANAN PSIKOLOGI &amp; KONSELING TERPERCAYA
+        </span>
+        
         <h1 class="hero-title" id="hero-heading">
-          Buka Potensi Terbaik<br>
+          Buka Potensi<br>
           <span class="accent">Diri Anda</span>
         </h1>
+        
         <p class="hero-subtitle">
           Bersama tim Psikolog An Moerty yang berpengalaman lebih dari 10 tahun, kami siap memandu Anda untuk mengenali potensi, mengatasi tantangan, dan mengoptimalkan kualitas diri.
         </p>
+        
         <div class="hero-actions">
-          <a href="{{ route('layanan.index') }}" class="btn btn--primary btn--lg">
+          <a href="{{ route('layanan.index') }}" class="btn btn--primary btn--lg hero-btn-main">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-            Lihat Layanan
+            <span>Lihat Layanan</span>
           </a>
-          <a href="https://wa.me/{{ preg_replace('/^0/', '62', preg_replace('/[^0-9]/', '', \App\Models\Setting::get('kontak_telpon', '082233392179'))) }}?text={{ urlencode(\App\Models\Setting::get('wa_pesan_default', 'Halo An Moerty Psikologi, saya ingin berkonsultasi. Apakah bisa bantu saya?')) }}" class="btn btn--outline btn--lg" target="_blank" rel="noopener noreferrer">
+          <a href="https://wa.me/{{ preg_replace('/^0/', '62', preg_replace('/[^0-9]/', '', \App\Models\Setting::get('kontak_telpon', '082233392179'))) }}?text={{ urlencode(\App\Models\Setting::get('wa_pesan_default', 'Halo An Moerty Psikologi, saya ingin berkonsultasi. Apakah bisa bantu saya?')) }}" class="btn btn--outline btn--lg hero-btn-sub" target="_blank" rel="noopener noreferrer">
             <x-icon.phone style="width: 18px; height: 18px;" />
-            Hubungi Kami
+            <span>Hubungi Kami</span>
           </a>
         </div>
       </div>
 
+      {{-- RIGHT COLUMN: Exact Reference Style Visual Composition --}}
       <div class="hero-visual" aria-hidden="true">
-        <div class="hero-img-wrap custom-mobile-hero" style="display: flex; gap: 12px; align-items: center; justify-content: center; width: 100%; max-width: 650px; aspect-ratio: 1/1; max-height: 550px; margin: 0 auto; position: relative;">
-          @php $heroImg = \App\Models\Setting::get('hero_gambar') ? asset('storage/' . \App\Models\Setting::get('hero_gambar')) : asset('images/hero-psikologi.webp'); @endphp
+        <div class="hero-ref-composition">
           
-          <div class="custom-mobile-hero-item custom-mobile-hero-item-1" style="flex: 1; height: 80%; overflow: hidden; border-radius: 1.5rem; transform: skewX(-10deg) translateY(20px); border: 6px solid var(--clr-surface); box-shadow: 0 10px 25px rgba(0,0,0,0.08); position: relative;">
-            <img class="custom-mobile-hero-img" src="{{ $heroImg }}" alt="Hero 1" style="width: 100%; height: 100%; object-fit: cover; transform: skewX(10deg) scale(1.35); object-position: 48% center;" loading="eager" fetchpriority="high">
+          {{-- STAT 1: Top-Left Big Counter (8+ years of practice / 10+ Tahun Pengalaman) --}}
+          <div class="hero-ref-stat hero-stat-top-left">
+            <span class="hero-ref-stat-num">10+</span>
+            <span class="hero-ref-stat-label">Tahun Pengalaman</span>
           </div>
-          
-          <div class="custom-mobile-hero-item custom-mobile-hero-item-2" style="flex: 1; height: 100%; overflow: hidden; border-radius: 1.5rem; transform: skewX(-10deg); border: 6px solid var(--clr-surface); box-shadow: 0 20px 40px rgba(0,0,0,0.15); position: relative; z-index: 2;">
-            <img class="custom-mobile-hero-img" src="{{ $heroImg }}" alt="Hero 2" style="width: 100%; height: 100%; object-fit: cover; transform: skewX(10deg) scale(1.35); object-position: 72% center;" loading="eager" fetchpriority="high">
+
+          {{-- BADGE 1: Top-Right (Positive / Terpercaya) --}}
+          <div class="hero-ref-badge-wrap hero-badge-top-right">
+            <span class="hero-pill-badge pill-solid">Terpercaya</span>
           </div>
-          
-          <div class="custom-mobile-hero-item custom-mobile-hero-item-3" style="flex: 1; height: 80%; overflow: hidden; border-radius: 1.5rem; transform: skewX(-10deg) translateY(-20px); border: 6px solid var(--clr-surface); box-shadow: 0 10px 25px rgba(0,0,0,0.08); position: relative;">
-            <img class="custom-mobile-hero-img" src="{{ $heroImg }}" alt="Hero 3" style="width: 100%; height: 100%; object-fit: cover; transform: skewX(10deg) scale(1.35); object-position: 95% center;" loading="eager" fetchpriority="high">
+
+          {{-- SPARKLE ACCENT: Upper Right --}}
+          <span class="hero-ref-sparkle sparkle-top-right">✦</span>
+
+          {{-- MAIN BACKDROP & PORTRAIT CUTOUT --}}
+          <div class="hero-ref-backdrop-card">
+            @php 
+              $heroImg = \App\Models\Setting::get('hero_gambar') ? asset('storage/' . \App\Models\Setting::get('hero_gambar')) : asset('images/hero-psikologi.webp'); 
+            @endphp
+            <img 
+              src="{{ $heroImg }}" 
+              alt="Psikolog An Moerty" 
+              class="hero-ref-portrait-img"
+              loading="eager" 
+              fetchpriority="high"
+              width="480"
+              height="520"
+            >
           </div>
+
+          {{-- BADGE 2: Middle-Left (Happy / Profesional) --}}
+          <div class="hero-ref-badge-wrap hero-badge-mid-left">
+            <span class="hero-pill-badge pill-soft">Profesional</span>
+          </div>
+
+          {{-- SPARKLE ACCENT: Lower Left --}}
+          <span class="hero-ref-sparkle sparkle-mid-left">✦</span>
+
+          {{-- BADGE 3: Bottom-Center (Calm / Nyaman) --}}
+          <div class="hero-ref-badge-wrap hero-badge-bottom-center">
+            <span class="hero-pill-badge pill-dark">Nyaman</span>
+          </div>
+
+          {{-- STAT 2: Bottom-Right Big Counter (100+ happy customers / 500+ Klien Terbantu) --}}
+          <div class="hero-ref-stat hero-stat-bottom-right">
+            <span class="hero-ref-stat-num">500+</span>
+            <span class="hero-ref-stat-label">Klien Terbantu</span>
+          </div>
+
         </div>
       </div>
     </div>
   </div>
 
+  {{-- ===================== HORIZONTAL TRUST / MARQUEE STRIP ===================== --}}
+  <div class="hero-trust-strip-wrap">
+    <div class="container">
+      <div class="hero-trust-strip">
+        <div class="hero-trust-marquee">
+          <div class="hero-trust-item">
+            <span class="hero-trust-star">✦</span>
+            <span>Aman &amp; Nyaman</span>
+          </div>
+          <div class="hero-trust-item">
+            <span class="hero-trust-star">✦</span>
+            <span>Psikolog Profesional</span>
+          </div>
+          <div class="hero-trust-item">
+            <span class="hero-trust-star">✦</span>
+            <span>Terpercaya</span>
+          </div>
+          <div class="hero-trust-item">
+            <span class="hero-trust-star">✦</span>
+            <span>Pendekatan Personal</span>
+          </div>
+          <div class="hero-trust-item">
+            <span class="hero-trust-star">✦</span>
+            <span>Ruang Aman untuk Bertumbuh</span>
+          </div>
+          {{-- Marquee Duplicate for continuous feel --}}
+          <div class="hero-trust-item" aria-hidden="true">
+            <span class="hero-trust-star">✦</span>
+            <span>Aman &amp; Nyaman</span>
+          </div>
+          <div class="hero-trust-item" aria-hidden="true">
+            <span class="hero-trust-star">✦</span>
+            <span>Psikolog Profesional</span>
+          </div>
+          <div class="hero-trust-item" aria-hidden="true">
+            <span class="hero-trust-star">✦</span>
+            <span>Terpercaya</span>
+          </div>
+          <div class="hero-trust-item" aria-hidden="true">
+            <span class="hero-trust-star">✦</span>
+            <span>Pendekatan Personal</span>
+          </div>
+          <div class="hero-trust-item" aria-hidden="true">
+            <span class="hero-trust-star">✦</span>
+            <span>Ruang Aman untuk Bertumbuh</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 
