@@ -1624,6 +1624,135 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ============================================================
+   HOMEPAGE DOKUMENTASI SHOWCASE (CLEAN BENTO DESIGN)
+   ============================================================ */
+.home-dok-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.home-dok-card {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  background: var(--clr-bg-alt);
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  border: 1px solid var(--clr-border);
+  transition: var(--tr-base);
+  box-shadow: var(--shadow-sm);
+}
+
+.home-dok-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--clr-pink-border);
+}
+
+.home-dok-card-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s var(--ease-out);
+}
+
+.home-dok-card:hover .home-dok-card-img {
+  transform: scale(1.06);
+}
+
+.home-dok-card-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(28, 27, 32, 0) 35%, rgba(28, 27, 32, 0.78) 100%);
+  transition: var(--tr-base);
+}
+
+.home-dok-card:hover .home-dok-card-gradient {
+  background: linear-gradient(180deg, rgba(28, 27, 32, 0.1) 25%, rgba(28, 27, 32, 0.88) 100%);
+}
+
+.home-dok-card-content {
+  position: relative;
+  z-index: 2;
+  padding: 1.25rem 1.25rem 1.5rem;
+  color: var(--clr-white);
+}
+
+.home-dok-card-tag {
+  display: inline-block;
+  padding: 0.25rem 0.65rem;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: var(--radius-full);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--clr-white);
+  margin-bottom: 0.5rem;
+}
+
+.home-dok-card-tag--video {
+  background: rgba(200, 96, 122, 0.85);
+}
+
+.home-dok-card-title {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--clr-white);
+  line-height: 1.35;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.home-dok-play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(200, 96, 122, 0.9);
+  color: var(--clr-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-dok-card:hover .home-dok-play-btn {
+  transform: translate(-50%, -50%) scale(1.12);
+  background: var(--clr-pink);
+  box-shadow: 0 12px 32px rgba(200, 96, 122, 0.6);
+}
+
+@media (max-width: 1024px) {
+  .home-dok-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .home-dok-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+/* ============================================================
    KLIEN KAMI MARQUEE
    ============================================================ */
 .klien-marquee {
