@@ -14,6 +14,32 @@ export default {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
+            colors: {
+                indigo: {
+                    50: '#fdf3f5',
+                    100: '#FAE8ED',
+                    200: '#f1cbd5',
+                    300: '#e7a9b9',
+                    400: '#d98197',
+                    500: '#C8607A', // Brand Pink
+                    600: '#B04E68', // Brand Pink Hover
+                    700: '#913b52',
+                    800: '#7a3447',
+                    900: '#67303f',
+                },
+                purple: {
+                    50: '#fdf3f5',
+                    100: '#FAE8ED',
+                    200: '#f1cbd5',
+                    300: '#e7a9b9',
+                    400: '#d98197',
+                    500: '#C8607A', // Brand Pink
+                    600: '#B04E68', // Brand Pink Hover
+                    700: '#913b52',
+                    800: '#7a3447',
+                    900: '#67303f',
+                },
+            },
         },
     },
 

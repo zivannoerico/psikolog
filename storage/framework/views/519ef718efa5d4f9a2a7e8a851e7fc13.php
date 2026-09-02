@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="<?php echo e(str_replace('_', '-', app()->getLocale())); ?>">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+        <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <title><?php echo e(config('app.name', 'Laravel')); ?></title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,7 +13,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
         <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
+        <?php echo app('Illuminate\Foundation\Vite')(['resources/css/app.css', 'resources/js/app.js']); ?>
 
         <style>
             .font-jakarta { font-family: 'Plus Jakarta Sans', sans-serif; }
@@ -30,13 +30,15 @@
         
         <div class="sm:mx-auto sm:w-full sm:max-w-md mb-8 flex justify-center">
             <a href="/">
-                <img src="{{ asset('images/logo.png') }}" alt="Logo An Moerty" class="h-16 w-auto object-contain" style="filter: brightness(0) saturate(100%) invert(43%) sepia(35%) saturate(1015%) hue-rotate(297deg) brightness(85%) contrast(89%);">
+                <img src="<?php echo e(asset('images/logo.png')); ?>" alt="Logo An Moerty" class="h-16 w-auto object-contain" style="filter: brightness(0) saturate(100%) invert(43%) sepia(35%) saturate(1015%) hue-rotate(297deg) brightness(85%) contrast(89%);">
             </a>
         </div>
 
         <div class="w-full sm:max-w-md bg-white py-8 px-6 sm:px-10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] sm:rounded-2xl border border-gray-100">
-            {{ $slot }}
+            <?php echo e($slot); ?>
+
         </div>
 
     </body>
 </html>
+<?php /**PATH D:\psikolog\resources\views/layouts/guest.blade.php ENDPATH**/ ?>
